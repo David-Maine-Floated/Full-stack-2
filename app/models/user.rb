@@ -29,6 +29,12 @@ class User < ApplicationRecord
   end
 
 
+  def require_logged_in
+    unless current_user
+      render json: { message: 'Unauthorized' }, status: :unauthorized 
+    end
+  end
+
   private 
 
 
@@ -43,11 +49,7 @@ class User < ApplicationRecord
     self.session_token ||= generate_unique_session_token
   end
 
-  def require_logged_in
-    unless current_user
-      render json: { message: 'Unauthorized' }, status: :unauthorized 
-    end
-  end
+  
 
 
 
