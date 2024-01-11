@@ -1,4 +1,4 @@
-import csrfFetch from "./csrf";
+import csrfFetch, { storeCSRFToken } from "./csrf";
 
 
 const RECEIVE_USER = 'session/RECEIVE_USER';
@@ -21,15 +21,16 @@ export const removeUser = userId => {
 
 
 export const loginUser = user => async dispatch => {
+
     let response = await csrfFetch('/api/session', {
         method: "POST",
         body: JSON.stringify(user)
     })
-    debugger 
+    debugger
     if(!response.ok) return response 
 
     let data = await response.json()
-    console.log(data)
+
     sessionStorage.setItem('currentUser', JSON.stringify(data.user))
     
     dispatch(receiveUser(data.user))
@@ -47,6 +48,16 @@ export const logoutUser = userId => async dispatch => {
 
 }
 
+export const restoreSession = () => async (dispatch) => {
+    const response = await csrfFetch('api/session')
+    storeCSRFToken(response)
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(receiveUser(data))
+    }
+    return response 
+}
+
 
 
 
@@ -55,7 +66,7 @@ const sessionReducer = (state = null, action) => {
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:
-       
+            console.log('login reducer')
             nextState['currentUser'] = action.payload 
             return nextState
         case REMOVE_USER:

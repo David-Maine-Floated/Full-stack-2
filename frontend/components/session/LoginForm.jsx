@@ -1,20 +1,30 @@
 import { useState } from "react"
 import { loginUser } from "../../src/store/session"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
+import './LoginForm.css'
 
 const LoginForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState('')
-
+    const sessionUser = useSelector(state => state.session.currentUser)
     const dispatch = useDispatch()
 
     function handleSubmit(e) {
         e.preventDefault()
-        const errors = dispatch(loginUser({username, password}))
-            .catch((errors) => errors.json())
-            .then(e => setErrors(e.errors))
+        try {
+            dispatch(loginUser({username, password}))
+            }
+            catch {
+                (errors) => errors.json()
+                .then((e) => setErrors(e.errors));
+            }
+            
     }
+    console.log(sessionUser)
+    if (sessionUser) return <Navigate to="/" replace={true} />;
+
 
     return (
         <>
