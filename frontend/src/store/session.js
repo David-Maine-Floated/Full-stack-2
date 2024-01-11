@@ -61,17 +61,16 @@ export const restoreSession = () => async (dispatch) => {
 
 
 
-const sessionReducer = (state = null, action) => {
+const sessionReducer = (state = {currentUser: null}, action) => {
   
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:
-            console.log('login reducer')
-            nextState['currentUser'] = action.payload 
+            nextState['currentUser'] = action.payload.user 
             return nextState
         case REMOVE_USER:
-            delete nextState['currentUser']
-            return nextState;
+ 
+            return { ...nextState, user: null }
         default : 
             return nextState;
     }

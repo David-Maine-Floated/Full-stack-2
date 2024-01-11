@@ -24,11 +24,11 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // useEffect(() => {
-  //   dispatch(sessionActions.restoreSession()).then(() => setIsLoaded(true))
+  useEffect(() => {
+    dispatch(sessionActions.restoreSession()).then(() => setIsLoaded(true))
     
-  // }, [dispatch])
-//this is breaking things. also what does it even do?
+  }, [dispatch])
+
 
   return (
     <RouterProvider router={router} />
