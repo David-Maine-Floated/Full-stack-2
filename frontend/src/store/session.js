@@ -14,27 +14,12 @@ export const receiveUser = user => {
 
 export const removeUser = userId => {
     return {
-        type: RECEIVE_USER,
+        type: REMOVE_USER,
         userId
     }
 }
 
 
-export const loginUser = user => async dispatch => {
-
-    let response = await csrfFetch('/api/session', {
-        method: "POST",
-        body: JSON.stringify(user)
-    })
-    // debugger
-    if(!response.ok) return response 
-
-    let data = await response.json()
-
-    sessionStorage.setItem('currentUser', JSON.stringify(data.user))
-    
-    dispatch(receiveUser(data.user))
-}
 
 
 export const signUpUser = user => async dispatch => {
@@ -55,10 +40,9 @@ export const logoutUser = userId => async dispatch => {
         method: "DELETE"
     })
 
-
     sessionStorage.setItem('currentUser', null);
     if (res.ok) dispatch(removeUser(userId));
-    if (!res.ok) console.log(res)
+    return res
 
 }
 
@@ -75,16 +59,37 @@ export const restoreSession = () => async (dispatch) => {
 
 
 
+export const loginUser = user => async dispatch => {
+
+    let response = await csrfFetch('/api/session', {
+        method: "POST",
+        body: JSON.stringify(user)
+    })
+    // debugger
+    if(!response.ok) return response 
+    console.log('loginThunk')
+    let data = await response.json()
+
+    sessionStorage.setItem('currentUser', JSON.stringify(data.user))
+    
+    dispatch(receiveUser(data.user))
+}
+
+
+
+
 const sessionReducer = (state = {currentUser: null}, action) => {
   
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:
+            // debugger
+            console.log('sessionReducer')
             nextState['currentUser'] = action.payload.user 
             return nextState
         case REMOVE_USER:
- 
-            return { ...nextState, user: null }
+            // debugger
+            return { ...nextState, currentUser: null }
         default : 
             return nextState;
     }

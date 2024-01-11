@@ -1,5 +1,5 @@
-import csrfFetch from "./csrf"
-import { loginUser } from "./session"
+// import csrfFetch from "./csrf"
+// import { loginUser } from "./session"
 
 // const RECEIVE_USER = 'users/RECEIVE_USER'
 // const REMOVE_USER = 'users/RECEIVE_USER'
@@ -34,16 +34,16 @@ import { loginUser } from "./session"
 //     }
 // }
 
-const usersReducer = (state = {}, action) => {
-    const nextState = {...state}
-    switch(action.type) {
-        case RECEIVE_USER: 
-            nextState[action.user.id] = action.user
-            return nextState
-        case REMOVE_USER:
-            delete nextState[payload.userId]
-            return nextState 
-        default: 
-            return nextState
-    }
-}
+// const usersReducer = (state = {}, action) => {
+//     const nextState = {...state}
+//     switch(action.type) {
+//         case RECEIVE_USER: 
+//             nextState[action.user.id] = action.user
+//             return nextState
+//         case REMOVE_USER:
+//             delete nextState[payload.userId]
+//             return nextState 
+//         default: 
+//             return nextState
+//     }
+// }

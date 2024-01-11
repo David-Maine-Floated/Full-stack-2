@@ -2,25 +2,35 @@ import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { createUser } from "../../src/store/user";
+import { signUpUser } from "../../src/store/session";
+// import { createUser } from "../../src/store/user";
 
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const sessionUser = useSelector(state => state.session.currentUser);
   const [errors, setErrors] = useState("");
 
   const dispatch = useDispatch();
 
   function handleSubmit(e) {
+
     e.preventDefault();
+    // setErrors([]);
     try {
-      dispatch(createUser({ email, password }));
+      console.log('try, handleSubmit')
+      dispatch(signUpUser({ email, password }));
     } catch {
-      (errors) => errors.json().then((e) => setErrors(e.errors));
+      console.log("handleSubmit");
+      (errors) => errors.json().then((e) => {
+        console.log(e)
+        setErrors(e.errors);
+        setPassword('')
+      });
     }
   }
-  console.log(sessionUser);
+  // console.log(sessionUser);
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   return (
@@ -50,4 +60,4 @@ const SignUpForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

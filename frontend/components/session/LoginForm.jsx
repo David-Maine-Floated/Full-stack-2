@@ -14,6 +14,7 @@ const LoginForm = () => {
     function handleSubmit(e) {
         e.preventDefault()
         try {
+            console.log('mee????')
             dispatch(loginUser({email, password}))
             }
             catch {
@@ -22,7 +23,7 @@ const LoginForm = () => {
             }
             
     }
-    console.log(sessionUser)
+    // console.log(sessionUser)
     if (sessionUser) return <Navigate to="/" replace={true} />;
 
 
