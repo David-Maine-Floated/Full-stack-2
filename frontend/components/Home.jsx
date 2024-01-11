@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
         <h1>HOME!</h1>
-        <p>Current User: {currentUser && currentUser.username}</p>
+        <p>Current User: {currentUser && currentUser.email}</p>
         </>
     )
 }

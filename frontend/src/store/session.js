@@ -26,7 +26,7 @@ export const loginUser = user => async dispatch => {
         method: "POST",
         body: JSON.stringify(user)
     })
-    debugger
+    // debugger
     if(!response.ok) return response 
 
     let data = await response.json()
@@ -34,6 +34,20 @@ export const loginUser = user => async dispatch => {
     sessionStorage.setItem('currentUser', JSON.stringify(data.user))
     
     dispatch(receiveUser(data.user))
+}
+
+
+export const signUpUser = user => async dispatch => {
+    let response = await csrfFetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify(user)
+    })
+
+    if (response.ok) {
+        let data = await response.json();
+        dispatch(receiveUser(data))  //create user
+        // dispatch(loginUser(data))  //login user
+    }
 }
 
 export const logoutUser = userId => async dispatch => {
