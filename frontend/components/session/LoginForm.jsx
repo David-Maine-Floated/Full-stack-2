@@ -14,16 +14,46 @@ const LoginForm = () => {
     function handleSubmit(e) {
         e.preventDefault()
         try {
-            console.log('mee????')
-            dispatch(loginUser({email, password}))
+
+            let error = dispatch(loginUser({email, password}))
+            //I tried to return a custom error message if loginUser fails. 
+            //aint workin. I'd rather the try catch statements work anyways.
+            // console.log(error)
+            // if(error) setErrors(error)
             }
-            catch {
+            catch  {
                 (errors) => errors.json()
                 .then((e) => setErrors(e.errors));
             }
             
     }
-    // console.log(sessionUser)
+ 
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   setErrors([]);
+    //   return dispatch(loginUser({ email, password })).catch(
+    //     async (res) => {
+    //       let data;
+    //       try {
+    //         // .clone() essentially allows you to read the response body twice
+    //         data = await res.clone().json();
+    //       } catch {
+    //         data = await res.text(); // Will hit this case if the server is down
+    //       }
+    //       if (data?.errors) setErrors(data.errors);
+    //       else if (data) setErrors([data]);
+    //       else setErrors([res.statusText]);
+    //     }
+    //   );
+    // };
+
+
+
+
+
+
+
+
     if (sessionUser) return <Navigate to="/" replace={true} />;
 
 

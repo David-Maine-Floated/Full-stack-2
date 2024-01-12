@@ -60,19 +60,32 @@ export const restoreSession = () => async (dispatch) => {
 
 
 export const loginUser = user => async dispatch => {
+    try {
+        let response = await csrfFetch('/api/session', {
+            method: "POST",
+            body: JSON.stringify(user)
+        })
 
-    let response = await csrfFetch('/api/session', {
-        method: "POST",
-        body: JSON.stringify(user)
-    })
-    // debugger
+
+        let data = await response.json()
+        sessionStorage.setItem('currentUser', JSON.stringify(data.user))
+        dispatch(receiveUser(data))
+
+
+
+
+    } catch (error){
+            // console.log(error)
+            // return 'password or email is incorrect'
+            
+            throw error 
+    }
+
+    console.log('responseeeee', response)
     if(!response.ok) return response 
     console.log('loginThunk')
-    let data = await response.json()
-
-    sessionStorage.setItem('currentUser', JSON.stringify(data.user))
+    // debugger 
     
-    dispatch(receiveUser(data.user))
 }
 
 
@@ -85,10 +98,12 @@ const sessionReducer = (state = {currentUser: null}, action) => {
         case RECEIVE_USER:
             // debugger
             console.log('sessionReducer')
+          
             nextState['currentUser'] = action.payload.user 
+            // debugger
             return nextState
         case REMOVE_USER:
-            // debugger
+       
             return { ...nextState, currentUser: null }
         default : 
             return nextState;
