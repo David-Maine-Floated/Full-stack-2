@@ -1,12 +1,64 @@
 .navbar {
-    border: 3px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
+    height: 75px;
+    background-color: rgba(255, 194, 0, 1)
 }
 
 .rightside {
-    border: 3px solid black;
     width: 300px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
+
+.maineum {
+    font-size: 32px;
+    font-weight: 550;
+    font-family: Roboto;
+    /* font-family: medium-content-sans-serif-font; */
+
+}
+
+.leftside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.getStartedButton {
+    background-color: black;
+    height: 30px; 
+    width: 110px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 100px;
+}
+
+.getStartedLink {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.login {
+    text-decoration: none;
+}
+
+.login:visited {
+    color: black;
+}
+
+.home {
+    text-decoration: none;
+}
+
+.home:visited {
+    color: black;
+}
+
+
+

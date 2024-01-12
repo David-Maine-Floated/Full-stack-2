@@ -2,15 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { logoutUser } from "../../src/store/session";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProfileButton = ({currentUser}) => {
     const dispatch = useDispatch()
-    const [showDropDown, setShowDropDown] = useState(false )
+    const [showDropDown, setShowDropDown] = useState(false);
     const logout = (e) => {
         e.preventDefault();
         dispatch(logoutUser())
     }
+
 
     return (
       <>
