@@ -15,22 +15,11 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   function handleSubmit(e) {
-
     e.preventDefault();
-    // setErrors([]);
-    try {
-      console.log('try, handleSubmit')
-      dispatch(signUpUser({ email, password }));
-    } catch {
-      console.log("handleSubmit");
-      (errors) => errors.json().then((e) => {
-        console.log(e)
-        setErrors(e.errors);
-        setPassword('')
-      });
-    }
+    dispatch(signUpUser({ email, password }, setErrors));
+
   }
-  // console.log(sessionUser);
+
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   return (

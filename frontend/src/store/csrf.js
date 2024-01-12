@@ -11,11 +11,9 @@ const csrfFetch = async (url, options = {}) => {
     }
     
     const response = await fetch(url, options);
-    // console.log('response', response)
-    debugger
-    if (response.status >= 400) return 'invalid email or password'
-    // if (response.status >= 400) throw response;
-    debugger
+    console.log(response)
+    if (response.status >= 400) throw response;
+ 
     return response;
 }
 

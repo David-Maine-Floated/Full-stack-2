@@ -22,26 +22,36 @@ export const removeUser = userId => {
 
 
 
-export const signUpUser = user => async dispatch => {
-    let response = await csrfFetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify(user)
-    })
-
-    if (response.ok) {
+export const signUpUser = (user, setErrors) => async dispatch => {
+    try {
+        let response = await csrfFetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify(user)
+        })
+        
+        
         let data = await response.json();
         dispatch(receiveUser(data))  //create user
-        // dispatch(loginUser(data))  //login user
+        console.log('signUpUser')
+
+        
+    } catch (errors) {
+        console.log('errors', errors)
+        let data = await errors.json()
+        console.log(data)
+        setErrors(data.errors)
+        
     }
+    // if(!response.ok) return response 
 }
 
-export const logoutUser = userId => async dispatch => {
+export const logoutUser = () => async dispatch => {
     let res = await csrfFetch('/api/session', {
         method: "DELETE"
     })
 
     sessionStorage.setItem('currentUser', null);
-    if (res.ok) dispatch(removeUser(userId));
+    if (res.ok) dispatch(removeUser());
     return res
 
 }
@@ -59,7 +69,7 @@ export const restoreSession = () => async (dispatch) => {
 
 
 
-export const loginUser = user => async dispatch => {
+export const loginUser = (user, setErrors) => async dispatch => {
     try {
         let response = await csrfFetch('/api/session', {
             method: "POST",
@@ -75,17 +85,10 @@ export const loginUser = user => async dispatch => {
 
 
     } catch (error){
-            // console.log(error)
-            // return 'password or email is incorrect'
-            
-            throw error 
+            let data = await error.json()
+            setErrors(data.errors)
     }
-
-    console.log('responseeeee', response)
     if(!response.ok) return response 
-    console.log('loginThunk')
-    // debugger 
-    
 }
 
 
@@ -96,14 +99,9 @@ const sessionReducer = (state = {currentUser: null}, action) => {
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:
-            // debugger
-            console.log('sessionReducer')
-          
             nextState['currentUser'] = action.payload.user 
-            // debugger
             return nextState
         case REMOVE_USER:
-       
             return { ...nextState, currentUser: null }
         default : 
             return nextState;
