@@ -8,6 +8,7 @@ import csrfFetch from './store/csrf';
 import * as sessionActions from "./store/session";
 import { useDispatch } from 'react-redux';
 import { restoreCSRF } from './store/csrf';
+import * as modalActions from './store/modals'
 
 const store = configureStore()
 
@@ -15,7 +16,8 @@ if (import.meta.env.MODE !== "production") {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
-  window.restoreCSRF = restoreCSRF
+  window.restoreCSRF = restoreCSRF;
+  window.modalActions = modalActions;
 }
 
 

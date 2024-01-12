@@ -1,11 +1,13 @@
-import LoginForm from "../components/session/LoginForm";
+import LoginForm from "../components/sessionModal/LoginForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import * as sessionActions from "./store/session";
-import SignUpForm from "../components/session/SignUpForm";
+import SignUpForm from "../components/sessionModal/SignUpForm";
 import Navigation from "../components/navigation/Navigation";
 import UnLoggedInSplash from "../components/splash/UnLoggedInSplash";
+import Modal from "../components/modals/modal";
+import SessionModal from "../components/sessionModal/SessionModal";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +16,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <UnLoggedInSplash />,
+        element: (
+          <>
+            <UnLoggedInSplash />
+            <SessionModal />
+          </>
+        ),
       },
       {
         path: "login",

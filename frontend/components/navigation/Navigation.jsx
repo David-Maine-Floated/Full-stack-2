@@ -5,6 +5,8 @@ import { logoutUser } from "../../src/store/session";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton"
 import './Navigation.css'
+import SessionModal from "../sessionModal/SessionModal";
+import { showModal } from "../../src/store/modals";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const Navigation = () => {
         <div className="leftside">SEARCH</div>
         <div className="rightside">
           <NavLink className='home' to='/'>Home</NavLink>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink to="/" >Sign Up</NavLink>
           <NavLink className="login" to="login">
             Login
           </NavLink>
@@ -24,6 +26,7 @@ const Navigation = () => {
           {currentUser && <ProfileButton currentUser={currentUser} />}
         </div>
       </div>
+      <SessionModal />
       <Outlet />
     </>
   );
@@ -35,13 +38,23 @@ const Navigation = () => {
           <p className="maineum">Maineum</p>
         </div>
         <div className="rightside">
-          <NavLink className='home' to="/">Home</NavLink>
-          <NavLink className="login" to="login">
+          <NavLink className="home" to="/">
+            Home
+          </NavLink>
+          <NavLink
+            className="login"
+            to="/"
+            onClick={() => dispatch(showModal("login"))}
+          >
             Login
           </NavLink>
           {/* <Link to="/signup">Get Started</Link> */}
           <div className="getStartedButton">
-            <Link className="getStartedLink" to="signup">
+            <Link
+              className="getStartedLink"
+              to="/"
+              onClick={() => dispatch(showModal("signup"))}
+            >
               Get Started
             </Link>
           </div>

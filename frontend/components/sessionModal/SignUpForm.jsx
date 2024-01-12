@@ -1,9 +1,8 @@
 import { useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { signUpUser } from "../../src/store/session";
-// import { createUser } from "../../src/store/user";
+import "./form.css";
 
 
 const SignUpForm = () => {
@@ -24,8 +23,10 @@ const SignUpForm = () => {
 
   return (
     <>
-      <h1>Sign Up!</h1>
-      <h2>{errors}</h2>
+      <div className="h1div">
+        <h1>Sign Up!</h1>
+      </div>
+      <h2 className="errors">{errors}</h2>
       <form action="" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="">
           Email:
