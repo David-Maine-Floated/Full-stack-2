@@ -1,0 +1,12 @@
+.navbar {
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightside {
+    border: 3px solid black;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}
