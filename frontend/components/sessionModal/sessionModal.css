@@ -3,6 +3,11 @@
     flex-direction: column;
 }
 
+.topDiv {
+    display: flex;
+    justify-content: center;
+}
+
 .h1div {
     display: flex;
     justify-content: center;
@@ -10,17 +15,22 @@
     font-family: gt-super, Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: 400;
     font-size: 28px;
+    padding-left: 20px;
 }
 
 .emailDiv {
+    display: flex;
+    justify-content: center;
     margin-top: 45px;
     height: 50px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 .passwordDiv {
+    display: flex;
+    justify-content: center;
     height: 50px;
-    margin-left: 18px;
+    margin-right: 30px;
 }
 
 .submitDiv {
@@ -31,16 +41,36 @@
 .closeDiv {
     margin-top: 200px;
     display: flex;
-    justify-content: left;
+    justify-content: right;
+    align-items: top;
+    position: relative;
+    top: -200px;
 }
 
 .closeButton {
     width: 50px;
     height: 30px;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     text-align: center;
     padding-top: 10px;
+
 }
 .closeButton:hover {
     cursor: pointer;
+}
+
+.submitDiv:hover {
+    cursor: pointer;
+}
+
+.errorDiv {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.errors {
+    font-size: 14px;
+    color: red;
+    text-align: center;
 }

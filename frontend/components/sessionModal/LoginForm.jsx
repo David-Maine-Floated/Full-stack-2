@@ -29,11 +29,18 @@ const LoginForm = () => {
 
     return (
       <>
+        <div className="closeDiv">
+          <div className="closeButton" onClick={close}>
+            <span>&#10005;</span>
+          </div>
+        </div>
         <div className="h1div">
           <h1>Welcome back.</h1>
         </div>
-        <h2>{errors.toString()}</h2>
-        <form action="" onSubmit={(e) => handleSubmit(e)}>
+        <div className="errorDiv">
+          <h2 className="errors">{errors.toString()}</h2>
+        </div>
+        <form>
           <div className="emailDiv">
             <label htmlFor="">
               Email{" "}
@@ -54,16 +61,10 @@ const LoginForm = () => {
               />
             </label>
           </div>
-          <div className="submitDiv">
-            <input type="submit" value="submit" />
+          <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
+            <p>Sign Up</p>
           </div>
         </form>
-        <div className="closeDiv">
-          {/* <button onClick={close}>Close</button> */}
-          <div className="closeButton" onClick={close}>
-            Close
-          </div>
-        </div>
       </>
     );
 }

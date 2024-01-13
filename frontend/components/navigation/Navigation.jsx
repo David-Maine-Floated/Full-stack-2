@@ -48,7 +48,6 @@ const Navigation = () => {
           >
             Login
           </NavLink>
-          {/* <Link to="/signup">Get Started</Link> */}
           <div className="getStartedButton">
             <Link
               className="getStartedLink"

@@ -17,14 +17,13 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: white;
+  background-color: rgba(234, 232, 233, 0.95);
 }
 
 .modal-content {
   position: absolute;
   background-color: white;
   border-radius: 10px;
-  width: 300px;
-  height: 500px;
-  border: solid 1px black;
+  width: 600px;
+  height: 700px;
 }
