@@ -6,8 +6,8 @@ import * as sessionActions from "./store/session";
 import SignUpForm from "../components/sessionModal/SignUpForm";
 import Navigation from "../components/navigation/Navigation";
 import UnLoggedInSplash from "../components/splash/UnLoggedInSplash";
-import Modal from "../components/modals/modal";
 import SessionModal from "../components/sessionModal/SessionModal";
+import UserProfileModal from "../components/userProfileModal/userProfileModal";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +20,7 @@ const router = createBrowserRouter([
           <>
             <UnLoggedInSplash />
             <SessionModal />
+            <UserProfileModal/>
           </>
         ),
       },
@@ -33,14 +34,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: '/login',
-  //   element: <LoginForm/>
-  // },
-  // {
-  //   path: '/signup',
-  //   element: <SignUpForm />
-  // }
+
 ]);
 
 function App() {

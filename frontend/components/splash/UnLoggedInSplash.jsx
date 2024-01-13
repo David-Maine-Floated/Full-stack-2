@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import './UnLoggedInSplash.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showModal } from "../../src/store/modals";
 const UnLoggedInSplash = () => {
   const dispatch = useDispatch()
-
+  const currentUser = useSelector(state => state.session.currentUser)
+    console.log(currentUser)
+    if (currentUser) return null;
     return (
       <div className="splash">
         <h2>Stay curious.</h2>

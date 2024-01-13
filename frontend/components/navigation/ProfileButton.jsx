@@ -3,6 +3,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { logoutUser } from "../../src/store/session";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { hideModal, showModal } from "../../src/store/modals";
 
 const ProfileButton = ({currentUser}) => {
     const dispatch = useDispatch()
@@ -13,9 +14,18 @@ const ProfileButton = ({currentUser}) => {
     }
 
 
+    const handleClick = () => {
+      console.log('handleClick')
+      if (!showDropDown) {
+        dispatch(showModal("userProfile"));
+      } else {
+        dispatch(hideModal())
+      }
+    }
+
     return (
       <>
-        <button onClick={() => setShowDropDown(!showDropDown)}>
+        <button onClick={handleClick}>
           <FontAwesomeIcon icon={faUser} />
         </button>
         {showDropDown && (

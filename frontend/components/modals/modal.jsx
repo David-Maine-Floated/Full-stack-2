@@ -4,7 +4,6 @@ import './modals.css'
 
 const Modal = ({children}) => {
 
-
     return (
       <div className="modal">
         <div className="modal-background">

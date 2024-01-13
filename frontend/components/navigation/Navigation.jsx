@@ -7,6 +7,7 @@ import ProfileButton from "./ProfileButton"
 import './Navigation.css'
 import SessionModal from "../sessionModal/SessionModal";
 import { showModal } from "../../src/store/modals";
+import UserProfileModal from "../userProfileModal/userProfileModal";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,10 @@ const Navigation = () => {
         <div className="rightside">
           <NavLink className='NavLink' to='/'>Home</NavLink>
           <NavLink className='NavLink'>Write</NavLink>
+          <NavLink className='NavLink' onClick={() => dispatch(logoutUser())}>Logout</NavLink>
           {currentUser && <ProfileButton currentUser={currentUser} />}
         </div>
       </div>
-      <SessionModal />
       <Outlet />
     </>
   );

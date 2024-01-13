@@ -1,0 +1,31 @@
+.profileModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  z-index: 999; 
+  background-color: black;
+}
+
+/* .modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(234, 232, 233, 0.95);
+} */
+
+/* .modal-content {
+  position: relative;
+  margin-left: 250px;
+  left: 500px;
+  background-color: white;
+  border-radius: 10px;
+  width: 600px;
+  height: 700px;
+} */
