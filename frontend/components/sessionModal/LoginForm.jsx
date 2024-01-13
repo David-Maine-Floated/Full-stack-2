@@ -62,7 +62,7 @@ const LoginForm = () => {
             </label>
           </div>
           <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
-            <p>Sign Up</p>
+            <p>Sign In</p>
           </div>
         </form>
       </>
