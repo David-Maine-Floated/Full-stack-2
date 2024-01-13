@@ -17,12 +17,8 @@ const Navigation = () => {
       <div className="navbar">
         <div className="leftside">SEARCH</div>
         <div className="rightside">
-          <NavLink className='home' to='/'>Home</NavLink>
-          <NavLink to="/" >Sign Up</NavLink>
-          <NavLink className="login" to="login">
-            Login
-          </NavLink>
-
+          <NavLink className='NavLink' to='/'>Home</NavLink>
+          <NavLink className='NavLink'>Write</NavLink>
           {currentUser && <ProfileButton currentUser={currentUser} />}
         </div>
       </div>
@@ -38,11 +34,11 @@ const Navigation = () => {
           <p className="maineum">Maineum</p>
         </div>
         <div className="rightside">
-          <NavLink className="home" to="/">
+          <NavLink className="NavLink" to="/">
             Home
           </NavLink>
           <NavLink
-            className="login"
+            className="NavLink"
             to="/"
             onClick={() => dispatch(showModal("login"))}
           >

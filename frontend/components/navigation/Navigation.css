@@ -43,18 +43,27 @@
     font-size: 14px;
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+/* 
 .login {
     text-decoration: none;
-}
+} */
 
-.login:visited {
-    color: black;
-}
-
-.home {
+.NavLink {
     text-decoration: none;
 }
+.NavLink:visited {
+     color: black;
+}
+
+/* .login:visited {
+    color: black;
+} */
+
+
+/* 
+.home {
+    text-decoration: none;
+} */
 
 .home:visited {
     color: black;
