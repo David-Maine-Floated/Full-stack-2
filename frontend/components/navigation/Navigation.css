@@ -17,7 +17,6 @@
     font-size: 32px;
     font-weight: 550;
     font-family: Roboto;
-    /* font-family: medium-content-sans-serif-font; */
 
 }
 
@@ -43,10 +42,6 @@
     font-size: 14px;
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* 
-.login {
-    text-decoration: none;
-} */
 
 .NavLink {
     text-decoration: none;
@@ -54,16 +49,6 @@
 .NavLink:visited {
      color: black;
 }
-
-/* .login:visited {
-    color: black;
-} */
-
-
-/* 
-.home {
-    text-decoration: none;
-} */
 
 .home:visited {
     color: black;

@@ -16,7 +16,9 @@ const SessionModal = () => {
     return (
         <Modal>
             <div className="sessionModal">
-                {modal.type === 'login' ? <LoginForm /> :<SignUpForm />}
+                {/* {modal.type === 'login' ? <LoginForm /> :<SignUpForm />} */}
+                {modal.type === 'login' && <LoginForm />}
+                {modal.type === 'signup' && <SignUpForm />}
             </div>
         </Modal>
     )
