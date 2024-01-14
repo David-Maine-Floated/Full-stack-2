@@ -9,7 +9,7 @@ const DropDownItem = ({icon, descriptor}) => {
           {icon}
         </div>
         <div className="descriptorDiv">
-            <p>{descriptor}</p>
+            <p className="descriptor">{descriptor}</p>
         </div>
       </div>
     );

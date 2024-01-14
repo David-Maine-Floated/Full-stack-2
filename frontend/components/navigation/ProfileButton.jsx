@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { logoutUser } from "../../src/store/session";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
@@ -15,7 +15,7 @@ const ProfileButton = ({currentUser}) => {
 
 
     const handleClick = () => {
-      console.log('handleClick')
+      setShowDropDown(!showDropDown)
       if (!showDropDown) {
         dispatch(showModal("userProfile"));
       } else {
@@ -25,17 +25,8 @@ const ProfileButton = ({currentUser}) => {
 
     return (
       <>
-        <button onClick={handleClick}>
-          <FontAwesomeIcon icon={faUser} />
-        </button>
-        {showDropDown && (
-          <ul className="profile-dropdown">
-            <li>{currentUser.email}</li>
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
-          </ul>
-        )}
+          <FontAwesomeIcon icon={faCircleUser} onClick={handleClick} className="userButton" />
+
       </>
     );
 

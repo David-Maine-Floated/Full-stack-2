@@ -15,7 +15,7 @@ const Navigation = () => {
   //if logged in:
   if (currentUser) return (
     <>
-      <div className="navbar">
+      <div className={`navbar ${currentUser && 'loggedIn'}`}>
         <div className="leftside">SEARCH</div>
         <div className="rightside">
           <NavLink className='NavLink' to='/'>Home</NavLink>

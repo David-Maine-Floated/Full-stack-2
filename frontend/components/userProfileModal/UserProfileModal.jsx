@@ -1,8 +1,9 @@
-import ProfileModal from "../modals/Modal";
+
 import { useDispatch, useSelector } from "react-redux";
 import UserDropDown from "./UserDropDown";
 import './userProfileModal.css'
 import { hideModal } from "../../src/store/modals";
+import ProfileModal from "../profileModal/ProfileModal";
 
 
 const UserProfileModal = () => {
@@ -17,7 +18,6 @@ const UserProfileModal = () => {
   return (
     <ProfileModal>
       <button onClick={() => (dispatch(hideModal()))}>close</button>
-      <h1>Where am III</h1>
       {modal.type === "userProfile" && <UserDropDown />}
     </ProfileModal>
   );

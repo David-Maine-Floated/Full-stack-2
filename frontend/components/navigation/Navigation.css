@@ -6,6 +6,11 @@
     background-color: rgba(255, 194, 0, 1)
 }
 
+.navbar.loggedIn {
+    height: 50px;
+    background-color: white;
+} 
+
 .rightside {
     width: 300px;
     display: flex;
@@ -54,5 +59,12 @@
     color: black;
 }
 
+.userButton {
+    width: 30px;
+    height: auto;
+}
 
+.userButton:hover {
+    cursor: pointer;
+}
 

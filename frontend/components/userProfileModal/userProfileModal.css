@@ -1,3 +1,29 @@
-.profileModal {
-    background-color: black;
+.itemDiv {
+    display: flex;
+    background-color: blueviolet;
+    height: 40px;
+}
+
+.itemDiv:hover {
+    cursor: pointer;
+}
+
+.iconDiv {
+    margin: 15px;
+    margin-left: 25px;
+}
+
+.descriptorDiv {
+    display: flex;
+    align-items: center;
+}
+
+.descriptor {
+    text-align: center;
+    font-family:  "Helvetica Neue";
+    color: #6B6B6B;
+}
+
+.profileItemOne {
+    margin-bottom: 10px;
 }

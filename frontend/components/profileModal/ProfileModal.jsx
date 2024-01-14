@@ -1,4 +1,4 @@
-// import './profileModal.css'
+import './profileModal.css'
 
 
 
