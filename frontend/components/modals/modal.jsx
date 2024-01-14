@@ -1,5 +1,5 @@
 
-import './modals.css'
+import './modal.css'
 
 
 const Modal = ({children}) => {

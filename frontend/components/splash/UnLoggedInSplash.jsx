@@ -14,12 +14,11 @@ const UnLoggedInSplash = () => {
           Discover stoires, thinking, and <br></br> expertiese from writers on
           any topic.
         </h3>
-        <div className="startReadingButton">
-          <Link
-            className="startReadingLink"
-            to="/"
-            onClick={() => dispatch(showModal("signup"))}
-          >
+        <div
+          className="startReadingButton"
+          onClick={() => dispatch(showModal("signup"))}
+        >
+          <Link className="startReadingLink" to="/">
             Start Reading
           </Link>
         </div>

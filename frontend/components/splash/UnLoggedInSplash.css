@@ -32,6 +32,9 @@ h3 {
     border-radius: 100px;
     margin-left: 20px;
 }
+.startReadingButton:hover {
+    cursor: pointer;
+}
 
 .startReadingLink {
     text-decoration: none;
