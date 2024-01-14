@@ -8,15 +8,13 @@ import { hideModal, showModal } from "../../src/store/modals";
 const ProfileButton = ({currentUser}) => {
     const dispatch = useDispatch()
     const [showDropDown, setShowDropDown] = useState(false);
-    const logout = (e) => {
-        e.preventDefault();
-        dispatch(logoutUser())
-    }
+
 
 
     const handleClick = () => {
+      console.log('dropdown',showDropDown)
       setShowDropDown(!showDropDown)
-      if (!showDropDown) {
+      if (showDropDown) {
         dispatch(showModal("userProfile"));
       } else {
         dispatch(hideModal())
