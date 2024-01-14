@@ -23,7 +23,6 @@ const LoginForm = () => {
 
     const close = (e) => {
       e.preventDefault();
-      console.log("yooo");
       dispatch(hideModal());
     };
 

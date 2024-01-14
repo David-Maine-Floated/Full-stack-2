@@ -4,8 +4,8 @@ import DropDownItem from "./DropDownItem"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileLines as solidFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines as regularFileLines } from "@fortawesome/free-regular-svg-icons";
-import { faPenToSquare as penSolid} from "@fortawesome/free-solid-svg-icons";
-import { faPenToSquare as penRegular} from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as bookMarkSolid} from "@fortawesome/free-solid-svg-icons";
+import { faBookmark as bookMarkRegular} from "@fortawesome/free-regular-svg-icons";
 import { faUser as userReguler } from "@fortawesome/free-regular-svg-icons";
 import { faUser as userSolid } from "@fortawesome/free-solid-svg-icons";
 const UserDropDown = () => {
@@ -16,7 +16,6 @@ const UserDropDown = () => {
         setSelected(arg)
     }
 
-
     return (
       <div className="profileContainer">
         <div
@@ -26,12 +25,12 @@ const UserDropDown = () => {
           <DropDownItem
             icon={
               selected === "profileItemOne" ? (
-                <FontAwesomeIcon icon={penSolid} />
+                <FontAwesomeIcon icon={userSolid} />
               ) : (
-                <FontAwesomeIcon icon={penRegular} />
+                <FontAwesomeIcon icon={userReguler} />
               )
             }
-            descriptor={"Write"}
+            descriptor={"Profile"}
           />
         </div>
         <div
@@ -41,12 +40,12 @@ const UserDropDown = () => {
           <DropDownItem
             icon={
               selected === "profileItemTwo" ? (
-                <FontAwesomeIcon icon={userSolid} />
+                <FontAwesomeIcon icon={bookMarkSolid} />
               ) : (
-                <FontAwesomeIcon icon={userReguler} />
+                <FontAwesomeIcon icon={bookMarkRegular} />
               )
             }
-            descriptor={"Write"}
+            descriptor={"Library"}
           />
         </div>
         <div

@@ -29,16 +29,12 @@ export const signUpUser = (user, setErrors) => async dispatch => {
             body: JSON.stringify(user)
         })
         
-        
         let data = await response.json();
         dispatch(receiveUser(data))  //create user
-        console.log('signUpUser')
 
         
     } catch (errors) {
-        console.log('errors', errors)
         let data = await errors.json()
-        console.log(data)
         setErrors(data.errors)
         
     }

@@ -5,9 +5,11 @@ import { logoutUser } from "../../src/store/session";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton"
 import './Navigation.css'
-import SessionModal from "../sessionModal/SessionModal";
+// import SessionModal from "../sessionModal/SessionModal";
 import { showModal } from "../../src/store/modals";
-import UserProfileModal from "../userProfileModal/userProfileModal";
+// import UserProfileModal from "../userProfileModal/userProfileModal";
+import { faPenToSquare as penRegular } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -15,12 +17,19 @@ const Navigation = () => {
   //if logged in:
   if (currentUser) return (
     <>
-      <div className={`navbar ${currentUser && 'loggedIn'}`}>
+      <div className={`navbar ${currentUser && "loggedIn"}`}>
         <div className="leftside">SEARCH</div>
         <div className="rightside">
-          <NavLink className='NavLink' to='/'>Home</NavLink>
-          <NavLink className='NavLink'>Write</NavLink>
-          <NavLink className='NavLink' onClick={() => dispatch(logoutUser())}>Logout</NavLink>
+          <NavLink className="NavLink" to="/">
+            Home
+          </NavLink>
+          <div className="navWriteDiv">
+            <FontAwesomeIcon icon={penRegular} className="writeIcon"/>
+            <NavLink className="NavLink">Write</NavLink>
+          </div>
+          <NavLink className="NavLink" onClick={() => dispatch(logoutUser())}>
+            Logout
+          </NavLink>
           {currentUser && <ProfileButton currentUser={currentUser} />}
         </div>
       </div>

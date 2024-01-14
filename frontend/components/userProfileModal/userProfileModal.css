@@ -1,6 +1,5 @@
 .itemDiv {
     display: flex;
-    background-color: blueviolet;
     height: 40px;
 }
 
@@ -25,5 +24,5 @@
 }
 
 .profileItemOne {
-    margin-bottom: 10px;
+    margin-top: 10px;
 }

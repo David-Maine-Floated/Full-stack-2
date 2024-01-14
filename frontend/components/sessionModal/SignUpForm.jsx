@@ -27,10 +27,6 @@ const SignUpForm = () => {
     dispatch(hideModal());
   };
 
-  useEffect(() => {
-    console.log(errors)
-    console.log(errors.errors)
-  }, [errors])
 
 
   if (sessionUser) return <Navigate to="/" replace={true} />;

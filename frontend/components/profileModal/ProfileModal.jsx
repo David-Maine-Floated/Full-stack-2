@@ -1,14 +1,23 @@
+import { useDispatch, useSelector, } from 'react-redux';
 import './profileModal.css'
+import { useEffect, useState } from 'react';
+import { hideModal } from '../../src/store/modals';
 
 
+const ProfileModal = ({ children}) => {
+  const dispatch = useDispatch()
+  const modal = useSelector(state => state.modal)
 
 
-const ProfileModal = ({ children }) => {
+  const handleClick = (e) => {
+    console.log(e.target);
+    if (e.target.className === 'profileModal') {
+      dispatch(hideModal())
+    }
+  }
 
-  console.log('whyyy')
   return (
-    <div className="profileModal">
-      {/* <div className="modal-background"></div> */}
+    <div className="profileModal" onClick={(e) => handleClick(e)}>
       <div className="profileContent">{children}</div>
     </div>
   );

@@ -68,3 +68,15 @@
     cursor: pointer;
 }
 
+.writeIcon {
+    margin-right: 5px;
+}
+
+.navWriteDiv {
+    height: 15px;
+}
+
+.navWriteDiv:hover {
+    cursor: pointer;
+}
+
