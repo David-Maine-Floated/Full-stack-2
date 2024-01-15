@@ -1,4 +1,5 @@
 class Api::ArticlesController < ApplicationController
+    before_action :require_logged_in
 
     def create 
         @article = Article.new(article_params)

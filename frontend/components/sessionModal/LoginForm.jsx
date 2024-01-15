@@ -16,6 +16,11 @@ const LoginForm = () => {
         e.preventDefault()
         dispatch(loginUser({email, password}, setErrors))
     }
+
+    function handleDemoSubmit(e) {
+      e.preventDefault()
+      dispatch(loginUser({email: 'Demo@hello.com', password: 'password'}))
+    }
  
     if (sessionUser) return <Navigate to="/" replace={true} />;
    
@@ -62,6 +67,9 @@ const LoginForm = () => {
           </div>
           <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
             <p>Sign In</p>
+          </div>
+          <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
+            <p>Demo Sign In</p>
           </div>
         </form>
       </>

@@ -20,6 +20,9 @@ export const getArticle = (articleId) => async dispatch => {
         console.log('thunk', data)
         dispatch(receiveArticle(data))
     } catch (error) {
+        let errors = await error.json()
+        console.log('errors', errors)
+        // throw errors
     }
 } 
 
@@ -28,7 +31,7 @@ const articlesReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_ARTICLE: 
             console.log('helloooo', action.article.title)
-            nextState[action.article.authorId] = action.article
+            nextState[action.article.id] = action.article
             // nextState[action.article.id] = action.article
             return nextState
         default: 

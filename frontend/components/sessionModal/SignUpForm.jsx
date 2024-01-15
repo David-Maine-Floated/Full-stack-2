@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import { signUpUser } from "../../src/store/session";
 import "./form.css";
 import { hideModal } from "../../src/store/modals";
-
+import { loginUser } from "../../src/store/session";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +27,11 @@ const SignUpForm = () => {
     dispatch(hideModal());
   };
 
+  function handleDemoSubmit(e) {
+    e.preventDefault();
+    console.log('demoSignIn')
+    dispatch(loginUser({ email: "Demo@hello.com", password: "password" }));
+  }
 
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
@@ -73,6 +78,9 @@ const SignUpForm = () => {
         </div>
         <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
           <p>Sign Up</p>
+        </div>
+        <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
+          <p>Demo Sign In</p>
         </div>
       </form>
     </>
