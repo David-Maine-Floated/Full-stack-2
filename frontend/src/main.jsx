@@ -9,6 +9,7 @@ import * as sessionActions from "./store/session";
 import { useDispatch } from 'react-redux';
 import { restoreCSRF } from './store/csrf';
 import * as modalActions from './store/modals'
+import * as articleActions from './store/article'
 
 const store = configureStore()
 
@@ -18,6 +19,7 @@ if (import.meta.env.MODE !== "production") {
   window.sessionActions = sessionActions;
   window.restoreCSRF = restoreCSRF;
   window.modalActions = modalActions;
+  window.articleActions = articleActions
 }
 
 

@@ -84,7 +84,7 @@ export const loginUser = (user, setErrors) => async dispatch => {
             let data = await error.json()
             setErrors(data.errors)
     }
-    if(!response.ok) return response 
+    // if(!response.ok) return response 
 }
 
 
