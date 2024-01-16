@@ -13,18 +13,15 @@ import WriteArticleForm from "../components/articles/WriteArticleForm";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigation />,
+    element: (
+      <>
+        <Navigation />
+        <UnLoggedInSplash />
+        <SessionModal />
+        <UserProfileModal />
+      </>
+    ),
     children: [
-      {
-        index: true,
-        element: (
-          <>
-            <UnLoggedInSplash />
-            <SessionModal />
-            <UserProfileModal/>
-          </>
-        ),
-      },
       {
         path: "login",
         element: <LoginForm />,
@@ -34,12 +31,15 @@ const router = createBrowserRouter([
         element: <SignUpForm />,
       },
       {
-        path: 'write',
-        element: <WriteArticleForm />
-      }
+        path: "write",
+        element: (
+          <>
+            <WriteArticleForm />
+          </>
+        ),
+      },
     ],
   },
-
 ]);
 
 function App() {
