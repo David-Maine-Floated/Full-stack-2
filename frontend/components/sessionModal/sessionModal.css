@@ -23,16 +23,30 @@
     justify-content: center;
     margin-top: 15px;
     height: 50px;
-    /* margin-left: 50px; */
-    margin-right: 10px;
+}
+
+.emailInput {
+    border-radius: 100px;
+    font-size: 21px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 15px;
 }
 
 .passwordDiv {
     display: flex;
     justify-content: center;
     height: 50px;
-    margin-right: 40px;
+    margin-top: 20px;
+    
 }
+
+.passwordInput {
+    border-radius: 100px;
+    font-size: 21px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 15px;
+}
+
 
 .submitDiv {
     display: flex;
@@ -67,13 +81,17 @@
 
 .submitDiv.demo {
     display: flex;
-    border: 1px solid black;
-    width: 150px;
-    margin-left: 235px;
+    border: 2px solid black;
+    width: 235px;
+    margin-left: 180px;
     margin-top: 50px;
     height: 30px;
     align-items: center;
     border-radius: 100px;
+    margin-top: 15px;
+    height: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
 }
 
 .errorDiv {
@@ -87,3 +105,25 @@
     color: red;
     text-align: center;
 }
+
+.linkToOtherModal {
+    display: flex;
+    margin-left: 210px;
+    margin-top: 10px
+}
+
+.toOtherModalLabel {
+    margin-right: 5px;
+}
+
+.toOtherModalLink {
+    color: green;
+}
+
+.toOtherModalLink:hover {
+    cursor: pointer;
+}
+
+
+
+      

@@ -6,15 +6,22 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton"
 import './Navigation.css'
 // import SessionModal from "../sessionModal/SessionModal";
-import { showModal } from "../../src/store/modals";
+import { hideModal, showModal } from "../../src/store/modals";
 // import UserProfileModal from "../userProfileModal/userProfileModal";
 import { faPenToSquare as penRegular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const Navigation = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
   //if logged in:
+
+  const handleLogOut = () => {
+    dispatch(hideModal())
+    dispatch(logoutUser())
+  }
+
   if (currentUser) return (
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
@@ -27,7 +34,7 @@ const Navigation = () => {
             <FontAwesomeIcon icon={penRegular} className="writeIcon"/>
             <NavLink to='write'className="NavLink">Write</NavLink>
           </div>
-          <NavLink className="NavLink" onClick={() => dispatch(logoutUser())}>
+          <NavLink className="NavLink" onClick={handleLogOut}>
             Logout
           </NavLink>
           {currentUser && <ProfileButton currentUser={currentUser} />}

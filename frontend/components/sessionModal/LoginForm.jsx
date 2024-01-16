@@ -3,7 +3,7 @@ import { loginUser } from "../../src/store/session"
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"
 import './form.css'
-import { hideModal } from "../../src/store/modals"
+import { hideModal, showModal } from "../../src/store/modals"
 
 const LoginForm = () => {
     const [email, setEmail] = useState('')
@@ -42,35 +42,41 @@ const LoginForm = () => {
           <h1>Welcome back.</h1>
         </div>
         <div className="errorDiv">
-          <h2 className="errors">{errors.toString()}</h2>
+          {errors && <h2 className="errors">{errors.toString()}</h2>}
         </div>
         <form>
           <div className="emailDiv">
-            <label htmlFor="">
-              Email{" "}
-              <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
+            <input
+              className="emailInput"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="passwordDiv">
-            <label htmlFor="">
-              Password{" "}
-              <input
-                type="text"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
+            <input
+              className="passwordInput"
+              type="text"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
+          <div className="submitDiv demo" onClick={(e) => handleSubmit(e)}>
             <p>Sign In</p>
           </div>
           <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
             <p>Demo Sign In</p>
+          </div>
+          <div className="linkToOtherModal">
+            <p className="toOtherModalLabel">No Account?</p>
+            <p
+              className="toOtherModalLink"
+              onClick={() => dispatch(showModal("signup"))}
+            >
+              Create One
+            </p>
           </div>
         </form>
       </>

@@ -5,6 +5,7 @@ import { signUpUser } from "../../src/store/session";
 import "./form.css";
 import { hideModal } from "../../src/store/modals";
 import { loginUser } from "../../src/store/session";
+import { showModal } from "../../src/store/modals";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -57,30 +58,37 @@ const SignUpForm = () => {
       </div>
       <form>
         <div className="emailDiv">
-          <label htmlFor="">
-            Email{" "}
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
+          <input
+            className="emailInput"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="passwordDiv">
-          <label htmlFor="">
-            Password{" "}
-            <input
-              type="text"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
+          <input
+            className="passwordInput"
+            type="text"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-        <div className="submitDiv" onClick={(e) => handleSubmit(e)}>
+        <div className="submitDiv demo" onClick={(e) => handleSubmit(e)}>
           <p>Sign Up</p>
         </div>
         <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
           <p>Demo Sign In</p>
+        </div>
+        <div className="linkToOtherModal">
+          <p className="toOtherModalLabel">Already a Member?</p>
+          <p
+            className="toOtherModalLink"
+            onClick={() => dispatch(showModal("login"))}
+          >
+            Login
+          </p>
         </div>
       </form>
     </>
