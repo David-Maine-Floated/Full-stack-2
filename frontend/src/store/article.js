@@ -30,9 +30,7 @@ const articlesReducer = (state = {}, action) => {
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_ARTICLE: 
-            console.log('helloooo', action.article.title)
             nextState[action.article.id] = action.article
-            // nextState[action.article.id] = action.article
             return nextState
         default: 
             return nextState;

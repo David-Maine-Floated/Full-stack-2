@@ -50,6 +50,7 @@ const LoginForm = () => {
               Email{" "}
               <input
                 type="text"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

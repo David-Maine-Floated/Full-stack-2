@@ -25,7 +25,7 @@ const Navigation = () => {
           </NavLink>
           <div className="navWriteDiv">
             <FontAwesomeIcon icon={penRegular} className="writeIcon"/>
-            <NavLink className="NavLink">Write</NavLink>
+            <NavLink to='write'className="NavLink">Write</NavLink>
           </div>
           <NavLink className="NavLink" onClick={() => dispatch(logoutUser())}>
             Logout
