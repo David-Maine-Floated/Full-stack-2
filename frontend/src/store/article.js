@@ -26,6 +26,22 @@ export const getArticle = (articleId) => async dispatch => {
     }
 } 
 
+export const createArticle = (article) => async dispatch => {
+    try {
+        let response = await csrfFetch(`/api/articles`, {
+            method: 'POST',
+            body: article
+        })
+
+        let data = await response.json()
+        dispatch(receiveArticle(data))
+    } catch (error) {
+        // let errors = await error.json()
+        console.log(error)
+        throw error
+    }
+}
+
 const articlesReducer = (state = {}, action) => {
     const nextState = {...state}
     switch(action.type) {

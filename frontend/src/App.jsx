@@ -30,15 +30,16 @@ const router = createBrowserRouter([
         path: "signup",
         element: <SignUpForm />,
       },
-      {
-        path: "write",
-        element: (
-          <>
-            <WriteArticleForm />
-          </>
-        ),
-      },
     ],
+  },
+  {
+    path: "/write",
+    element: (
+      <>
+        <WriteArticleForm />
+        <UserProfileModal />
+      </>
+    ),
   },
 ]);
 

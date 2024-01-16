@@ -1,9 +1,11 @@
 class Api::ArticlesController < ApplicationController
     before_action :require_logged_in
-
+    debugger
     def create 
         @article = Article.new(article_params)
+        debugger
         if @article.save 
+            debugger
             render '/api/articles/show'
         else  
             render json: {errors: @article.errors.full_messages, status: :unprocessable_entity}
