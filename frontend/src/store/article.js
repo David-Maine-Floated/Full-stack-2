@@ -7,7 +7,7 @@ const RECEIVE_ARTICLE = 'article/RECEIVE_ARTICLE'
 export const receiveArticle = article => {
     return {
         type: RECEIVE_ARTICLE, 
-        article 
+        article : article
     }
 }
 
@@ -17,12 +17,11 @@ export const getArticle = (articleId) => async dispatch => {
         let response = await csrfFetch(`/api/articles/${articleId}`)
 
         let data = await response.json()
-        console.log('thunk', data)
         dispatch(receiveArticle(data))
     } catch (error) {
         let errors = await error.json()
-        console.log('errors', errors)
-        // throw errors
+        // console.log('errors', errors)
+        throw errors
     }
 } 
 
@@ -30,13 +29,12 @@ export const createArticle = (article) => async dispatch => {
     try {
         let response = await csrfFetch(`/api/articles`, {
             method: 'POST',
-            body: article
+            body: JSON.stringify(article)
         })
 
         let data = await response.json()
         dispatch(receiveArticle(data))
     } catch (error) {
-        // let errors = await error.json()
         console.log(error)
         throw error
     }

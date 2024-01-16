@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './writeArticleForm.css'
 import ProfileButton from '../navigation/ProfileButton';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createArticle } from '../../src/store/article';
 
 const WriteArticleForm = () => {
@@ -12,7 +12,7 @@ const WriteArticleForm = () => {
     // const [image, setImage] = useState(null)
     const [showToolTip, setShowToolTip] = useState(false)
     const dispatch = useDispatch()
-
+    const currentUser = useSelector(state => state.session.currentUser)
     useEffect(() => {
       if(title !== '' && body !== '') {
         setSubmittable(true)
@@ -20,19 +20,23 @@ const WriteArticleForm = () => {
         setSubmittable(false)
       }
     }, [title, body])
-
+    
     const handleSubmitMouseEnter = () => {
       if (!submittable) {
         setShowToolTip(true)
       }
     }
-
+    
     const handleSubmitMouseLeave = () => {
       setShowToolTip(false)
     }
-
+    
     const handleSubmit = () => {
-      dispatch(createArticle({ article: { title, body } }));
+      try {
+        dispatch(createArticle({ article: { title, body, author_id: currentUser.id } }));
+      } catch(error) {
+        console.log('erorrrsrsrs',error)
+      }
     }
 
 
