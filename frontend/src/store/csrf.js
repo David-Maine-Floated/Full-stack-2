@@ -3,7 +3,6 @@
 const csrfFetch = async (url, options = {}) => {
     options.method ||= 'GET';
     options.headers ||= {};
-    console.log('options', options)
 
     if (options.method.toUpperCase() !== 'GET') {
         options.headers['Content-Type'] = 'application/json';

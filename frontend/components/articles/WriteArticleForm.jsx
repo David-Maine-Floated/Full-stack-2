@@ -35,7 +35,7 @@ const WriteArticleForm = () => {
       try {
         dispatch(createArticle({ article: { title, body, author_id: currentUser.id } }));
       } catch(error) {
-        console.log('erorrrsrsrs',error)
+
       }
     }
 

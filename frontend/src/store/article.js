@@ -20,7 +20,6 @@ export const getArticle = (articleId) => async dispatch => {
         dispatch(receiveArticle(data))
     } catch (error) {
         let errors = await error.json()
-        // console.log('errors', errors)
         throw errors
     }
 } 

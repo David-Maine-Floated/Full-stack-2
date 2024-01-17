@@ -41,6 +41,10 @@
     border-radius: 100px;
 }
 
+.getStartedButton:hover {
+    cursor: pointer;
+}
+
 .getStartedLink {
     text-decoration: none;
     color: white;
@@ -50,6 +54,7 @@
 
 .NavLink {
     text-decoration: none;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .NavLink:visited {
      color: black;

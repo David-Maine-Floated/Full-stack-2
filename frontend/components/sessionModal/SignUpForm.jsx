@@ -30,7 +30,6 @@ const SignUpForm = () => {
 
   function handleDemoSubmit(e) {
     e.preventDefault();
-    console.log('demoSignIn')
     dispatch(loginUser({ email: "Demo@hello.com", password: "password" }));
   }
 

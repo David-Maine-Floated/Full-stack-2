@@ -10,6 +10,7 @@ import { hideModal, showModal } from "../../src/store/modals";
 // import UserProfileModal from "../userProfileModal/userProfileModal";
 import { faPenToSquare as penRegular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useHistory } from "react";
 
 
 const Navigation = () => {
@@ -27,6 +28,7 @@ const Navigation = () => {
       <div className={`navbar ${currentUser && "loggedIn"}`}>
         <div className="leftside">SEARCH</div>
         <div className="rightside">
+          <NavLink to='/article/1'>ARTICLE!</NavLink>
           <NavLink className="NavLink" to="/">
             Home
           </NavLink>
@@ -61,12 +63,11 @@ const Navigation = () => {
           >
             Login
           </NavLink>
-          <div className="getStartedButton">
-            <Link
-              className="getStartedLink"
-              to="/"
-              onClick={() => dispatch(showModal("signup"))}
-            >
+          <div
+            className="getStartedButton"
+            onClick={() => dispatch(showModal("signup"))}
+          >
+            <Link className="getStartedLink" to="/">
               Get Started
             </Link>
           </div>

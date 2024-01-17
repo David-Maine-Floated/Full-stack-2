@@ -9,7 +9,7 @@ import UnLoggedInSplash from "../components/splash/UnLoggedInSplash";
 import SessionModal from "../components/sessionModal/SessionModal";
 import UserProfileModal from "../components/userProfileModal/userProfileModal";
 import WriteArticleForm from "../components/articles/WriteArticleForm";
-
+import ArticleDisplay from "../components/articles/ArticleDisplay";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,13 +23,9 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "login",
-        element: <LoginForm />,
-      },
-      {
-        path: "signup",
-        element: <SignUpForm />,
-      },
+        path: `article/:articleId`,
+        element: <ArticleDisplay />
+      }
     ],
   },
   {
