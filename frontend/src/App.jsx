@@ -10,7 +10,7 @@ import UserProfileModal from "../components/userProfileModal/userProfileModal";
 import WriteArticleForm from "../components/articles/WriteArticleForm";
 import ArticleDisplay from "../components/articles/ArticleDisplay";
 import ArticleIndex from "../components/articleIndex/articleIndex";
-
+import MainBody from "../components/mainBody/MainBody";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <UnLoggedInSplash />  
-            <ArticleIndex />
+            <MainBody />
           </>
         ),
       },

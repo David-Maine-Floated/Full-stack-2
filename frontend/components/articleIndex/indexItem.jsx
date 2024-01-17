@@ -15,7 +15,7 @@ const IndexItem = ({article}) => {
         <div className="indexItemAuthorNameDiv">
           <span className="indexItemAuthorName">Author name</span>
         </div>
-        <div className="indexItemTileDiv" onClick={handleNavClick}>
+        <div className="indexItemTitleDiv" onClick={handleNavClick}>
           <h2 className="indexItemTitle">{article.title}</h2>
         </div>
         <div className="indexItemBodyDiv" onClick={handleNavClick}>
@@ -23,11 +23,11 @@ const IndexItem = ({article}) => {
         </div>
         <div className="indexItemFooter">
           <div className="indexItemFooterLeftDiv">
-            <span>Topic</span>
-            <span>8 Minute Read</span>
+            <span className="indexItemFooterSpan">Topic</span>
+            <span className="indexItemFooterSpan">8 Minute Read</span>
           </div>
           <div className="indexItemFooterRightDiv">
-            <span>Save Icon</span>
+            <span className="indexItemFooterSpan">Save Icon</span>
           </div>
         </div>
       </div>

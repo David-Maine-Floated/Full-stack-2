@@ -32,6 +32,7 @@ export const getArticle = (articleId) => async dispatch => {
 } 
 
 export const getArticles = () => async dispatch => {
+    // debugger
     try {
         let response = await csrfFetch(`/api/articles`)
 
@@ -39,7 +40,7 @@ export const getArticles = () => async dispatch => {
 
         dispatch(receiveArticles(data))
     } catch (error) {
-
+        debugger
         // let errors = await error.json()
         throw error
     }

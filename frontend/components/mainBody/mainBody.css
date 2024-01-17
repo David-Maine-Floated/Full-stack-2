@@ -1,0 +1,8 @@
+
+.mainBodyDiv {
+    display: flex;
+}
+
+.mainBodyLeftDiv {
+    width: 200px;
+}

@@ -28,7 +28,6 @@ const Navigation = () => {
       <div className={`navbar ${currentUser && "loggedIn"}`}>
         <div className="leftside">SEARCH</div>
         <div className="rightside">
-          <NavLink to='/article/1'>ARTICLE!</NavLink>
           <NavLink className="NavLink" to="/">
             Home
           </NavLink>

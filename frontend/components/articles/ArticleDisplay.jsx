@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams, } from "react-router-dom"
 import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
+import ClapButton from "../articleButtons/ClapButton"
 
 
 const ArticleDisplay = () => {
@@ -34,6 +35,14 @@ const ArticleDisplay = () => {
         <div className="articleDisplayContainer">
         <div className="articleDisplayTitleDiv">
             <h1 className="articleDisplayTitle">{article && article.title}</h1>
+        </div>
+        <div className="articleButtons">
+            <div className="aritcleButtonsLeft">
+                <ClapButton/>
+                <span>100</span>
+            </div>
+            <div className="articleButtonsRight"></div>
+
         </div>
         <div className="articleDisplayBodyDiv">{article && newArticleBody(article.body)}</div>
         </div>
