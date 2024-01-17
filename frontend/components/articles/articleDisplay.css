@@ -26,16 +26,3 @@
     font-weight: 800;
 }
 
-.articleButtons {
-    display: flex;
-    height: 30px;
-    width: 50%;
-    border: 1px black solid;
-    align-items: center;
-}
-
-.aritcleButtonsLeft {
-    display: flex;
-    justify-content: space-around;
-    width: 60px;
-}

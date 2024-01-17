@@ -3,14 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams, } from "react-router-dom"
 import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
-import ClapButton from "../articleButtons/ClapButton"
-
+import ButtonsBar from "../buttonsBar/ButtonsBar"
 
 const ArticleDisplay = () => {
     const params = useParams();
     const articleId = params.articleId;
-    const currentUser = useSelector((state) => state.session.currentUser);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     let article = useSelector((state) => state.articles[articleId])
     
@@ -32,20 +29,15 @@ const ArticleDisplay = () => {
 
 
     return (
-        <div className="articleDisplayContainer">
+      <div className="articleDisplayContainer" key={articleId}>
         <div className="articleDisplayTitleDiv">
-            <h1 className="articleDisplayTitle">{article && article.title}</h1>
+          <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        <div className="articleButtons">
-            <div className="aritcleButtonsLeft">
-                <ClapButton/>
-                <span>100</span>
-            </div>
-            <div className="articleButtonsRight"></div>
-
+        <ButtonsBar />
+        <div className="articleDisplayBodyDiv">
+          {article && newArticleBody(article.body)}
         </div>
-        <div className="articleDisplayBodyDiv">{article && newArticleBody(article.body)}</div>
-        </div>
+      </div>
     );
 }
 
