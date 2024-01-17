@@ -10,7 +10,7 @@ import { hideModal, showModal } from "../../src/store/modals";
 // import UserProfileModal from "../userProfileModal/userProfileModal";
 import { faPenToSquare as penRegular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useHistory } from "react";
+
 
 
 const Navigation = () => {

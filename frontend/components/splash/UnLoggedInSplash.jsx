@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import './UnLoggedInSplash.css'
+import "./UnLoggedInSplash.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showModal } from "../../src/store/modals";
-import { useEffect } from "react";
+import ArticleIndex from "../articleIndex/articleIndex";
 const UnLoggedInSplash = () => {
-  const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.session.currentUser)
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.session.currentUser);
 
-
-    if (currentUser) return null;
-    return (
+  if (currentUser) return null;
+  return (
+    <>
       <div className="splash">
         <h2>Stay curious.</h2>
         <h3>
@@ -25,7 +25,8 @@ const UnLoggedInSplash = () => {
           </Link>
         </div>
       </div>
-    );
-}
+    </>
+  );
+};
 
-export default UnLoggedInSplash
+export default UnLoggedInSplash;

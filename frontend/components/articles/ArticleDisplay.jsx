@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams, } from "react-router-dom"
 import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
-import { useState } from "react"
+
 
 const ArticleDisplay = () => {
     const params = useParams();
@@ -12,24 +12,14 @@ const ArticleDisplay = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     let article = useSelector((state) => state.articles[articleId])
-    const [newBody, setNewBody] = useState('')
-   
-   //whyyyyyyyyyy
-    useEffect(()=> {
-        console.log('anything???')
-        if(!currentUser) navigate("/");
-    }, [currentUser, navigate])
     
     useEffect(() => {
-        console.log("USEEFEECTTT");
         dispatch(getArticle(articleId))
-        const newBody = newArticleBody()
-        setNewBody(newBody)
-    }, []);
+    }, [articleId]);
+    
 
-
-    const newArticleBody = () => {
-        let sentences = article.body.split('\n')
+    const newArticleBody = (body) => {
+        let sentences = body.split('\n')
         return sentences.map(sentence => {
             if(sentence !== '') {
                 return <p className="articleDisplayBody">{sentence}</p>;
@@ -39,12 +29,13 @@ const ArticleDisplay = () => {
         })
     }
 
+
     return (
         <div className="articleDisplayContainer">
         <div className="articleDisplayTitleDiv">
             <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        <div className="articleDisplayBodyDiv">{article && newBody}</div>
+        <div className="articleDisplayBodyDiv">{article && newArticleBody(article.body)}</div>
         </div>
     );
 }

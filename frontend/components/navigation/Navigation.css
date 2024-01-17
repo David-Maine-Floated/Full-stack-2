@@ -9,6 +9,7 @@
 .navbar.loggedIn {
     height: 50px;
     background-color: white;
+    border-bottom: none;
 } 
 
 .rightside {
