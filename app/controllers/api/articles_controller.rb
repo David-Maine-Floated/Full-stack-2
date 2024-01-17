@@ -1,6 +1,11 @@
 class Api::ArticlesController < ApplicationController
     before_action :require_logged_in
 
+    def index 
+        @articles = Article.all 
+    end
+
+
     def create 
         @article = Article.new(article_params)
         if @article.save 

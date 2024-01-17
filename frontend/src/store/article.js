@@ -2,12 +2,19 @@ import csrfFetch from "./csrf";
 
 
 const RECEIVE_ARTICLE = 'article/RECEIVE_ARTICLE'
-
+const RECDEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 
 export const receiveArticle = article => {
     return {
         type: RECEIVE_ARTICLE, 
         article : article
+    }
+}
+
+export const receiveArticles = articles => {
+    return {
+        type: RECDEIVE_ARTICLES,
+        articles
     }
 }
 
@@ -21,6 +28,20 @@ export const getArticle = (articleId) => async dispatch => {
     } catch (error) {
         let errors = await error.json()
         throw errors
+    }
+} 
+
+export const getArticles = () => async dispatch => {
+    try {
+        let response = await csrfFetch(`/api/articles`)
+
+        let data = await response.json()
+
+        dispatch(receiveArticles(data))
+    } catch (error) {
+
+        // let errors = await error.json()
+        throw error
     }
 } 
 
@@ -44,6 +65,12 @@ const articlesReducer = (state = {}, action) => {
     switch(action.type) {
         case RECEIVE_ARTICLE: 
             nextState[action.article.id] = action.article
+            return nextState
+        case RECDEIVE_ARTICLES:
+            console.log('in reducer', action.articles)
+            action.articles.forEach((article) => {
+                nextState[article.id] = article
+            })
             return nextState
         default: 
             return nextState;

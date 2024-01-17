@@ -14,7 +14,7 @@ const ArticleDisplay = () => {
     let article = useSelector((state) => state.articles[articleId])
     const [newBody, setNewBody] = useState('')
    
-   
+   //whyyyyyyyyyy
     useEffect(()=> {
         console.log('anything???')
         if(!currentUser) navigate("/");
@@ -30,13 +30,10 @@ const ArticleDisplay = () => {
 
     const newArticleBody = () => {
         let sentences = article.body.split('\n')
-        console.log('insideFunc', sentences)
         return sentences.map(sentence => {
             if(sentence !== '') {
-                console.log('mmhmmmm')
                 return <p className="articleDisplayBody">{sentence}</p>;
             } else {
-                console.log('surely!!!')
                 return <br></br>
             }
         })
