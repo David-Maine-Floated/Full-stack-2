@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
   end
 
+
   get '*path', to: 'static_pages#frontend_index'
+  get '/api/articles/by_author/:author_id', to: 'articles#by_author', as: 'articles_by_author'
 
 end
+

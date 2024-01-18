@@ -3,7 +3,8 @@ import './writeArticleForm.css'
 import ProfileButton from '../navigation/ProfileButton';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createArticle } from '../../src/store/article';
+import { createArticle, getArticle } from '../../src/store/article';
+import { useNavigate } from 'react-router-dom';
 
 
 const WriteArticleForm = () => {
@@ -15,6 +16,8 @@ const WriteArticleForm = () => {
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.currentUser)
     const errors = useSelector(state => state.errors.articles)
+    const navigate = useNavigate()
+
 
     useEffect(() => {
       if(title !== '' && body !== '') {
@@ -38,10 +41,7 @@ const WriteArticleForm = () => {
         let result = await dispatch(createArticle({ article: { title, body, author_id: currentUser.id }}))
 
         if (result) {
-          debugger
-          // setTitle('')
-          // setBody('')
-          reset()
+          navigate(`/article/${result}`)
         }
     }
 

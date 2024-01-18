@@ -25,6 +25,12 @@ class Api::ArticlesController < ApplicationController
         end
     end
 
+    def by_author
+        author_id = params[:author_id]
+        @articles = Article.where(author_id: author_id)
+    end
+
+    
 private 
 
 

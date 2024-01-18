@@ -19,6 +19,11 @@ export const receiveArticles = articles => {
     }
 }
 
+export const getAritlcesByUser = (userId) => async dispatch => {
+    // try {
+    //     let response 
+    // }
+}
 
 export const getArticle = (articleId) => async dispatch => {
     try {
@@ -34,16 +39,11 @@ export const getArticle = (articleId) => async dispatch => {
 } 
 
 export const getArticles = () => async dispatch => {
-    // try {
         let response = await csrfFetch(`/api/articles`)
 
         let data = await response.json()
 
         dispatch(receiveArticles(data))
-    // } catch (error) {
-        // let errors = await error.json()
-        // throw error
-    // }
 } 
 
 export const createArticle = (article) => async dispatch => {
@@ -55,7 +55,8 @@ export const createArticle = (article) => async dispatch => {
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveArticle(data));
-            return true
+            console.log('DATAT', data)
+            return data.id
         } else {
             throw response; 
         }
