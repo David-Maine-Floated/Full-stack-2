@@ -4,7 +4,5 @@
 set -o errexit
 
 bundle install
-rails db:drop
-rails db:create
 rails db:migrate
 rails db:seed #if needed
