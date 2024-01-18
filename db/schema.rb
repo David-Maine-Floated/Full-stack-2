@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_18_205553) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_18_224322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.bigint "author_id"
+    t.bigint "author_id", null: false
     t.string "topics", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["title"], name: "index_articles_on_title", unique: true
   end
 
@@ -28,9 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_205553) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
+    t.string "username", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
