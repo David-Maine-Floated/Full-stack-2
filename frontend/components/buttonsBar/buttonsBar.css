@@ -2,7 +2,7 @@
     display: flex;
     height: 30px;
     width: 50%;
-    /* border: 1px black solid; */
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -12,6 +12,15 @@
     width: 60px;
 }
 
+.button {
+    text-decoration: none;
+}
+
 .button:hover {
     cursor: pointer;
 }
+
+/* .button: {
+    text-decoration: none;
+    color: black
+} */

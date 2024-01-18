@@ -12,13 +12,14 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const sessionUser = useSelector(state => state.session.currentUser);
   const [errors, setErrors] = useState("");
-
+  const [username, setUsername] = useState('')
 
   const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(signUpUser({ email, password }, setErrors));
+    console.log('USERNAME', username)
+    dispatch(signUpUser({ email, password, username }, setErrors));
 
   }
 
@@ -35,7 +36,6 @@ const SignUpForm = () => {
 
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
-
   return (
     <>
       <div className="closeDiv">
@@ -72,6 +72,15 @@ const SignUpForm = () => {
             value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="passwordDiv">
+          <input
+            className="passwordInput"
+            type="text"
+            value={username}
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="submitDiv demo" onClick={(e) => handleSubmit(e)}>

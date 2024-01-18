@@ -10,6 +10,7 @@ import UserProfileModal from "../components/userProfileModal/userProfileModal";
 import WriteArticleForm from "../components/articles/WriteArticleForm";
 import ArticleDisplay from "../components/articles/ArticleDisplay";
 import MainBody from "../components/mainBody/MainBody";
+import EditArticle from "../components/articles/EditArticle";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <>
-            <UnLoggedInSplash />  
+            <UnLoggedInSplash />
             <MainBody />
           </>
         ),
@@ -42,6 +43,15 @@ const router = createBrowserRouter([
     element: (
       <>
         <WriteArticleForm />
+        <UserProfileModal />
+      </>
+    ),
+  },
+  {
+    path: "/edit/:articleId",
+    element: (
+      <>
+        <EditArticle />
         <UserProfileModal />
       </>
     ),

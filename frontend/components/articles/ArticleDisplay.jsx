@@ -5,6 +5,7 @@ import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
 import ButtonsBar from "../buttonsBar/ButtonsBar"
 
+
 const ArticleDisplay = () => {
     const params = useParams();
     const articleId = params.articleId;
@@ -33,7 +34,7 @@ const ArticleDisplay = () => {
         <div className="articleDisplayTitleDiv">
           <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        <ButtonsBar />
+        {article && <ButtonsBar article={article} />}
         <div className="articleDisplayBodyDiv">
           {article && newArticleBody(article.body)}
         </div>

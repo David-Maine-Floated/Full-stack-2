@@ -19,34 +19,41 @@ ApplicationRecord.transaction do
   # Create one user with an easy to remember username, email, and password:
   User.create!(
     email: 'Demo@hello.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Big Shot Demo Guy'
   )
 
   User.create!(
     email: 'ScienceGuy@hello.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Albert Black'
   )
 
   User.create!(
     email: 'MrChipper@hello.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Samantha T.'
   )
 
   User.create!(
     email: 'FlatEarther@truth.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Gamer Queen'
   )
   User.create!(
     email: 'BaldingButHappy@StillManly.gov', 
-    password: 'password'
+    password: 'password',
+    username: "Proud Father"
   )
   User.create!(
     email: 'JoeBigWheels@flowers.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Billy Tobacco'
   )
   User.create!(
     email: 'NotMyPresident@truth.com', 
-    password: 'password'
+    password: 'password',
+    username: 'Sarah White'
   )
 
 

@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     resources :users, only: :create
-    resources :articles, only: [:create, :show, :index]
+    resources :articles, only: [:create, :show, :index, :update]
     resource :session, only: [:show, :create, :destroy]
   end
 
+  get '/api/articles/by_author/:author_id', to: 'articles#by_author', as: 'articles_by_author'
 
   get '*path', to: 'static_pages#frontend_index'
-  get '/api/articles/by_author/:author_id', to: 'articles#by_author', as: 'articles_by_author'
 
 end
 

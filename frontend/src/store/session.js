@@ -6,6 +6,7 @@ const REMOVE_USER = "session/REMOVE_USER";
 
 
 export const receiveUser = user => {
+   
     return {
         type: RECEIVE_USER, 
         payload: user 
@@ -23,22 +24,24 @@ export const removeUser = userId => {
 
 
 export const signUpUser = (user, setErrors) => async dispatch => {
+
     try {
+
         let response = await csrfFetch('/api/users', {
             method: 'POST',
             body: JSON.stringify(user)
         })
-        
+    
         let data = await response.json();
         dispatch(receiveUser(data))  //create user
 
         
     } catch (errors) {
+   
         let data = await errors.json()
         setErrors(data.errors)
         
     }
-    // if(!response.ok) return response 
 }
 
 export const logoutUser = () => async dispatch => {
@@ -66,6 +69,7 @@ export const restoreSession = () => async (dispatch) => {
 
 
 export const loginUser = (user, setErrors) => async dispatch => {
+
     try {
         let response = await csrfFetch('/api/session', {
             method: "POST",
@@ -77,21 +81,17 @@ export const loginUser = (user, setErrors) => async dispatch => {
         sessionStorage.setItem('currentUser', JSON.stringify(data.user))
         dispatch(receiveUser(data))
 
-
-
-
     } catch (error){
             let data = await error.json()
             setErrors(data.errors)
     }
-    // if(!response.ok) return response 
 }
 
 
 
 
 const sessionReducer = (state = {currentUser: null}, action) => {
-  
+
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:

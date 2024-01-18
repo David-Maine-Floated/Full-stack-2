@@ -11,7 +11,7 @@ class Api::ArticlesController < ApplicationController
         if @article.save 
             render '/api/articles/show'
         else  
-            # debugger
+
             render json: {errors: @article.errors.full_messages}, status: :unprocessable_entity
         end
     end
@@ -28,6 +28,16 @@ class Api::ArticlesController < ApplicationController
     def by_author
         author_id = params[:author_id]
         @articles = Article.where(author_id: author_id)
+    end
+
+    def update 
+        @article = Article.find_by(id: params[:id])
+        if @article.update(article_params)
+            render '/api/articles/show'
+        else  
+
+            render json: {errors: @article.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     

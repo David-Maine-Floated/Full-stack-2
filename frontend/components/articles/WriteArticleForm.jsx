@@ -3,7 +3,7 @@ import './writeArticleForm.css'
 import ProfileButton from '../navigation/ProfileButton';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createArticle, getArticle } from '../../src/store/article';
+import { createArticle} from '../../src/store/article';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -43,12 +43,6 @@ const WriteArticleForm = () => {
         if (result) {
           navigate(`/article/${result}`)
         }
-    }
-
-    const reset = () => {
-      debugger
-      setTitle("");
-      setBody("");
     }
 
 
