@@ -7,7 +7,6 @@ import './articleIndex.css'
 const ArticleIndex = () => {
   const dispatch = useDispatch();
   const articles = useSelector((state) => state.articles);
-  console.log(articles)
   useEffect(() => {
     dispatch(getArticles());
   }, []);

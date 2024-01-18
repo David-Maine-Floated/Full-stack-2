@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: fsp_test_2_production
-  email: fsp_test_2
-  password: <%= ENV["FSP_TEST_2_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

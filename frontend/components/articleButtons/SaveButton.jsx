@@ -12,3 +12,5 @@ const SaveButton = () => {
         </div>
     )
 }
+
+export default SaveButton

@@ -32,7 +32,6 @@ export const getArticle = (articleId) => async dispatch => {
 } 
 
 export const getArticles = () => async dispatch => {
-    // debugger
     try {
         let response = await csrfFetch(`/api/articles`)
 
@@ -40,7 +39,6 @@ export const getArticles = () => async dispatch => {
 
         dispatch(receiveArticles(data))
     } catch (error) {
-        debugger
         // let errors = await error.json()
         throw error
     }
@@ -56,7 +54,7 @@ export const createArticle = (article) => async dispatch => {
         let data = await response.json()
         dispatch(receiveArticle(data))
     } catch (error) {
-        console.log(error)
+  
         throw error
     }
 }
@@ -68,7 +66,6 @@ const articlesReducer = (state = {}, action) => {
             nextState[action.article.id] = action.article
             return nextState
         case RECDEIVE_ARTICLES:
-            console.log('in reducer', action.articles)
             action.articles.forEach((article) => {
                 nextState[article.id] = article
             })

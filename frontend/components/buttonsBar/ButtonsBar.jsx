@@ -8,7 +8,6 @@ const ButtonsBar = () => {
     const [clapActive, setClapActive] = useState(false)
 
     const handleClap = () => {
-        console.log('yerrrr')
         setClapActive(true)
         setTimeout(() => {
             setClapActive(false);
