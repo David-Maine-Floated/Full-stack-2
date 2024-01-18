@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createArticle } from '../../src/store/article';
 
+
 const WriteArticleForm = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
@@ -13,6 +14,8 @@ const WriteArticleForm = () => {
     const [showToolTip, setShowToolTip] = useState(false)
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.session.currentUser)
+    const errors = useSelector(state => state.errors.articles)
+
     useEffect(() => {
       if(title !== '' && body !== '') {
         setSubmittable(true)
@@ -31,12 +34,21 @@ const WriteArticleForm = () => {
       setShowToolTip(false)
     }
     
-    const handleSubmit = () => {
-      try {
-        dispatch(createArticle({ article: { title, body, author_id: currentUser.id } }));
-      } catch(error) {
+    const handleSubmit = async () => {
+        let result = await dispatch(createArticle({ article: { title, body, author_id: currentUser.id }}))
 
-      }
+        if (result) {
+          debugger
+          // setTitle('')
+          // setBody('')
+          reset()
+        }
+    }
+
+    const reset = () => {
+      debugger
+      setTitle("");
+      setBody("");
     }
 
 
@@ -65,7 +77,7 @@ const WriteArticleForm = () => {
           <div className={`tooltip ${showToolTip && 'active'}`}>
             Please fill out article before submitting.
           </div>
-          {/* <div>{errors}</div> */}
+          <div className='errors'>{errors}</div>
           <textarea
             className="formTitleText"
             placeholder="Title"

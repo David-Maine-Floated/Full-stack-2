@@ -1,10 +1,9 @@
-import { useDispatch, useSelector, } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import './profileModal.css'
 import { hideModal } from '../../src/store/modals';
 
 const ProfileModal = ({ children}) => {
   const dispatch = useDispatch()
-  const modal = useSelector(state => state.modal)
 
 
   const handleClick = (e) => {

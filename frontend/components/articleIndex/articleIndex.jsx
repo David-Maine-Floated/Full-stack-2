@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticles } from "../../src/store/article";
 import IndexItem from "./indexItem";
@@ -9,13 +9,13 @@ const ArticleIndex = () => {
   const articles = useSelector((state) => state.articles);
   useEffect(() => {
     dispatch(getArticles());
-  }, []);
+  }, [dispatch]);
 
 
 
   return (
     <div className="articleIndexContainer">
-      {Object.values(articles).map(article => <IndexItem article={article}/>)}
+      {Object.values(articles).map(article => <IndexItem key={article.id} article={article}/>)}
     </div>
   );
 };

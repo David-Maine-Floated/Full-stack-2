@@ -6,7 +6,6 @@ import configureStore from './store/store';
 import { Provider } from 'react-redux';
 import csrfFetch from './store/csrf';
 import * as sessionActions from "./store/session";
-import { useDispatch } from 'react-redux';
 import { restoreCSRF } from './store/csrf';
 import * as modalActions from './store/modals'
 import * as articleActions from './store/article'

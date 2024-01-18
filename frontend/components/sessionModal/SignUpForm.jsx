@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { signUpUser } from "../../src/store/session";
@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const sessionUser = useSelector(state => state.session.currentUser);
   const [errors, setErrors] = useState("");
-  const [formattedErrors, setFormattedErrors] = useState();
+
 
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const SignUpForm = () => {
         {errors && (
           <h2 className="errors">
             {errors.map((error) => (
-              <p>{error}</p>
+              <p key={error.id}>{error}</p>
             ))}
           </h2>
         )}

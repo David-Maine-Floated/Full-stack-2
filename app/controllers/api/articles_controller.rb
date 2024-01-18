@@ -11,7 +11,8 @@ class Api::ArticlesController < ApplicationController
         if @article.save 
             render '/api/articles/show'
         else  
-            render json: {errors: @article.errors.full_messages, status: :unprocessable_entity}
+            # debugger
+            render json: {errors: @article.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
@@ -20,7 +21,7 @@ class Api::ArticlesController < ApplicationController
         if @article 
             render '/api/articles/show'
         else  
-            render json: {errors: @article.errors.full_messages, status: :unprocessable_entity}
+            render json: {errors: @article.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

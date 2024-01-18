@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate, useParams, } from "react-router-dom"
+import { useParams, } from "react-router-dom"
 import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
 import ButtonsBar from "../buttonsBar/ButtonsBar"
@@ -13,16 +13,16 @@ const ArticleDisplay = () => {
     
     useEffect(() => {
         dispatch(getArticle(articleId))
-    }, [articleId]);
+    }, [articleId, dispatch]);
     
 
     const newArticleBody = (body) => {
         let sentences = body.split('\n')
         return sentences.map(sentence => {
             if(sentence !== '') {
-                return <p className="articleDisplayBody">{sentence}</p>;
+                return <p key={sentence.id} className="articleDisplayBody">{sentence}</p>;
             } else {
-                return <br></br>
+                return <br key={sentence.id}></br>
             }
         })
     }

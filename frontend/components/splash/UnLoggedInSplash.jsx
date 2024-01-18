@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./UnLoggedInSplash.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showModal } from "../../src/store/modals";
-import ArticleIndex from "../articleIndex/articleIndex";
 const UnLoggedInSplash = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);

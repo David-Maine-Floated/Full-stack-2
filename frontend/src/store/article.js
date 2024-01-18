@@ -1,8 +1,9 @@
 import csrfFetch from "./csrf";
+import { receiveArticleErrors } from "./errors";
 
 
-const RECEIVE_ARTICLE = 'article/RECEIVE_ARTICLE'
-const RECDEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
+export const RECEIVE_ARTICLE = 'article/RECEIVE_ARTICLE'
+const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 
 export const receiveArticle = article => {
     return {
@@ -13,7 +14,7 @@ export const receiveArticle = article => {
 
 export const receiveArticles = articles => {
     return {
-        type: RECDEIVE_ARTICLES,
+        type: RECEIVE_ARTICLES,
         articles
     }
 }
@@ -22,26 +23,27 @@ export const receiveArticles = articles => {
 export const getArticle = (articleId) => async dispatch => {
     try {
         let response = await csrfFetch(`/api/articles/${articleId}`)
-
         let data = await response.json()
         dispatch(receiveArticle(data))
+
     } catch (error) {
+
         let errors = await error.json()
         throw errors
     }
 } 
 
 export const getArticles = () => async dispatch => {
-    try {
+    // try {
         let response = await csrfFetch(`/api/articles`)
 
         let data = await response.json()
 
         dispatch(receiveArticles(data))
-    } catch (error) {
+    // } catch (error) {
         // let errors = await error.json()
-        throw error
-    }
+        // throw error
+    // }
 } 
 
 export const createArticle = (article) => async dispatch => {
@@ -50,12 +52,17 @@ export const createArticle = (article) => async dispatch => {
             method: 'POST',
             body: JSON.stringify(article)
         })
-
-        let data = await response.json()
-        dispatch(receiveArticle(data))
-    } catch (error) {
-  
-        throw error
+        if(response.ok) {
+            let data = await response.json();
+            dispatch(receiveArticle(data));
+            return true
+        } else {
+            throw response; 
+        }
+    } catch (errors){
+        let data = await errors.json()
+        dispatch(receiveArticleErrors(data.errors))
+        return false
     }
 }
 
@@ -65,7 +72,7 @@ const articlesReducer = (state = {}, action) => {
         case RECEIVE_ARTICLE: 
             nextState[action.article.id] = action.article
             return nextState
-        case RECDEIVE_ARTICLES:
+        case RECEIVE_ARTICLES:
             action.articles.forEach((article) => {
                 nextState[article.id] = article
             })

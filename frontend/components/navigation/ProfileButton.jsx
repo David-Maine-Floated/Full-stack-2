@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { hideModal, showModal } from "../../src/store/modals";
 
 
 
 
-const ProfileButton = ({currentUser}) => {
+const ProfileButton = () => {
     const dispatch = useDispatch()
     const [showDropDown, setShowDropDown] = useState(false);
     const modal = useSelector(state => state.modal)
