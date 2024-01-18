@@ -1,11 +1,16 @@
+
+
 .sessionModal {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
 }
 
 .topDiv {
     display: flex;
     justify-content: center;
+
 }
 
 .h1div {
@@ -59,7 +64,7 @@
     justify-content: right;
     align-items: top;
     position: relative;
-    top: -200px;
+    top: -95px;
 }
 
 .closeButton {

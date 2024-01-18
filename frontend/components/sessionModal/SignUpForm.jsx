@@ -38,67 +38,67 @@ const SignUpForm = () => {
   if (sessionUser) return <Navigate to="/" replace={true} />;
   return (
     <>
-      <div className="closeDiv">
-        <div className="closeButton" onClick={close}>
-          <span>&#10005;</span>
+        <div className="closeDiv">
+          <div className="closeButton" onClick={close}>
+            <span>&#10005;</span>
+          </div>
         </div>
-      </div>
-      <div className="h1div">
-        <h1>Join Medium.</h1>
-      </div>
-      <div className="errorDiv">
-        {errors && (
-          <h2 className="errors">
-            {errors.map((error) => (
-              <p key={error.id}>{error}</p>
-            ))}
-          </h2>
-        )}
-      </div>
-      <form>
-        <div className="emailDiv">
-          <input
-            className="emailInput"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+        <div className="h1div">
+          <h1>Join Medium.</h1>
         </div>
-        <div className="passwordDiv">
-          <input
-            className="passwordInput"
-            type="text"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <div className="errorDiv">
+          {errors && (
+            <h2 className="errors">
+              {errors.map((error) => (
+                <p key={error.id}>{error}</p>
+              ))}
+            </h2>
+          )}
         </div>
-        <div className="passwordDiv">
-          <input
-            className="passwordInput"
-            type="text"
-            value={username}
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="submitDiv demo" onClick={(e) => handleSubmit(e)}>
-          <p>Sign Up</p>
-        </div>
-        <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
-          <p>Demo Sign In</p>
-        </div>
-        <div className="linkToOtherModal">
-          <p className="toOtherModalLabel">Already a Member?</p>
-          <p
-            className="toOtherModalLink"
-            onClick={() => dispatch(showModal("login"))}
-          >
-            Login
-          </p>
-        </div>
-      </form>
+        <form>
+          <div className="emailDiv">
+            <input
+              className="emailInput"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="passwordDiv">
+            <input
+              className="passwordInput"
+              type="text"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="passwordDiv">
+            <input
+              className="passwordInput"
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="submitDiv demo" onClick={(e) => handleSubmit(e)}>
+            <p>Sign Up</p>
+          </div>
+          <div className="submitDiv demo" onClick={(e) => handleDemoSubmit(e)}>
+            <p>Demo Sign In</p>
+          </div>
+          <div className="linkToOtherModal">
+            <p className="toOtherModalLabel">Already a Member?</p>
+            <p
+              className="toOtherModalLink"
+              onClick={() => dispatch(showModal("login"))}
+            >
+              Login
+            </p>
+          </div>
+        </form>
     </>
   );
 };

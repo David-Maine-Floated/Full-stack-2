@@ -5,6 +5,8 @@ import { Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createArticle} from "../../src/store/article";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { getArticle } from "../../src/store/article";
 
 const EditArticle = () => {
   const [title, setTitle] = useState("");
@@ -15,16 +17,20 @@ const EditArticle = () => {
   const currentUser = useSelector((state) => state.session.currentUser);
   const errors = useSelector((state) => state.errors.articles);
   const navigate = useNavigate();
+  const params = useParams()
+  // const articleId = useParams({articleId})
+  const article = useSelector(state => state.articles[params.articleId])
 
-//   const articleId = useParams({articleId})
+  useEffect(() => {
+    dispatch(getArticle(params.articleId))
+  }, [dispatch, params])
 
-//   console.log(articleId)
-//   const article = useSelector(state => state.articles[articleId])
-
-
-//   useEffect(() => {
-//     dispatch(getArticle(articleId))
-//   }, [dispatch])
+  useEffect(() => {
+    if(article) {
+      setTitle(article.title || "");
+      setBody(article.body || "");
+    }
+  }, [article]);
 
   useEffect(() => {
     if (title !== "" && body !== "") {

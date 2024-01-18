@@ -21,6 +21,7 @@ export const receiveArticles = articles => {
 
 export const getArticle = (articleId) => async dispatch => {
     try {
+        console.log('ARTICLEID' , articleId)
         let response = await csrfFetch(`/api/articles/${articleId}`)
         let data = await response.json()
         dispatch(receiveArticle(data))
