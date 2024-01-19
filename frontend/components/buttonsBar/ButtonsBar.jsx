@@ -32,7 +32,7 @@ const ButtonsBar = ({article}) => {
           {currentUser.id === article.authorId && (
             <>
               <div className="button">
-                <NavLink className="NavLink" to={`/edit/${article.id}`}>
+                <NavLink className="pleaseNavLink" to={`/edit/${article && article.id}`}>
                   Edit
                 </NavLink>
               </div>

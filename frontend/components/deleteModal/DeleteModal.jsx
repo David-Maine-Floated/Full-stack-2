@@ -18,6 +18,7 @@ const DeleteModal = () => {
 
   const handleDelete = async () => {
       let result = await dispatch(deleteArticle(articleId))
+      dispatch(hideModal())
       if (!result) navigate('/')
      
   }
