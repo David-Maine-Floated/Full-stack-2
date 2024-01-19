@@ -4,7 +4,7 @@ import { useParams, } from "react-router-dom"
 import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
 import ButtonsBar from "../buttonsBar/ButtonsBar"
-
+import { getUser } from "../../src/store/user"
 
 const ArticleDisplay = () => {
     const {articleId} = useParams();
@@ -15,8 +15,8 @@ const ArticleDisplay = () => {
       }, [articleId, dispatch]);
       
     useEffect(() => {
-      
-    })
+        dispatch(getUser(articleId))
+    },[article])
       
       const newArticleBody = (body) => {
         let sentences = body.split("\n")

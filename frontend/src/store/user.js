@@ -22,10 +22,7 @@ export const receiveUser = user => {
 
 
 export const getUser = userId => async dispatch => {
-    let response = await csrfFetch('/api/users', {
-        method: 'GET',
-        body: JSON.stringify(userId)
-    })
+    let response = await csrfFetch(`/api/users/${userId}`)
 
     if (response.ok) {
         let data = await response.json();
@@ -35,16 +32,15 @@ export const getUser = userId => async dispatch => {
     }
 }
 
-// const usersReducer = (state = {}, action) => {
-//     const nextState = {...state}
-//     switch(action.type) {
-//         case RECEIVE_USER: 
-//             nextState[action.user.id] = action.user
-//             return nextState
-//         case REMOVE_USER:
-//             delete nextState[payload.userId]
-//             return nextState 
-//         default: 
-//             return nextState
-//     }
-// }
+const usersReducer = (state = {}, action) => {
+    const nextState = {...state}
+    switch(action.type) {
+        case RECEIVE_USER: 
+            nextState[action.user.id] = action.user
+            return nextState
+        default: 
+            return nextState
+    }
+}
+
+export default usersReducer

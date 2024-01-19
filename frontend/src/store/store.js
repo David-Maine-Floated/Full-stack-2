@@ -4,14 +4,14 @@ import sessionReducer from './session';
 import modalsReducer from './modals';
 import articlesReducer from './article';
 import errorsReducer from './errors';
-
+import usersReducer from './user';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   articles: articlesReducer,
   modal: modalsReducer,
   errors: errorsReducer,
-  // users:
+  users: usersReducer
 });
 
 let enhancer;

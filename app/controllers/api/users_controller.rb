@@ -21,12 +21,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show 
-    debugger
+
     @user = User.find_by(id: params[:id])
     if @user 
       render '/api/users/show'
     else  
       render json: {errors: @user.error.full_messages}, status: :unprocessable_entity
+    end
   end
 
 
