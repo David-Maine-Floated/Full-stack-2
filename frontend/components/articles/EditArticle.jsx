@@ -22,7 +22,7 @@ const EditArticle = () => {
   //why da heeeek
   const articles = useSelector(state => state.articles)
   const article = articles[articleId]
-  console.log('ARTICLE', article)
+
 
 function replaceNewLines(text) {
   // Replace "/n" with an empty line

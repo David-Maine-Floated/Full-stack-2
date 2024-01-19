@@ -7,15 +7,20 @@ import './articleIndex.css'
 const ArticleIndex = () => {
   const dispatch = useDispatch();
   const articles = useSelector((state) => state.articles);
-  useEffect(() => {
+  useEffect( () => {
     dispatch(getArticles());
+    // debugger
+    console.log('IN ARTICLE INDEX', articles)
   }, [dispatch]);
 
 
-
   return (
+
     <div className="articleIndexContainer">
-      {Object.values(articles).map(article => <IndexItem key={article.id} article={article}/>)}
+      {articles && Object.values(articles).map(article => {
+        console.log('IN MAP', article)
+        return <IndexItem key={article.id} article={article} />;
+      })}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const IndexItem = ({article}) => {
   const navigate = useNavigate();
 
+
   const handleNavClick = (e) => {
     e.preventDefault();
     navigate(`article/${article.id}`)

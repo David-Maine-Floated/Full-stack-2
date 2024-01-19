@@ -1,16 +1,16 @@
-// import csrfFetch from "./csrf"
+import csrfFetch from "./csrf"
 // import { loginUser } from "./session"
 
-// const RECEIVE_USER = 'users/RECEIVE_USER'
+const RECEIVE_USER = 'users/RECEIVE_USER'
 // const REMOVE_USER = 'users/RECEIVE_USER'
 
 
-// export const receiveUser = user => {
-//     return {
-//         type: RECEIVE_USER, 
-//         user
-//     }
-// }
+export const receiveUser = user => {
+    return {
+        type: RECEIVE_USER, 
+        user
+    }
+}
 
 // export const removeUser = userId => {
 //     return {
@@ -21,18 +21,19 @@
 
 
 
-// export const createUser = user => async dispatch => {
-//     let response = await csrfFetch('/api/users', {
-//         method: 'POST',
-//         body: JSON.stringify(user)
-//     })
+export const getUser = userId => async dispatch => {
+    let response = await csrfFetch('/api/users', {
+        method: 'GET',
+        body: JSON.stringify(userId)
+    })
 
-//     if (response.ok) {
-//         let data = await response.json();
-//         dispatch(receiveUser(data))  //create user
-//         dispatch(loginUser(data))  //login user
-//     }
-// }
+    if (response.ok) {
+        let data = await response.json();
+        dispatch(receiveUser(data))
+    } else {
+        console.log('NO USER FOUND')
+    }
+}
 
 // const usersReducer = (state = {}, action) => {
 //     const nextState = {...state}

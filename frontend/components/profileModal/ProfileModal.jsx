@@ -7,7 +7,6 @@ const ProfileModal = ({ children}) => {
 
 
   const handleClick = (e) => {
-    console.log(e.traget)
     if (e.target.className === 'profileModal') {
       dispatch(hideModal())
     }

@@ -21,7 +21,6 @@ const errorsReducer = (state = {}, action) => {
     let nextState = {...state}
     switch(action.type) {
         case RECEIVE_ERRORS: 
-            console.log(action.errors)
             nextState = action.errors 
             return nextState;
         case RECEIVE_ARTICLE: 

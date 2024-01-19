@@ -42,9 +42,7 @@ export const getArticle = (articleId) => async dispatch => {
 
 export const getArticles = () => async dispatch => {
         let response = await csrfFetch(`/api/articles`)
-
         let data = await response.json()
-
         dispatch(receiveArticles(data))
 } 
 
@@ -57,7 +55,7 @@ export const createArticle = (article) => async dispatch => {
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveArticle(data));
-            console.log('DATAT', data)
+
             return data.id
         } else {
             throw response; 
@@ -69,7 +67,6 @@ export const createArticle = (article) => async dispatch => {
     }
 }
 export const editArticle = (article) => async dispatch => {
-    console.log('ARTICLE', article)
     try {
         let response = await csrfFetch(`/api/articles/${article.article.id}`, {
             method: 'PATCH',
@@ -78,7 +75,7 @@ export const editArticle = (article) => async dispatch => {
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveArticle(data));
-            console.log('DATAT', data)
+
             return data.id
         } else {
             throw response; 
@@ -119,10 +116,12 @@ const articlesReducer = (state = {}, action) => {
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_ARTICLE: 
-            nextState[action.article.id] = action.article
-            return nextState
+        nextState[action.article.id] = action.article
+        return nextState
         case RECEIVE_ARTICLES:
+            console.log('IN REDUCER', action)
             action.articles.forEach((article) => {
+                // debugger
                 nextState[article.id] = article
             })
             return nextState

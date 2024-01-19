@@ -6,15 +6,19 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-ApplicationRecord.transaction do 
+
+require "open-uri"
+
+# ApplicationRecord.transaction do 
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
+  Article.destroy_all
   User.destroy_all
-
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
-
+  ApplicationRecord.connection.reset_pk_sequence!('articles')
+  
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
@@ -59,7 +63,7 @@ ApplicationRecord.transaction do
 
 
 
-  Article.create!(
+  article_1 = Article.create!(
     title: 'Science proves you can have your cake and eat it too.',
     body: 'In an intriguing revelation that challenges age-old wisdom, scientific exploration has unveiled a profound dimension to the saying, "You can\'t have your cake and eat it too." Recent studies, delving into the fascinating realm of cognitive science, present a nuanced understanding that transcends conventional beliefs. The essence lies in the profound impact that the act of possession, particularly of a delectable cake, exerts on our overall experience.\n
 
@@ -71,7 +75,9 @@ As we navigate the intricacies of desire and fulfillment, science beckons us to 
     author_id: 1
   )
 
-  Article.create!(
+  article_1.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/cake.jpeg"), filename: 'cake.jpeg')
+
+  article_2 = Article.create!(
     title: 'Orange Cats are smarter than you think.',
     body: 'Contrary to popular belief, orange cats boast intelligence beyond  their vibrant fur. Recent studies and feline behavior analyses have unveiled the cognitive prowess of these charming companions. Research indicates that the distinctive orange hue in their coats is linked to a genetic mutation, and intriguingly, this mutation may influence certain neurological traits.
 
@@ -85,7 +91,7 @@ As we navigate the intricacies of desire and fulfillment, science beckons us to 
     author_id: 3
   )
 
-
+  article_2.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/orange-cat.jpeg"), filename: 'orange-cate.jpeg')
 
   puts "Done!"
-end
+# end

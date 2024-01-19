@@ -18,7 +18,6 @@ const SignUpForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('USERNAME', username)
     dispatch(signUpUser({ email, password, username }, setErrors));
 
   }

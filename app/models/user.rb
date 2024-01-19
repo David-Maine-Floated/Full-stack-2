@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   
-
+  has_one_attached :user_photo 
 
 
 

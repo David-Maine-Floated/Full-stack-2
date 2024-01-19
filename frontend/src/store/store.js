@@ -10,7 +10,8 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   articles: articlesReducer,
   modal: modalsReducer,
-  errors: errorsReducer
+  errors: errorsReducer,
+  // users:
 });
 
 let enhancer;

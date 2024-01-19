@@ -14,8 +14,6 @@ const DeleteModal = () => {
   const navigate = useNavigate()
 
 
-  console.log('DELETEMODAL', articleId)
-
   const handleDelete = async () => {
       let result = await dispatch(deleteArticle(articleId))
       dispatch(hideModal())
