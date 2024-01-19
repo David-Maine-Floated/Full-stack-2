@@ -40,6 +40,12 @@ const EditArticle = () => {
       return sentences.join(' ')
   }; 
 
+
+
+  function replaceNewLines(text) {
+    // Replace both single and double newline characters with an empty string
+    return text.replace(/\n/g, "").replace(/\n\n/g, "");
+  }
   
 
   useEffect(() => {
@@ -47,7 +53,7 @@ const EditArticle = () => {
     if (article) {
       setTitle(article.title);
 
-      setBody(newArticleBody(article.body));
+      setBody(newArticleBody(replaceNewLines(article.body)));
     }
   }, [article]);
   
@@ -55,7 +61,7 @@ const EditArticle = () => {
   useEffect(() => {
     dispatch(getArticle(articleId));
 
-  }, [])
+  }, [articleId, dispatch])
 
   useEffect(() => {
     if (title !== "" && body !== "") {

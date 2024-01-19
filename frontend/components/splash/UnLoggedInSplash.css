@@ -9,7 +9,7 @@
     
 }
 
-h2 {
+.splash h2 {
     font-size: 85px;
     margin-bottom: 35px;
     margin-left: 20px;
@@ -17,7 +17,7 @@ h2 {
     font-weight: 400;
 }
 
-h3 {
+.splash h3 {
     font-size: 25px;
     margin-bottom: 35px;
     margin-left: 20px;
