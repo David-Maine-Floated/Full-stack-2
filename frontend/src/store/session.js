@@ -95,7 +95,6 @@ const sessionReducer = (state = {currentUser: null}, action) => {
     const nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER:
-            console.log('SESSION REDUCER', action.payload)
             nextState['currentUser'] = action.payload 
             return nextState
         case REMOVE_USER:

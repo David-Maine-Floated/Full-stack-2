@@ -119,7 +119,6 @@ const articlesReducer = (state = {}, action) => {
         nextState[action.article.id] = action.article
         return nextState
         case RECEIVE_ARTICLES:
-            console.log('IN REDUCER', action)
             action.articles.forEach((article) => {
                 // debugger
                 nextState[article.id] = article

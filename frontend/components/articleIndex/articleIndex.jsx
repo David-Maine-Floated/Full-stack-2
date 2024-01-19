@@ -9,8 +9,7 @@ const ArticleIndex = () => {
   const articles = useSelector((state) => state.articles);
   useEffect( () => {
     dispatch(getArticles());
-    // debugger
-    console.log('IN ARTICLE INDEX', articles)
+
   }, [dispatch]);
 
 
@@ -18,7 +17,6 @@ const ArticleIndex = () => {
 
     <div className="articleIndexContainer">
       {articles && Object.values(articles).map(article => {
-        console.log('IN MAP', article)
         return <IndexItem key={article.id} article={article} />;
       })}
     </div>

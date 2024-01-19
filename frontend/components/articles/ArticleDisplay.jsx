@@ -5,19 +5,32 @@ import './articleDisplay.css'
 import { getArticle } from "../../src/store/article"
 import ButtonsBar from "../buttonsBar/ButtonsBar"
 import { getUser } from "../../src/store/user"
+import DisplayUserBar from "../displayUserBar/DisplayUserBar"
 
 const ArticleDisplay = () => {
     const {articleId} = useParams();
     const dispatch = useDispatch();
     let article = useSelector((state) => state.articles[articleId])
+    let users = useSelector(state => state.users)
+    const user = article ? users[article.authorId] : null;
+
     useEffect(() => {
         dispatch(getArticle(articleId))
       }, [articleId, dispatch]);
-      
+    
+    // if (article) {
+    //   dispatch(getUser(article.authorId));
+    // }
+    
+    
     useEffect(() => {
-        dispatch(getUser(articleId))
+      if(article) {
+       dispatch(getUser(article.authorId))
+      }
     },[article])
       
+
+
       const newArticleBody = (body) => {
         let sentences = body.split("\n")
         sentences = sentences.join('')
@@ -31,18 +44,18 @@ const ArticleDisplay = () => {
         })
       }
       
-      
-      console.log('ARTICLE SHOW PAGE', article)
+      console.log('USER', user)
 
     return (
       <div className="articleDisplayContainer" key={articleId}>
         <div className="articleDisplayTitleDiv">
           <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        { article &&<div className="article imageContainer">
+        {user && <DisplayUserBar user={user}/>}
+        {article && <ButtonsBar article={article} />}
+        {article &&<div className="article imageContainer">
           <img className="image"src={article.photoUrl} alt="" />
         </div>} 
-        {article && <ButtonsBar article={article} />}
         <div className="articleDisplayBodyDiv">
           {article && newArticleBody(article.body)}
         </div>

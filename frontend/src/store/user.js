@@ -28,7 +28,7 @@ export const getUser = userId => async dispatch => {
         let data = await response.json();
         dispatch(receiveUser(data))
     } else {
-        console.log('NO USER FOUND')
+       console.log('cant find user')
     }
 }
 
