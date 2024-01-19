@@ -61,6 +61,29 @@ export const createArticle = (article) => async dispatch => {
         return false
     }
 }
+export const editArticle = (article) => async dispatch => {
+    console.log('ARTICLE', article)
+    try {
+        let response = await csrfFetch(`/api/articles/${article.article.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(article)
+        })
+        if(response.ok) {
+            let data = await response.json();
+            dispatch(receiveArticle(data));
+            console.log('DATAT', data)
+            return data.id
+        } else {
+            throw response; 
+        }
+    } catch (errors){
+        let data = await errors.json()
+        dispatch(receiveArticleErrors(data.errors))
+        return false
+    }
+}
+
+
 
 const articlesReducer = (state = {}, action) => {
     const nextState = {...state}

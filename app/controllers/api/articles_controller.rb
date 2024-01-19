@@ -1,4 +1,5 @@
 class Api::ArticlesController < ApplicationController
+
     before_action :require_logged_in, only: [:create]
 
     def index 
@@ -31,7 +32,7 @@ class Api::ArticlesController < ApplicationController
     end
 
     def update 
-        @article = Article.find_by(id: params[:id])
+        @article = Article.find_by(id: params[:article][:id])
         if @article.update(article_params)
             render '/api/articles/show'
         else  
@@ -45,7 +46,7 @@ private
 
 
     def article_params 
-        params.require(:article).permit(:title, :body, :author_id)
+        params.require(:article).permit(:title, :body, :author_id, :id)
     end
 
 end

@@ -42,7 +42,7 @@
     border-radius: 100px;
 }
 
-.getStartedButton:hover {
+.navbar .getStartedButton:hover {
     cursor: pointer;
 }
 
@@ -57,6 +57,11 @@
     text-decoration: none;
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.NavLink:hover {
+    cursor: pointer !important;
+}
+
 .NavLink:visited {
      color: black;
 }

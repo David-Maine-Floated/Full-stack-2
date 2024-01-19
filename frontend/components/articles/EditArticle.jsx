@@ -3,7 +3,7 @@ import "./writeArticleForm.css";
 import ProfileButton from "../navigation/ProfileButton";
 import { Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createArticle} from "../../src/store/article";
+import { editArticle } from "../../src/store/article";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getArticle } from "../../src/store/article";
@@ -22,38 +22,25 @@ const EditArticle = () => {
   //why da heeeek
   const articles = useSelector(state => state.articles)
   const article = articles[articleId]
+  console.log('ARTICLE', article)
 
+function replaceNewLines(text) {
+  // Replace "/n" with an empty line
+  text = text.replace(/\/n/g, "\n");
 
-  const newArticleBody = (body) => {
-      let sentences = body.split("\n");
-      // return sentences.map((sentence) => {
-      //   if (sentence !== "") {
-      //     return (
-      //       <p key={sentence.id} className="articleDisplayBody">
-      //         {sentence}
-      //       </p>
-      //     );
-      //   } else {
-      //     return <br key={sentence.id}></br>;
-      //   }
-      // });
-      return sentences.join(' ')
-  }; 
+  // Replace "\\n" with an empty line
+  text = text.replace(/\\n/g, "\n");
 
-
-
-  function replaceNewLines(text) {
-    // Replace both single and double newline characters with an empty string
-    return text.replace(/\n/g, "").replace(/\n\n/g, "");
-  }
+  return text;
+}
   
 
   useEffect(() => {
     
     if (article) {
       setTitle(article.title);
-
-      setBody(newArticleBody(replaceNewLines(article.body)));
+      let newBody = replaceNewLines(article.body)
+      setBody(newBody);
     }
   }, [article]);
   
@@ -83,12 +70,8 @@ const EditArticle = () => {
 
   const handleSubmit = async () => {
     let result = await dispatch(
-      createArticle({ article: { title, body, author_id: currentUser.id } })
+      editArticle({ article: { title, body, author_id: currentUser.id, id: article.id } })
     );
-   
-
-
-
 
     if (result) {
       navigate(`/article/${result}`);

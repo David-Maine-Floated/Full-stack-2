@@ -53,3 +53,6 @@ body {
 	font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.NavLink:hover {
+	cursor: pointer;
+}
