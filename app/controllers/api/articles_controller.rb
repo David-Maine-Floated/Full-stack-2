@@ -41,6 +41,16 @@ class Api::ArticlesController < ApplicationController
         end
     end
 
+    def destroy 
+        @article = Article.find_by(id: params[:articleId])
+
+        if @article.delete 
+            render json: 'Article deleted'
+        else  
+            render json: {errors: @aricle.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
     
 private 
 

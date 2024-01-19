@@ -1,0 +1,44 @@
+.deleteModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.deleteModal h1 {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.deleteModal h2 {
+    font-size: 16px;
+    line-height: 24px;
+    color: #6B6B6B;
+}
+
+.deleteButtons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}
+
+.deleteModal .getStartedButton {
+    background-color: white;
+    border: 1px solid black;
+    width: 80px;
+}
+
+.deleteModal .getStartedButton:hover {
+    cursor: pointer;
+}
+
+.deleteModal .getStartedButton.delete {
+    background-color: rgb(201, 74, 74);
+    border: 1px solid rgb(201, 74, 74);
+    color: white;
+}
+
+.deleteModal .getStartedButton.delete:hover {
+        background-color: rgb(169, 54, 54);
+}

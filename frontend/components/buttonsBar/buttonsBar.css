@@ -12,9 +12,16 @@
     width: 60px;
 }
 
+.articleButtonsRight {
+    display: flex;
+    justify-content: space-around;
+    width: 170px;
+}
+
 .button {
     text-decoration: none;
 }
+
 
 .button:hover {
     cursor: pointer;

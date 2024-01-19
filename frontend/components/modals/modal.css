@@ -27,3 +27,8 @@
   width: 600px;
   height: 700px;
 }
+
+.wide .modal-content {
+  width: 900px;
+  height: 700px;
+}

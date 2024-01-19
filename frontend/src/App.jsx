@@ -11,6 +11,8 @@ import WriteArticleForm from "../components/articles/WriteArticleForm";
 import ArticleDisplay from "../components/articles/ArticleDisplay";
 import MainBody from "../components/mainBody/MainBody";
 import EditArticle from "../components/articles/EditArticle";
+import DeleteModal from "../components/deleteModal/DeleteModal";
+
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,12 @@ const router = createBrowserRouter([
       },
       {
         path: `article/:articleId`,
-        element: <ArticleDisplay />,
+        element: (
+          <>
+            <ArticleDisplay />
+            <DeleteModal />
+          </>
+        ),
       },
     ],
   },

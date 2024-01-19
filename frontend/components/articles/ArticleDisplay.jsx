@@ -11,7 +11,7 @@ const ArticleDisplay = () => {
     // const articleId = params.articleId;
     const dispatch = useDispatch();
     let article = useSelector((state) => state.articles[articleId])
-    
+    console.log('ARTICLE DISPLAY', articleId)
     useEffect(() => {
         dispatch(getArticle(articleId))
     }, [articleId, dispatch]);
@@ -29,6 +29,8 @@ const ArticleDisplay = () => {
             }
         })
     }
+
+
 
 
     return (
