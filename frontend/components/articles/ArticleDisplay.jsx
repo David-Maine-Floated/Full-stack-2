@@ -18,7 +18,10 @@ const ArticleDisplay = () => {
     
 
     const newArticleBody = (body) => {
-        let sentences = body.split('\n')
+        let sentences = body.split("\n")
+        sentences = sentences.join('')
+        sentences = sentences.split("\\n")
+        debugger
         return sentences.map(sentence => {
             if(sentence !== '') {
                 return <p key={sentence.id} className="articleDisplayBody">{sentence}</p>;
