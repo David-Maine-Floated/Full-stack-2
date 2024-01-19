@@ -72,26 +72,26 @@ Scientific inquiry reveals that the anticipation and ownership of an indulgent t
 This cognitive perspective sheds light on the intricate interplay between desire, possession, and gratification. It suggests that the joy associated with having the cake in close proximity contributes substantially to the overall delight derived from savoring each decadent bite. Consequently, the familiar phrase "having your cake and eating it too" assumes a new depth, emphasizing the psychological dimensions that profoundly enrich our experiences.\n\n
 
 As we navigate the intricacies of desire and fulfillment, science beckons us to reconsider the conventional dichotomy. It encourages us to embrace a more nuanced perspective within the realm of our desires—one that not only allows us to possess what we cherish but also invites us to relish it to the fullest extent. So, the next time you find yourself hesitating over that tempting slice, remember: science suggests that you can indeed have your cake and relish every nuanced moment of savoring it too.',
-    author_id: 1
+    author_id: 2
   )
 
   article_1.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/cake.jpeg"), filename: 'cake.jpeg')
 
   article_2 = Article.create!(
     title: 'Orange Cats are smarter than you think.',
-    body: 'Contrary to popular belief, orange cats boast intelligence beyond  their vibrant fur. Recent studies and feline behavior analyses have unveiled the cognitive prowess of these charming companions. Research indicates that the distinctive orange hue in their coats is linked to a genetic mutation, and intriguingly, this mutation may influence certain neurological traits.
+    body: 'Contrary to popular belief, orange cats boast intelligence beyond  their vibrant fur. Recent studies and feline behavior analyses have unveiled the cognitive prowess of these charming companions. Research indicates that the distinctive orange hue in their coats is linked to a genetic mutation, and intriguingly, this mutation may influence certain neurological traits.\n
 
-    Orange cats, often associated with affectionate and social behavior, showcase an exceptional ability to adapt and learn. Their intelligence is evident in problem-solving scenarios, with many owners recounting instances of clever maneuvering to access treats or toys. Some studies even suggest that orange cats exhibit a heightened understanding of human emotions, forming deep connections with their owners.
+    Orange cats, often associated with affectionate and social behavior, showcase an exceptional ability to adapt and learn. Their intelligence is evident in problem-solving scenarios, with many owners recounting instances of clever maneuvering to access treats or toys. Some studies even suggest that orange cats exhibit a heightened understanding of human emotions, forming deep connections with their owners.\n
 
-    Furthermore, the genetic basis for their coat color may influence neurological development, contributing to their cognitive agility. Orange cats have been observed displaying a remarkable capacity to remember and navigate through spaces, showcasing an impressive spatial awareness.
+    Furthermore, the genetic basis for their coat color may influence neurological development, contributing to their cognitive agility. Orange cats have been observed displaying a remarkable capacity to remember and navigate through spaces, showcasing an impressive spatial awareness.\n
 
-    The misconception that orange cats are solely known for their warm and friendly demeanor is gradually giving way to a recognition of their intellectual capabilities. Whether engaging in interactive play or solving puzzles, these feline companions display a level of intelligence that surprises even the most seasoned cat enthusiasts.
+    The misconception that orange cats are solely known for their warm and friendly demeanor is gradually giving way to a recognition of their intellectual capabilities. Whether engaging in interactive play or solving puzzles, these feline companions display a level of intelligence that surprises even the most seasoned cat enthusiasts.\n
 
     In essence, orange cats are not only charming with their radiant coats but also possess a keen intellect that sets them apart. As our understanding of feline intelligence evolves, so does the appreciation for the unique qualities that make orange cats stand out as smart, sociable, and endlessly fascinating companions.',
     author_id: 3
   )
 
-  article_2.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/orange-cat.jpeg"), filename: 'orange-cate.jpeg')
+  article_2.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/orangeCat.jpg.webp"), filename: 'orangeCat.jpeg')
 
   puts "Done!"
 # end

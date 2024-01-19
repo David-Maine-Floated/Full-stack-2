@@ -6,7 +6,7 @@
 }
 
 .articleDisplayBodyDiv {
-    width: 50%;
+    width: 40%;
 }
 
 .articleDisplayBody {
@@ -17,7 +17,7 @@
 }
 
 .articleDisplayTitleDiv {
-    width: 50%;
+    width: 40%;
     margin-bottom: 70px;
     margin-top: 40px;
 }
@@ -26,5 +26,9 @@
     font-size: 42px;
     font-weight: 800;
     font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+.article.imageContainer {
+    margin-bottom: 50px;
+
 }
 
