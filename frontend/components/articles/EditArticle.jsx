@@ -17,20 +17,45 @@ const EditArticle = () => {
   const currentUser = useSelector((state) => state.session.currentUser);
   const errors = useSelector((state) => state.errors.articles);
   const navigate = useNavigate();
-  const params = useParams()
-  // const articleId = useParams({articleId})
-  const article = useSelector(state => state.articles[params.articleId])
+  const { articleId } = useParams();
+ 
+  //why da heeeek
+  const articles = useSelector(state => state.articles)
+  const article = articles[articleId]
+
+
+  const newArticleBody = (body) => {
+      let sentences = body.split("\n");
+      // return sentences.map((sentence) => {
+      //   if (sentence !== "") {
+      //     return (
+      //       <p key={sentence.id} className="articleDisplayBody">
+      //         {sentence}
+      //       </p>
+      //     );
+      //   } else {
+      //     return <br key={sentence.id}></br>;
+      //   }
+      // });
+      return sentences.join(' ')
+  }; 
+
+  
 
   useEffect(() => {
-    dispatch(getArticle(params.articleId))
-  }, [dispatch, params])
+    
+    if (article) {
+      setTitle(article.title);
 
-  useEffect(() => {
-    if(article) {
-      setTitle(article.title || "");
-      setBody(article.body || "");
+      setBody(newArticleBody(article.body));
     }
   }, [article]);
+  
+  
+  useEffect(() => {
+    dispatch(getArticle(articleId));
+
+  }, [])
 
   useEffect(() => {
     if (title !== "" && body !== "") {
@@ -54,6 +79,10 @@ const EditArticle = () => {
     let result = await dispatch(
       createArticle({ article: { title, body, author_id: currentUser.id } })
     );
+   
+
+
+
 
     if (result) {
       navigate(`/article/${result}`);
@@ -92,6 +121,7 @@ const EditArticle = () => {
           cols="39"
           rows="2"
           onChange={(e) => setTitle(e.target.value)}
+          value={title}
         />
         <textarea
           className="formBodyText"
@@ -99,6 +129,7 @@ const EditArticle = () => {
           cols="77"
           rows="15"
           onChange={(e) => setBody(e.target.value)}
+          value={body}
         />
       </div>
     </div>

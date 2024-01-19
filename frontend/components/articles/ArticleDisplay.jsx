@@ -7,8 +7,8 @@ import ButtonsBar from "../buttonsBar/ButtonsBar"
 
 
 const ArticleDisplay = () => {
-    const params = useParams();
-    const articleId = params.articleId;
+    const {articleId} = useParams();
+    // const articleId = params.articleId;
     const dispatch = useDispatch();
     let article = useSelector((state) => state.articles[articleId])
     
