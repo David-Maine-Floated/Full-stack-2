@@ -1,18 +1,18 @@
-
+import './displayUserBar.css'
 
 
 
 const DisplayUserBar = ({user}) => {
 
-    console.log('HIIII',user)
-
-
     return ( 
         <div className="userBar">
-            <div className="userPhoto">PHOTO</div>
-            <div className="userName">
-            {user.username}
+            <div className="left">
+                <div className="userPhoto">PHOTO</div>
+                <div className="userName">
+                {user.username}
+                </div>
             </div>
+            <div className="right"></div>
         </div>
     )
 }

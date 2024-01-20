@@ -54,7 +54,7 @@ const ArticleDisplay = () => {
         {user && <DisplayUserBar user={user}/>}
         {article && <ButtonsBar article={article} />}
         {article &&<div className="article imageContainer">
-          <img className="image"src={article.photoUrl} alt="" />
+          <img className="displayImage"src={article.photoUrl} alt="" />
         </div>} 
         <div className="articleDisplayBodyDiv">
           {article && newArticleBody(article.body)}

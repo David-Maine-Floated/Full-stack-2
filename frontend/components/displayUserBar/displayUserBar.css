@@ -1,0 +1,20 @@
+.userBar {
+    display: flex; 
+    height: 60px;
+    width: 40%;
+    justify-content: space-between;
+    /* border: purple solid black; */
+}
+
+.userBar .left {
+    /* border: black solid 1px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 175px;
+}
+
+.userBar .right {
+    width: 200px;
+    /* border: red solid 1px; */
+}
