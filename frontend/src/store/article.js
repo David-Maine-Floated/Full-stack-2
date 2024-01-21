@@ -120,7 +120,6 @@ const articlesReducer = (state = {}, action) => {
         return nextState
         case RECEIVE_ARTICLES:
             action.articles.forEach((article) => {
-                // debugger
                 nextState[article.id] = article
             })
             return nextState

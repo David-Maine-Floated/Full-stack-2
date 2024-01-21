@@ -26,7 +26,7 @@ if (import.meta.env.MODE === 'production') {
 
 
 
-function configureStore(preloadedState) {
+function configureStore(preloadedState = {}) {
     return createStore(rootReducer, preloadedState, enhancer)
 }
 

@@ -22,7 +22,7 @@ const LoginForm = () => {
       dispatch(loginUser({email: 'Demo@hello.com', password: 'password'}))
     }
  
-    if (sessionUser) return <Navigate to="/" replace={true} />;
+    if (sessionUser.user) return <Navigate to="/" replace={true} />;
    
 
 

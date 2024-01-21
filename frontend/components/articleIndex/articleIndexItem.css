@@ -78,7 +78,7 @@
 }
 
 .indexItem .indexImage:hover {
-    cursor: pointer;
+cursor: pointer;
 }
 
 .indexItem .createdAt {

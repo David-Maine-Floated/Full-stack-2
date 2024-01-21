@@ -15,21 +15,10 @@ const ArticleIndex = () => {
     dispatch(getUsers())
   }, [dispatch]);
   
-  // let author; 
-  // if(users) {
-  //   author = users[article.authorId]
-  // }
-
-  // console.log('AUTHOR', author)
-  // const getAuthor = (article, author)=> {
-  //   return users[article.authorId]
-  // }
   return (
 
     <div className="articleIndexContainer">
       {articles && Object.values(articles).map(article => {
-        console.log('ARTICLE IDNEX', article.authorId)
-        console.log('USER IN INDEX', users[article.authorId - 1])
         return <IndexItem key={article.id} article={article} author={users[article.authorId]} />;
       })}
     </div>

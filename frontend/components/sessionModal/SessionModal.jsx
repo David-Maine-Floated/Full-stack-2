@@ -8,7 +8,7 @@ const SessionModal = () => {
   const modal = useSelector((state) => state.modal);
   const currentUser = useSelector((state) => state.session.currentUser);
 
-  if (currentUser) return null;
+  if (currentUser.user) return null;
   if (!modal.type) return null;
 
   return (

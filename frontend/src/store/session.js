@@ -1,21 +1,21 @@
 import csrfFetch, { storeCSRFToken } from "./csrf";
 
 
-const RECEIVE_USER = 'session/RECEIVE_USER';
-const REMOVE_USER = "session/REMOVE_USER";
+const RECEIVE_SESSION_USER = 'session/RECEIVE_USER';
+const REMOVE_SESSION_USER = "session/REMOVE_USER";
 
 
-export const receiveUser = user => {
-   
+export const receiveSessionUser = user => {
+
     return {
-        type: RECEIVE_USER, 
-        payload: user 
+        type: RECEIVE_SESSION_USER, 
+        user
     }
 }
 
-export const removeUser = userId => {
+export const removeSessionUser = userId => {
     return {
-        type: REMOVE_USER,
+        type: REMOVE_SESSION_USER,
         userId
     }
 }
@@ -33,7 +33,7 @@ export const signUpUser = (user, setErrors) => async dispatch => {
         })
     
         let data = await response.json();
-        dispatch(receiveUser(data))  //create user
+        dispatch(receiveSessionUser(data))  //create user
 
         
     } catch (errors) {
@@ -48,9 +48,10 @@ export const logoutUser = () => async dispatch => {
     let res = await csrfFetch('/api/session', {
         method: "DELETE"
     })
+    let response = res.json()
 
     sessionStorage.setItem('currentUser', null);
-    if (res.ok) dispatch(removeUser());
+    if (res.ok) dispatch(removeSessionUser());
     return res
 
 }
@@ -60,7 +61,7 @@ export const restoreSession = () => async (dispatch) => {
     storeCSRFToken(response)
     if (response.ok) {
         const data = await response.json();
-        dispatch(receiveUser(data));
+        dispatch(receiveSessionUser(data));
     }
     return response;
 }
@@ -69,19 +70,20 @@ export const restoreSession = () => async (dispatch) => {
 
 
 export const loginUser = (user, setErrors) => async dispatch => {
-
+   
     try {
         let response = await csrfFetch('/api/session', {
             method: "POST",
             body: JSON.stringify(user)
         })
 
-
         let data = await response.json()
+        console.log('LOGIN USER'), data
         sessionStorage.setItem('currentUser', JSON.stringify(data.user))
-        dispatch(receiveUser(data))
+        dispatch(receiveSessionUser(data))
 
     } catch (error){
+
             let data = await error.json()
             setErrors(data.errors)
     }
@@ -90,15 +92,16 @@ export const loginUser = (user, setErrors) => async dispatch => {
 
 
 
-const sessionReducer = (state = {currentUser: null}, action) => {
+const sessionReducer = (state = {currentUser: {user:null}}, action) => {
 
     const nextState = {...state}
+    console.log('Action', action)
     switch(action.type) {
-        case RECEIVE_USER:
-            nextState['currentUser'] = action.payload 
+        case RECEIVE_SESSION_USER:
+            nextState['currentUser'] = action.user
             return nextState
-        case REMOVE_USER:
-            return { ...nextState, currentUser: null }
+        case REMOVE_SESSION_USER:
+            return { currentUser: {user: null} }
         default : 
             return nextState;
     }

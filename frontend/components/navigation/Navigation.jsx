@@ -17,13 +17,13 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
   //if logged in:
-
+  
   const handleLogOut = () => {
     dispatch(hideModal())
     dispatch(logoutUser())
   }
 
-  if (currentUser) return (
+  if (currentUser.user) return (
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
         <div className="leftside">SEARCH</div>
@@ -45,7 +45,8 @@ const Navigation = () => {
     </>
   );
   // if not logged in:
-  if (!currentUser) return (
+  if (!currentUser.user) {
+    return (
     <>
       <div className="navbar">
         <div className="leftside">
@@ -77,7 +78,7 @@ const Navigation = () => {
       <Outlet />
     </>
   );
-
+  }
 };
 
 export default Navigation;

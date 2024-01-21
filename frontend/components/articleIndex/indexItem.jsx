@@ -18,7 +18,6 @@ const IndexItem = ({article, author}) => {
     originalDate
   );
   
-  console.log('ARTICLE', article)
 
     return (
       <div className="indexItem">

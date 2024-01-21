@@ -6,7 +6,8 @@ const UnLoggedInSplash = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
 
-  if (currentUser) return null;
+  if (currentUser.user) return null;
+
   return (
     <>
       <div className="splash">
