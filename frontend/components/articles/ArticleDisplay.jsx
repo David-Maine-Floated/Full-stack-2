@@ -47,7 +47,7 @@ const ArticleDisplay = () => {
         <div className="articleDisplayTitleDiv">
           <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        {user && <DisplayUserBar user={user}/>}
+        {user && <DisplayUserBar user={user} article={article}/>}
         {article && <ButtonsBar article={article} />}
         {article &&<div className="article imageContainer">
           <img className="displayImage"src={article.photoUrl} alt="" />
