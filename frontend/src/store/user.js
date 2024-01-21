@@ -46,9 +46,8 @@ export const getUsers = () => async dispatch => {
     if (response.ok) {
         let data = await response.json();
         dispatch(receiveUsers(data))
-        console.log('THUNK', data)
     } else {
-       console.log('cant find user')
+        
     }
 }
 
@@ -57,11 +56,14 @@ const usersReducer = (state = {}, action) => {
     let nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER: 
-            debugger
             nextState[action.user.id] = action.user
             return nextState
         case RECEIVE_USERS:
-            nextState = action.users
+            action.users.forEach(user => {
+                nextState[user.id] = user
+            })
+            return nextState
+
         default: 
             return nextState
     }

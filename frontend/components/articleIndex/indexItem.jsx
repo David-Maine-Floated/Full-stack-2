@@ -5,21 +5,22 @@ import { useNavigate } from 'react-router-dom';
 const IndexItem = ({article, author}) => {
   const navigate = useNavigate();
 
-  console.log('INDEX ITEM', author)
   const handleNavClick = (e) => {
     e.preventDefault();
     navigate(`article/${article.id}`)
   }
-
+  
     return (
       <div className="indexItemContainer">
-        <div className="userPhotoContainer">
-          <img className="userPhoto" src={author && author.photoUrl} alt="" />
-        </div>
-        <div className="indexItemAuthorNameDiv">
-          <span className="indexItemAuthorName">
-            {author && author.username}
-          </span>
+        <div className="userBarIndex">
+          <div className="userPhotoContainer">
+            <img className="userPhoto" src={author && author.photoUrl} alt="" />
+          </div>
+          <div className="indexItemAuthorNameDiv">
+            <span className="indexItemAuthorName">
+              {author && author.username}
+            </span>
+          </div>
         </div>
         <div className="indexItemTitleDiv" onClick={handleNavClick}>
           <h2 className="indexItemTitle">{article.title}</h2>

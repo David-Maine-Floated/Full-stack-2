@@ -18,10 +18,6 @@ const ArticleDisplay = () => {
         dispatch(getArticle(articleId))
       }, [articleId, dispatch]);
     
-    // if (article) {
-    //   dispatch(getUser(article.authorId));
-    // }
-    
     
     useEffect(() => {
       if(article) {

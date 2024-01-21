@@ -3,7 +3,6 @@ import './displayUserBar.css'
 
 
 const DisplayUserBar = ({user}) => {
-
     return ( 
         <div className="userBar">
             <div className="left">
