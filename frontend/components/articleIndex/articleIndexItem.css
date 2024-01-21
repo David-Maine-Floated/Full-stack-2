@@ -1,12 +1,16 @@
+.indexItem {
+    display: flex;
+
+}
+
 .indexItemContainer {
-    width: 100%;
+    /* width: 100%; */
     height: 250px;
     border-top: .5px rgba(221, 221, 221, 0.8) solid;
     border-bottom: .5px rgba(221, 221, 221, 0.8) solid; 
     display: flex;
     flex-direction: column;
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* margin-left: 250px; */
 }
 
 .indexItemAuthorNameDiv {
@@ -58,3 +62,27 @@
 }
 
 
+.index.imageContainer {
+    /* border: black solid 1px; */
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: .5px rgba(221, 221, 221, 0.8) solid;
+    border-bottom: .5px rgba(221, 221, 221, 0.8) solid;
+}
+
+.indexItem .indexImage {
+    width: 125px;
+    height: 100px;
+}
+
+.indexItem .indexImage:hover {
+    cursor: pointer;
+}
+
+.indexItem .createdAt {
+    margin-left: 5px;
+    color: #6B6B6B;
+    font-size: 16px;
+}

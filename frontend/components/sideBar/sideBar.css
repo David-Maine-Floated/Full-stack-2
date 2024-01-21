@@ -2,4 +2,6 @@
 
 .sideBarContainer {
     width: 40%;
+    border-top: .5px rgba(221, 221, 221, 0.8) solid;
+    border-left: .5px rgba(221, 221, 221, 0.8) solid;
 }
