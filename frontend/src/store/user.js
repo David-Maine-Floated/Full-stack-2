@@ -2,6 +2,7 @@ import csrfFetch from "./csrf"
 // import { loginUser } from "./session"
 
 const RECEIVE_USER = 'users/RECEIVE_USER'
+const RECEIVE_USERS = 'users/RECEIVE_USERS'
 // const REMOVE_USER = 'users/RECEIVE_USER'
 
 
@@ -9,6 +10,13 @@ export const receiveUser = user => {
     return {
         type: RECEIVE_USER, 
         user
+    }
+}
+
+export const receiveUsers = users => {
+    return {
+        type: RECEIVE_USERS, 
+        users
     }
 }
 
@@ -28,16 +36,32 @@ export const getUser = userId => async dispatch => {
         let data = await response.json();
         dispatch(receiveUser(data))
     } else {
+
+    }
+}
+
+export const getUsers = () => async dispatch => {
+    let response = await csrfFetch(`/api/users`)
+
+    if (response.ok) {
+        let data = await response.json();
+        dispatch(receiveUsers(data))
+        console.log('THUNK', data)
+    } else {
        console.log('cant find user')
     }
 }
 
+
 const usersReducer = (state = {}, action) => {
-    const nextState = {...state}
+    let nextState = {...state}
     switch(action.type) {
         case RECEIVE_USER: 
+            debugger
             nextState[action.user.id] = action.user
             return nextState
+        case RECEIVE_USERS:
+            nextState = action.users
         default: 
             return nextState
     }

@@ -44,7 +44,6 @@ const ArticleDisplay = () => {
         })
       }
       
-      console.log('USER', user)
 
     return (
       <div className="articleDisplayContainer" key={articleId}>

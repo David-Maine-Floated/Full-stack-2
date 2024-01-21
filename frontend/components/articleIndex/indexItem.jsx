@@ -2,10 +2,10 @@
 import './articleIndexItem.css'
 import { useNavigate } from 'react-router-dom';
 
-const IndexItem = ({article}) => {
+const IndexItem = ({article, author}) => {
   const navigate = useNavigate();
 
-
+  console.log('INDEX ITEM', author)
   const handleNavClick = (e) => {
     e.preventDefault();
     navigate(`article/${article.id}`)
@@ -13,8 +13,13 @@ const IndexItem = ({article}) => {
 
     return (
       <div className="indexItemContainer">
+        <div className="userPhotoContainer">
+          <img className="userPhoto" src={author && author.photoUrl} alt="" />
+        </div>
         <div className="indexItemAuthorNameDiv">
-          <span className="indexItemAuthorName">Author name</span>
+          <span className="indexItemAuthorName">
+            {author && author.username}
+          </span>
         </div>
         <div className="indexItemTitleDiv" onClick={handleNavClick}>
           <h2 className="indexItemTitle">{article.title}</h2>

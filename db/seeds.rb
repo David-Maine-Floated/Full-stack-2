@@ -21,44 +21,64 @@ require "open-uri"
   
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+  user1 = User.create!(
     email: 'Demo@hello.com', 
     password: 'password',
     username: 'Big Shot Demo Guy'
   )
 
-  User.create!(
+  user1.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-1.jpeg"), filename: 'user-1.jpeg')
+
+  user2 = User.create!(
     email: 'ScienceGuy@hello.com', 
     password: 'password',
     username: 'Albert Black'
   )
 
-  User.create!(
+  user2.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-2.jpeg"), filename: 'user-2.jpeg')
+
+
+  user3 = User.create!(
     email: 'MrChipper@hello.com', 
     password: 'password',
-    username: 'Samantha T.'
+    username: 'Big Timmy.'
   )
 
-  User.create!(
+  user3.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-3.jpeg"), filename: 'user-2.jpeg')
+
+
+  user4 = User.create!(
     email: 'FlatEarther@truth.com', 
     password: 'password',
     username: 'Gamer Queen'
   )
-  User.create!(
+
+  user4.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/images.png"), filename: 'images.jpeg')
+
+  user5 = User.create!(
     email: 'BaldingButHappy@StillManly.gov', 
     password: 'password',
     username: "Proud Father"
   )
-  User.create!(
+
+  user5.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-5.jpeg"), filename: 'user-5.jpeg')
+
+
+
+  user6 = User.create!(
     email: 'JoeBigWheels@flowers.com', 
     password: 'password',
     username: 'Billy Tobacco'
   )
-  User.create!(
+
+  user6.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-6.png"), filename: 'user-6.jpeg')
+
+  user7 = User.create!(
     email: 'NotMyPresident@truth.com', 
     password: 'password',
     username: 'Sarah White'
   )
+  user7.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-7.jpeg"), filename: 'user-7.jpeg')
 
 
 
