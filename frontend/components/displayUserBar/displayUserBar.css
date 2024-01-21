@@ -33,6 +33,13 @@
     width: 30px;
 }
 
+.userBar .userPhoto {
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+}
+
+
 .userBarIndex {
     display: flex;
     align-items: center;
