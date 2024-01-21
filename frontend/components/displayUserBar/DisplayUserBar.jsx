@@ -3,6 +3,9 @@ import './displayUserBar.css'
 
 
 const DisplayUserBar = ({user}) => {
+
+    console.log(user)
+
     return ( 
         <div className="userBar">
             <div className="left">

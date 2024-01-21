@@ -25,6 +25,7 @@ const ArticleDisplay = () => {
       }
     },[article])
       
+      // console.log('USER', users)
 
 
       const newArticleBody = (body) => {
