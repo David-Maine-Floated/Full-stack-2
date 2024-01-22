@@ -1,4 +1,4 @@
-
+import { readTime } from '../../helperMethods/readTime';
 import './articleIndexItem.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const IndexItem = ({article, author}) => {
     navigate(`article/${article.id}`)
   }
 
-
+  const readingTime = readTime(article.body)
   const originalDate = new Date(article.createdAt);
 
   const options = { year: "numeric", month: "short", day: "numeric" };
@@ -26,7 +26,7 @@ const IndexItem = ({article, author}) => {
             <div className="userPhotoContainer">
               <img
                 className="userPhoto"
-                src={author && author.photoUrl}
+                src={author && (author.photoUrl || '../../../default-user.jpg' )}
                 alt=""
               />
             </div>
@@ -50,7 +50,7 @@ const IndexItem = ({article, author}) => {
           <div className="indexItemFooter">
             <div className="indexItemFooterLeftDiv">
               <span className="indexItemFooterSpan">Topic</span>
-              <span className="indexItemFooterSpan">8 Minute Read</span>
+              <span className="indexItemFooterSpan">{`${readingTime}` + " Minute Read"} </span>
             </div>
             <div className="indexItemFooterRightDiv">
               <span className="indexItemFooterSpan">Save Icon</span>
