@@ -71,8 +71,6 @@ const Navigation = () => {
               Get Started
             </Link>
           </div>
-
-          {currentUser && <ProfileButton currentUser={currentUser} />}
         </div>
       </div>
       <Outlet />

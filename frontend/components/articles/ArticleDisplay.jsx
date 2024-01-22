@@ -25,7 +25,7 @@ const ArticleDisplay = () => {
       }
     },[article])
       
-      // console.log('USER', users)
+      console.log('USER', article)
 
 
       const newArticleBody = (body) => {
@@ -47,11 +47,18 @@ const ArticleDisplay = () => {
         <div className="articleDisplayTitleDiv">
           <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        {user && <DisplayUserBar user={user} article={article}/>}
+        {user && <DisplayUserBar user={user} article={article} />}
         {article && <ButtonsBar article={article} />}
-        {article &&<div className="article imageContainer">
-          <img className="displayImage"src={article.photoUrl} alt="" />
-        </div>} 
+        {article && (
+          <div className="article imageContainer">
+            <img
+              className="displayImage"
+              src={
+                article.photoUrl}
+              alt=""
+            />
+          </div>
+        )}
         <div className="articleDisplayBodyDiv">
           {article && newArticleBody(article.body)}
         </div>

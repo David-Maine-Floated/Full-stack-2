@@ -34,7 +34,7 @@ const SignUpForm = () => {
   }
 
 
-  if (sessionUser) return <Navigate to="/" replace={true} />;
+  if (sessionUser.user) return <Navigate to="/" replace={true} />;
   return (
     <>
         <div className="closeDiv">

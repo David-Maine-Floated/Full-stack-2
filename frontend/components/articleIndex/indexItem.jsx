@@ -57,9 +57,17 @@ const IndexItem = ({article, author}) => {
             </div>
           </div>
         </div>
-          <div className="index imageContainer">
-            <img onClick={handleNavClick} className="indexImage" src={article.photoUrl} alt="" />
-          </div>
+        <div className="index imageContainer">
+          <img
+            onClick={handleNavClick}
+            className="indexImage"
+            src={
+              article.photoUrl ||
+              "../../default-user.jpg"
+            }
+            alt=""
+          />
+        </div>
       </div>
     );
 }
