@@ -111,3 +111,8 @@
 .articleHeaderRight {
     margin-right: 15px;
 }
+
+.imagePreview {
+    height: 200px;
+    margin: 5px;
+}

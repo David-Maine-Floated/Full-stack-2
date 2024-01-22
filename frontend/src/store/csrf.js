@@ -1,11 +1,11 @@
 
 
-const csrfFetch = async (url, options = {}) => {
+const csrfFetch = async (url, options = {}, isJson = true ) => {
     options.method ||= 'GET';
     options.headers ||= {};
 
     if (options.method.toUpperCase() !== 'GET') {
-        options.headers['Content-Type'] = 'application/json';
+        if(isJson) options.headers['Content-Type'] = 'application/json';
         options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
     }
     

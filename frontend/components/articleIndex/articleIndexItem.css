@@ -4,7 +4,8 @@
 }
 
 .indexItemContainer {
-    /* width: 100%; */
+    /* width: 600px; */
+    width: 600px;
     height: 250px;
     border-top: .5px rgba(221, 221, 221, 0.8) solid;
     border-bottom: .5px rgba(221, 221, 221, 0.8) solid; 
@@ -85,4 +86,10 @@ cursor: pointer;
     margin-left: 5px;
     color: #6B6B6B;
     font-size: 16px;
+}
+
+.indexItem .userPhoto {
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
 }

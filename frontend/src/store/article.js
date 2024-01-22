@@ -47,11 +47,12 @@ export const getArticles = () => async dispatch => {
 } 
 
 export const createArticle = (article) => async dispatch => {
+
     try {
         let response = await csrfFetch(`/api/articles`, {
             method: 'POST',
-            body: JSON.stringify(article)
-        })
+            body: article
+        }, false)
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveArticle(data));
@@ -70,8 +71,8 @@ export const editArticle = (article) => async dispatch => {
     try {
         let response = await csrfFetch(`/api/articles/${article.article.id}`, {
             method: 'PATCH',
-            body: JSON.stringify(article)
-        })
+            body: article
+        }, false)
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveArticle(data));

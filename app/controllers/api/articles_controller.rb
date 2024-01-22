@@ -8,6 +8,7 @@ class Api::ArticlesController < ApplicationController
 
 
     def create 
+        debugger
         @article = Article.new(article_params)
         if @article.save 
             render '/api/articles/show'
@@ -56,7 +57,7 @@ private
 
 
     def article_params 
-        params.require(:article).permit(:title, :body, :author_id, :id)
+        params.require(:article).permit(:title, :body, :author_id, :id, :photo, :authorId)
     end
 
 end
