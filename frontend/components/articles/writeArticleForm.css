@@ -4,12 +4,15 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+
 }
 
 .articleFormContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid black;
+    height: 1000px;
 }
 
 .articleHeader {
@@ -115,4 +118,9 @@
 .imagePreview {
     height: 200px;
     margin: 5px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
 }

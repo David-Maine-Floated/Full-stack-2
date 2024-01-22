@@ -119,7 +119,6 @@ const WriteArticleForm = () => {
           )}
         </div>
         <div className="errors">{errors}</div>
-        <form action="">
           <textarea
             className="formTitleText"
             placeholder="Title"
@@ -136,6 +135,7 @@ const WriteArticleForm = () => {
           />
           {preview}
           <span>Hellooo</span>
+        <form action="">
           <input type="file" onChange={handleFile} />
         </form>
       </div>
