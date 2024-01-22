@@ -5,13 +5,15 @@ import modalsReducer from './modals';
 import articlesReducer from './article';
 import errorsReducer from './errors';
 import usersReducer from './user';
+import clapsReducer from './claps';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   articles: articlesReducer,
   modal: modalsReducer,
   errors: errorsReducer,
-  users: usersReducer
+  users: usersReducer,
+  claps: clapsReducer
 });
 
 let enhancer;
