@@ -4,14 +4,16 @@
     justify-content: space-between;
     height: 75px;
     background-color: rgba(255, 194, 0, 1);
-
 }
+
+
 
 
 .navbar.loggedIn {
     height: 50px;
     background-color: white;
     border-bottom: none;
+    color: #6B6B6B;
 } 
 
 .rightside {
@@ -104,3 +106,6 @@
     color: black;
 }
 
+.NavLink.unLogged {
+    color: black;
+}

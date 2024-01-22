@@ -53,11 +53,11 @@ const Navigation = () => {
           <p className="maineum">Maineum</p>
         </div>
         <div className="rightside">
-          <NavLink className="NavLink" to="/">
+          <NavLink className="NavLink unLogged" to="/">
             Home
           </NavLink>
           <NavLink
-            className="NavLink"
+            className="NavLink unLogged"
             to="/"
             onClick={() => dispatch(showModal("login"))}
           >

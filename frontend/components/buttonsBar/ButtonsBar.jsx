@@ -16,9 +16,11 @@ const ButtonsBar = ({article}) => {
         setClapActive(true)
         setTimeout(() => {
             setClapActive(false);
-        }, 2000)
+        }, 250)
         
     }
+
+    if (!currentUser.user) return null
 
     return (
       <div className="articleButtons">
