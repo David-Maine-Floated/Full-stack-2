@@ -33,12 +33,13 @@ export const getClaps = (articleId) => async dispatch => {
         if(response.ok) {
             let data = await response.json();
             dispatch(receiveClaps(data))
+            return true 
         } else {
             throw response 
         }
     } catch (errors) {
         let data = await errors.json()
-        console.log(data)
+        return false;
     }
 }
 

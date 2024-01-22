@@ -5,19 +5,26 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { hideModal, showModal } from "../../src/store/modals";
+import { createClap } from "../../src/store/claps";
 
 const ButtonsBar = ({article}) => {
     const [clapActive, setClapActive] = useState(false)
+    const [clapped, setClapped] = useState(false )
     const currentUser = useSelector(state => state.session.currentUser)
     const dispatch = useDispatch()
 
 
-    const handleClap = () => {
-        setClapActive(true)
-        setTimeout(() => {
-            setClapActive(false);
-        }, 250)
-        
+    // const handleClap = () => {
+    //     setClapActive(true)
+    //     setTimeout(() => {
+    //         setClapActive(false);
+    //     }, 250) 
+    // }
+
+    const addClap = async () => {
+      let result = await dispatch(createClap({article_id: article.id, liker_id: currentUser.user.id}))
+      if(result) setClapped(true)
+      
     }
 
     if (!currentUser.user) return null
@@ -25,7 +32,7 @@ const ButtonsBar = ({article}) => {
     return (
       <div className="articleButtons">
         <div className="aritcleButtonsLeft">
-          <div className="button" onClick={() => handleClap()}>
+          <div className="button" onClick={addClap}>
             {clapActive ? <ActiveClapButton /> : <ClapButton />}
           </div>
           <span>100</span>

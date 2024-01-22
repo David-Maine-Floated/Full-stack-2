@@ -47,7 +47,7 @@ const ArticleDisplay = () => {
           }
         })
       }
-      
+  
 
     return (
       <div className="articleDisplayContainer" key={articleId}>

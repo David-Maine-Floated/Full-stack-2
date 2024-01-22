@@ -4,6 +4,7 @@ class Api::ClapsController < ApplicationController
     def create 
         @clap = Clap.new(clap_params)
         if @clap.save 
+            console.log('CLAP SAVED!')
             render '/api/claps/show'
         else  
             render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
@@ -27,7 +28,7 @@ class Api::ClapsController < ApplicationController
 
 private 
     
-    def article_params 
+    def clap_params 
         params.require(:clap).permit(:liker_id, :artilce_id)
     end
 
