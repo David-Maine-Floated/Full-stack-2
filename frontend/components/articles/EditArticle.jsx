@@ -18,6 +18,14 @@ const EditArticle = () => {
   const errors = useSelector((state) => state.errors.articles);
   const navigate = useNavigate();
   const { articleId } = useParams();
+  const [image, setImage] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(null); 
+
+  const [imageTypeError, setImageTypeError] = useState(false);
+  const validFileTypes = ["image/jpeg", "image/jpg", "image/png"];
+
+
+
  
   //why da heeeek
   const articles = useSelector(state => state.articles)
@@ -41,6 +49,9 @@ function replaceNewLines(text) {
       setTitle(article.title);
       let newBody = replaceNewLines(article.body)
       setBody(newBody);
+      setImage(article.image)
+      console.log('IMAGE',article.photoUrl)
+      setPhotoUrl(article.photoUrl)
     }
   }, [article]);
   
@@ -68,15 +79,44 @@ function replaceNewLines(text) {
     setShowToolTip(false);
   };
 
-  const handleSubmit = async () => {
-    let result = await dispatch(
-      editArticle({ article: { title, body, author_id: currentUser.id, id: article.id } })
-    );
+  const handleSubmit = async (e) => {
+    console.log(currentUser);
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("article[title]", title);
+    formData.append("article[body]", body);
+    formData.append("article[author_id]", currentUser.user.id);
+    formData.append('article[id]', article.id)
+
+    if (image) {
+      formData.append("article[photo]", image);
+    }
+    let result = await dispatch(editArticle(formData));
 
     if (result) {
       navigate(`/article/${result}`);
     }
   };
+
+  console.log("ERRORS", errors);
+
+  const handleFile = (e) => {
+    let file = e.target.files[0];
+    if (validFileTypes.find((type) => type === file.type)) {
+      setImage(file);
+      setImageTypeError(false);
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => setPhotoUrl(fileReader.result);
+    } else {
+      setImageTypeError(true);
+      setPhotoUrl(null);
+    }
+  };
+
+  let preview = null;
+  if (photoUrl) preview = <img src={photoUrl} className="imagePreview" />;
+
 
   return (
     <div className="writeArticleContainer">
@@ -120,6 +160,10 @@ function replaceNewLines(text) {
           onChange={(e) => setBody(e.target.value)}
           value={body}
         />
+        {preview}
+        <form action="">
+          <input type="file" onChange={handleFile} />
+        </form>
       </div>
     </div>
   );

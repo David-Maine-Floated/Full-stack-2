@@ -33,5 +33,9 @@
 .pleaseNavLink:visited {
     color: black;
     text-decoration: none;
+}
 
+.articleButtons .NavLink {
+    color: black;
+    text-decoration: black;
 }

@@ -29,10 +29,10 @@ const ButtonsBar = ({article}) => {
           <span>100</span>
         </div>
         <div className="articleButtonsRight">
-          {currentUser.id === article.authorId && (
+          {currentUser.user.id === article.authorId && (
             <>
               <div className="button">
-                <NavLink className="pleaseNavLink" to={`/edit/${article && article.id}`}>
+                <NavLink className="NavLink" to={`/edit/${article && article.id}`}>
                   Edit
                 </NavLink>
               </div>

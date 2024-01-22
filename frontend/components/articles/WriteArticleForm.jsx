@@ -57,11 +57,10 @@ const WriteArticleForm = () => {
     formData.append("article[body]", body);
     formData.append('article[author_id]', currentUser.user.id)
 
+
     if (image) {
       formData.append("article[photo]", image);
     }
-    console.log(title, body, image);
-    console.log("formData", formData);
     let result = await dispatch(createArticle(formData));
 
     if (result) {
@@ -134,7 +133,6 @@ const WriteArticleForm = () => {
             onChange={(e) => setBody(e.target.value)}
           />
           {preview}
-          <span>Hellooo</span>
         <form action="">
           <input type="file" onChange={handleFile} />
         </form>
