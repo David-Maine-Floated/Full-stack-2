@@ -50,7 +50,6 @@ function replaceNewLines(text) {
       let newBody = replaceNewLines(article.body)
       setBody(newBody);
       setImage(article.image)
-      console.log('IMAGE',article.photoUrl)
       setPhotoUrl(article.photoUrl)
     }
   }, [article]);

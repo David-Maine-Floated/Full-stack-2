@@ -69,8 +69,8 @@ export const createArticle = (article) => async dispatch => {
 }
 export const editArticle = (article) => async dispatch => {
     try {
-        console.log('IN THUHKN', article)
-        let response = await csrfFetch(`/api/articles/${article.article.id}`, {
+        console.log('IN THUHKN', article[3])
+        let response = await csrfFetch(`/api/articles/${article['id']}`, {
             method: 'PATCH',
             body: article
         }, false)
