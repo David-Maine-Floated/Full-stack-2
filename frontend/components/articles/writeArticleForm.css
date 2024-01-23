@@ -130,8 +130,13 @@
 
 .inputContainer {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     width: 100%;
+}
+
+.inputContainer .subContainer {
+    width: 860px;
+    display: flex;
 }
 
 .custom-file-upload {
@@ -144,5 +149,4 @@
     text-align: center;
     color: #b3b3b1;
     font-size: 18px;
-    margin-left: 95px;
 }

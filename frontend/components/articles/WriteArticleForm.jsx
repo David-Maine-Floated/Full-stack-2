@@ -132,19 +132,21 @@ const WriteArticleForm = () => {
           rows="15"
           onChange={(e) => setBody(e.target.value)}
         />
-        {preview}
         <div className="inputContainer">
-          <form action="">
-            <label htmlFor="imageInput" className="custom-file-upload">
-              Add Image
-              <input
-                id="imageInput"
-                className="imageInput"
-                type="file"
-                onChange={handleFile}
-              />
-            </label>
-          </form>
+          <div className="subContainer">
+            <form action="">
+              <label htmlFor="imageInput" className="custom-file-upload">
+                Add Image
+                <input
+                  id="imageInput"
+                  className="imageInput"
+                  type="file"
+                  onChange={handleFile}
+                />
+              </label>
+            </form>
+            {preview}
+          </div>
         </div>
       </div>
     </div>

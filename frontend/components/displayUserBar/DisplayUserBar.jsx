@@ -27,7 +27,7 @@ const DisplayUserBar = ({user, article}) => {
           <div className="info">
             <div className="userName">{user.username}</div>
             <div className="readTime">
-              <span>{readingTime} Minute read. </span>
+              <span>{readingTime} min read . </span>
               <span>{formattedDate}</span>
             </div>
           </div>
