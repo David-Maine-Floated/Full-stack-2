@@ -35,13 +35,19 @@ class Api::ClapsController < ApplicationController
     end
 
     def update
-        @clap = Clap.find_by(id: params[:clapId])
+        @clap = Clap.find_by(id: clap_params[:id])
+        if @clap.update(clap_params)
+
+            render '/api/claps/show'
+        else  
+            render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
+        end
     end
     
 private 
     
     def clap_params 
-        params.require(:clap).permit(:liker_id, :article_id, :id, :clap_count)
+        params.require(:clap).permit(:liker_id, :article_id, :id, :clap_count, :id)
     end
 
 
