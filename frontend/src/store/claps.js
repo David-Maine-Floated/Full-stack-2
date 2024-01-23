@@ -46,7 +46,9 @@ export const getClaps = () => async dispatch => {
 export const getClapsForArticle = (article_id) => async dispatch => {
      try {
         let response = await csrfFetch(`/api/claps/for_article/${article_id}`)
+
         if(response.ok) {
+
             let data = await response.json();
             dispatch(receiveClaps(data))
         } else {
@@ -92,25 +94,25 @@ export const updateClap = clap => async dispatch => {
     }
 }
 
-export const deleteArticle = (clapId) => async dispatch => {
-    try {
-        let response = await csrfFetch(`/api/claps/${articleId}`, {
-            method: 'DELETE',
-            body: JSON.stringify({clapId :clapId})
-        })
-        if(response.ok) {
-            // let data = await response.json();
-            dispatch(removeClap(clapId));
+// export const deleteClap = (clapId) => async dispatch => {
+//     try {
+//         let response = await csrfFetch(`/api/claps/${articleId}`, {
+//             method: 'DELETE',
+//             body: JSON.stringify({clapId :clapId})
+//         })
+//         if(response.ok) {
+//             // let data = await response.json();
+//             dispatch(removeClap(clapId));
 
-        } else {
-            throw response; 
-        }
-    } catch (errors){
-        let data = await errors.json()
-        dispatch(receiveArticleErrors(data.errors))
-        return false
-    }
-}
+//         } else {
+//             throw response; 
+//         }
+//     } catch (errors){
+//         let data = await errors.json()
+//         dispatch(receiveArticleErrors(data.errors))
+//         return false
+//     }
+// }
 
 
 

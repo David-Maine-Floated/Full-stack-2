@@ -49,7 +49,6 @@ const IndexItem = ({article, author}) => {
           </div>
           <div className="indexItemFooter">
             <div className="indexItemFooterLeftDiv">
-              <span className="indexItemFooterSpan">Topic</span>
               <span className="indexItemFooterSpan">{`${readingTime}` + " Minute Read"} </span>
             </div>
             <div className="indexItemFooterRightDiv">

@@ -27,6 +27,7 @@ class Api::ClapsController < ApplicationController
 
     def for_article
         @claps = Clap.where(article_id: params[:article_id])
+        # debugger
         if @claps 
             render '/api/claps/for_article'
         else 

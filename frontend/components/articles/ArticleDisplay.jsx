@@ -17,7 +17,7 @@ const ArticleDisplay = () => {
   let user = article ? users[article.authorId] : null;
   let claps = useSelector((state) => state.claps);
   // WHY on refresh do I lose the user bar?
-
+  console.log('CLAPS', claps)
   useEffect(() => {
     user = article ? users[article.authorId] : null;
   }, [article]);
@@ -25,7 +25,7 @@ const ArticleDisplay = () => {
   useEffect(() => {
     dispatch(getArticle(articleId))
   }, [dispatch]);
-
+  
   useEffect(() => {
     if(article) {
       dispatch(getUser(article.authorId))

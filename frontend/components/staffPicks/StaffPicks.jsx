@@ -19,7 +19,7 @@ const StaffPicks = () => {
 
     // const picks = threeArticles()
 
-    const picks = [articles[1], articles[2]]
+    const picks = [articles[1], articles[2], articles[5]]
 
     // console.log('PICKS', picks)
 

@@ -43,7 +43,7 @@ const SignUpForm = () => {
           </div>
         </div>
         <div className="h1div">
-          <h1>Join Medium.</h1>
+          <h1>Join Maineum.</h1>
         </div>
         <div className="errorDiv">
           {errors && (
