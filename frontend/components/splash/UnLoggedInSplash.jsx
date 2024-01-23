@@ -6,7 +6,11 @@ const UnLoggedInSplash = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
 
-  if (currentUser.user) return null;
+  console.log('UNLOGGEDIN', currentUser)
+  if (currentUser.user) {
+    console.log('IN IF STATEMNT')
+    return null;
+  }
 
   return (
     <>
