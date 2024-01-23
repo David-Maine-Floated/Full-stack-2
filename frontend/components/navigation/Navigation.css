@@ -105,15 +105,17 @@
     height: 15px;
 }
 
-.navWriteDiv:hover {
-    cursor: pointer;
-}
-
 .NavLink:hover {
     cursor: pointer !important;
     color: black;
 }
 
 .NavLink.unLogged {
+    color: black;
+}
+
+
+.navWriteDiv .NavLink:hover {
+    cursor: pointer;
     color: black;
 }
