@@ -6,6 +6,8 @@ import { getArticle } from "../../src/store/article"
 import ButtonsBar from "../buttonsBar/ButtonsBar"
 import { getUser } from "../../src/store/user"
 import DisplayUserBar from "../displayUserBar/DisplayUserBar"
+import { getClapsForArticle } from "../../src/store/claps"
+import { useRef } from "react"
 
 const ArticleDisplay = () => {
     const {articleId} = useParams();
@@ -19,20 +21,23 @@ const ArticleDisplay = () => {
 
     useEffect(() => {
       user = article ? users[article.authorId] : null;
-    }, [user])
-    
+    }, [article])
+
+
+
     useEffect(() => {
       dispatch(getArticle(articleId))
-    }, [articleId, dispatch]);
+    }, [dispatch]);
     
     
     useEffect(() => {
       if(article) {
         dispatch(getUser(article.authorId))
+        dispatch(getClapsForArticle(article.id))
       }
     },[])
       
-      console.log('USER', article)
+
 
 
       const newArticleBody = (body) => {
@@ -54,10 +59,10 @@ const ArticleDisplay = () => {
         <div className="articleDisplayTitleDiv">
           <h1 className="articleDisplayTitle">{article && article.title}</h1>
         </div>
-        {user && <DisplayUserBar user={user} article={article} />}
-        {article && <ButtonsBar article={article} />}
+        {user && <DisplayUserBar key={user.id} user={user} article={article} />}
+        {article && <ButtonsBar key={article.id} article={article} />}
         {article && (
-          <div className="article imageContainer">
+          <div key={article && article.id + 2} className="article imageContainer">
             <img
               className="displayImage"
               src={
@@ -66,7 +71,7 @@ const ArticleDisplay = () => {
             />
           </div>
         )}
-        <div className="articleDisplayBodyDiv">
+        <div key={article && article.id + 1} className="articleDisplayBodyDiv">
           {article && newArticleBody(article.body)}
         </div>
       </div>

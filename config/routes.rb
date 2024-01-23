@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     resources :articles, only: [:create, :show, :index, :update, :destroy]
     resource :session, only: [:show, :create, :destroy]
     resources :claps, only: [:create, :index, :destroy]
+    get 'claps/for_article/:article_id', to: 'claps#for_article', as: 'claps_for_article'
   end
 
   # get '/api/articles/by_author/:author_id', to: 'articles#by_author', as: 'articles_by_author'
-
   get '*path', to: 'static_pages#frontend_index'
 
 end

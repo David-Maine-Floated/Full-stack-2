@@ -69,7 +69,6 @@ export const createArticle = (article) => async dispatch => {
 }
 export const editArticle = (article) => async dispatch => {
     try {
-        console.log('IN THUHKN', article[3])
         let response = await csrfFetch(`/api/articles/${article['id']}`, {
             method: 'PATCH',
             body: article
@@ -83,7 +82,6 @@ export const editArticle = (article) => async dispatch => {
             throw response; 
         }
     } catch (errors){
-        console.log('ERRORS', errors)
         let data = await errors.json()
         dispatch(receiveArticleErrors(data.errors))
         return false

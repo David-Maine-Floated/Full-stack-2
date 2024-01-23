@@ -20,7 +20,7 @@ const ButtonsBar = ({article}) => {
     //         setClapActive(false);
     //     }, 250) 
     // }
-    console.log('BUTTONS BAR',article.id)
+  
     const addClap = async () => {
       let result = await dispatch(createClap({article_id: article.id, liker_id: currentUser.user.id}))
       if(result) setClapped(true)

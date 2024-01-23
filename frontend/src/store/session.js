@@ -78,7 +78,6 @@ export const loginUser = (user, setErrors) => async dispatch => {
         })
 
         let data = await response.json()
-        console.log('LOGIN USER'), data
         sessionStorage.setItem('currentUser', JSON.stringify(data.user))
         dispatch(receiveSessionUser(data))
 
@@ -95,7 +94,6 @@ export const loginUser = (user, setErrors) => async dispatch => {
 const sessionReducer = (state = {currentUser: {user:null}}, action) => {
 
     const nextState = {...state}
-    console.log('Action', action)
     switch(action.type) {
         case RECEIVE_SESSION_USER:
             nextState['currentUser'] = action.user

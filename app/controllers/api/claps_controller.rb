@@ -3,18 +3,16 @@ class Api::ClapsController < ApplicationController
 
     def create 
         @clap = Clap.new(clap_params)
-        debugger
         if @clap.save 
             puts 'Clap Saved!'
             render '/api/claps/show'
         else 
-            debugger 
             render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
     def index
-        @claps = Claps.all 
+        @claps = Clap.all 
         render '/api/claps/index'
     end
 
@@ -23,7 +21,16 @@ class Api::ClapsController < ApplicationController
         if @clap.delete 
             render json: 'Article delete'
         else  
-            render jsonL: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
+    def for_article
+        @claps = Clap.where(article_id: params[:article_id])
+        if @claps 
+            render '/api/claps/for_article'
+        else 
+            render json: {errors: @claps.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

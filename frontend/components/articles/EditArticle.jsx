@@ -79,7 +79,6 @@ function replaceNewLines(text) {
   };
 
   const handleSubmit = async (e) => {
-    console.log(currentUser);
     e.preventDefault();
     const formData = new FormData();
     formData.append("article[title]", title);
@@ -97,7 +96,6 @@ function replaceNewLines(text) {
     }
   };
 
-  console.log("ERRORS", errors);
 
   const handleFile = (e) => {
     let file = e.target.files[0];

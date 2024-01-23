@@ -4,9 +4,6 @@ import './displayUserBar.css'
 
 const DisplayUserBar = ({user, article}) => {
 
-    console.log(user)
-
-
     const originalDate = new Date(article.createdAt);
 
     const options = { year: "numeric", month: "short", day: "numeric" };

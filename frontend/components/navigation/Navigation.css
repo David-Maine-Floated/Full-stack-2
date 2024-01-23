@@ -62,6 +62,14 @@
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.navWriteDiv .NavLink {
+    color: #6B6B6B;
+}
+
+.navWriteDiv .NavLink:visited {
+    color: #6B6B6B;
+}
+
 
 .NavLink:visited {
     color: #6B6B6B;
