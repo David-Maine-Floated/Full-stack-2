@@ -14,7 +14,15 @@ const ButtonsBar = ({article}) => {
     const claps = useSelector(state => state.claps)
     const dispatch = useDispatch()
     const [clapCount, setClapCount] = useState(0)
-    console.log('CLAPSZZ', claps[currentUser.user.id])
+
+    useEffect(()=> {
+      let count = 0
+      for (let clap in claps) {
+        console.log('HIIII', claps[clap].clapCount)
+        count += claps[clap].clapCount;
+      }
+      setClapCount(count)
+    }, [claps])
 
   
     const addClap = async () => {
@@ -22,13 +30,11 @@ const ButtonsBar = ({article}) => {
         setTimeout(() => {
             setClapActive(false);
         }, 250) 
-        console.log('USERID', currentUser.user.id)
       if(!claps[currentUser.user.id]) {
         await dispatch(createClap({article_id: article.id, liker_id: currentUser.user.id}))
       } else {
         let clap = claps[article.id]
         clap.clapCount +=1        
-        console.log('CLAP', clap)
         await dispatch(
           updateClap({
             clap: {

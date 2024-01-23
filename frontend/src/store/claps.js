@@ -76,7 +76,6 @@ export const createClap = clap => async dispatch => {
     }
 }
 export const updateClap = clap => async dispatch => {
-    console.log('JSON', JSON.stringify(clap))
     try {
         let response = await csrfFetch(`/api/claps/${clap.id}`, {
             method: 'PATCH',
