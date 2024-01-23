@@ -13,7 +13,7 @@ const ButtonsBar = ({article, claps}) => {
     const currentUser = useSelector(state => state.session.currentUser)
     const dispatch = useDispatch()
     const clapsArray = Object.values(claps)
-    console.log('BUTTONS BAR', claps)
+
     // const handleClap = () => {
     //     setClapActive(true)
     //     setTimeout(() => {

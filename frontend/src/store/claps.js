@@ -44,7 +44,7 @@ export const getClaps = () => async dispatch => {
 }
 
 export const getClapsForArticle = (article_id) => async dispatch => {
-    debugger
+  
      try {
         let response = await csrfFetch(`/api/claps/for_article/${article_id}`)
         if(response.ok) {
@@ -71,7 +71,7 @@ export const createClap = clap => async dispatch => {
             throw response 
         }
     } catch (errors) {
-        debugger
+
         let data = await errors.json()
     }
 }

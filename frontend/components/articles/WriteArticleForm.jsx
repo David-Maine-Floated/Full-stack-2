@@ -50,7 +50,7 @@ const WriteArticleForm = () => {
   // };
 
   const handleSubmit = async (e) => {
-    console.log(currentUser)
+
     e.preventDefault();
     const formData = new FormData();
     formData.append("article[title]", title);
@@ -68,7 +68,7 @@ const WriteArticleForm = () => {
     }
   };
 
-  console.log("ERRORS", errors);
+
 
   const handleFile = (e) => {
     let file = e.target.files[0];
