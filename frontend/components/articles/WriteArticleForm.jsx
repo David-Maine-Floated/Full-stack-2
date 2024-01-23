@@ -118,24 +118,34 @@ const WriteArticleForm = () => {
           )}
         </div>
         <div className="errors">{errors}</div>
-          <textarea
-            className="formTitleText"
-            placeholder="Title"
-            cols="39"
-            rows="2"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <textarea
-            className="formBodyText"
-            placeholder="Tell your story..."
-            cols="77"
-            rows="15"
-            onChange={(e) => setBody(e.target.value)}
-          />
-          {preview}
-        <form action="">
-          <input type="file" onChange={handleFile} />
-        </form>
+        <textarea
+          className="formTitleText"
+          placeholder="Title"
+          cols="39"
+          rows="2"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <textarea
+          className="formBodyText"
+          placeholder="Tell your story..."
+          cols="77"
+          rows="15"
+          onChange={(e) => setBody(e.target.value)}
+        />
+        {preview}
+        <div className="inputContainer">
+          <form action="">
+            <label htmlFor="imageInput" className="custom-file-upload">
+              Add Image
+              <input
+                id="imageInput"
+                className="imageInput"
+                type="file"
+                onChange={handleFile}
+              />
+            </label>
+          </form>
+        </div>
       </div>
     </div>
   );

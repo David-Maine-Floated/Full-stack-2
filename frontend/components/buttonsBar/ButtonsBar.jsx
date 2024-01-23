@@ -7,13 +7,13 @@ import { NavLink } from "react-router-dom";
 import { hideModal, showModal } from "../../src/store/modals";
 import { createClap } from "../../src/store/claps";
 
-const ButtonsBar = ({article}) => {
+const ButtonsBar = ({article, claps}) => {
     const [clapActive, setClapActive] = useState(false)
     const [clapped, setClapped] = useState(false )
     const currentUser = useSelector(state => state.session.currentUser)
     const dispatch = useDispatch()
-
-
+    const clapsArray = Object.values(claps)
+    console.log('BUTTONS BAR', claps)
     // const handleClap = () => {
     //     setClapActive(true)
     //     setTimeout(() => {
@@ -35,7 +35,7 @@ const ButtonsBar = ({article}) => {
           <div className="button" onClick={addClap}>
             {clapActive ? <ActiveClapButton /> : <ClapButton />}
           </div>
-          <span>100</span>
+          <span>{clapsArray.length}</span>
         </div>
         <div className="articleButtonsRight">
           {currentUser.user.id === article.authorId && (
