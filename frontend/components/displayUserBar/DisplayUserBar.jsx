@@ -1,5 +1,5 @@
 import './displayUserBar.css'
-
+import { readTime } from "../../helperMethods/readTime";
 
 
 const DisplayUserBar = ({user, article}) => {
@@ -8,8 +8,8 @@ const DisplayUserBar = ({user, article}) => {
 
     const options = { year: "numeric", month: "short", day: "numeric" };
     const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
-    originalDate
-    );
+    originalDate);
+    const readingTime = readTime(article.body);
 
     return (
       <div className="userBar">
@@ -27,7 +27,7 @@ const DisplayUserBar = ({user, article}) => {
           <div className="info">
             <div className="userName">{user.username}</div>
             <div className="readTime">
-              <span> 8 min read . </span>
+              <span>{readingTime} Minute read. </span>
               <span>{formattedDate}</span>
             </div>
           </div>

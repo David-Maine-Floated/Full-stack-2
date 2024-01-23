@@ -7,7 +7,7 @@ import ButtonsBar from "../buttonsBar/ButtonsBar"
 import { getUser } from "../../src/store/user"
 import DisplayUserBar from "../displayUserBar/DisplayUserBar"
 import { getClapsForArticle } from "../../src/store/claps"
-import { createClap } from "../../src/store/claps"
+import { readTime } from "../../helperMethods/readTime"
 
 const ArticleDisplay = () => {
   const { articleId } = useParams();
@@ -16,7 +16,6 @@ const ArticleDisplay = () => {
   let users = useSelector((state) => state.users);
   let user = article ? users[article.authorId] : null;
   let claps = useSelector((state) => state.claps);
-
   // WHY on refresh do I lose the user bar?
 
   useEffect(() => {
