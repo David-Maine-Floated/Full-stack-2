@@ -27,7 +27,7 @@ export const removeClap = clapId => {
     }
 }
 
-export const getClaps = (articleId) => async dispatch => {
+export const getClaps = (clapId) => async dispatch => {
      try {
         let response = await csrfFetch('/api/claps')
         if(response.ok) {
@@ -56,8 +56,9 @@ export const createClap = clap => async dispatch => {
             throw response 
         }
     } catch (errors) {
+        // debugger
         let data = await errors.json()
-        console.log(data)
+        console.log(data.errors)
     }
 }
 

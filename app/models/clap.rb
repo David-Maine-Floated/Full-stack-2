@@ -1,4 +1,5 @@
 class Clap < ApplicationRecord
+    debugger
     validates :article_id, :liker_id, presence: true 
 
     belongs_to :liker, 

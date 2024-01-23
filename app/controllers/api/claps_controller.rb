@@ -3,10 +3,12 @@ class Api::ClapsController < ApplicationController
 
     def create 
         @clap = Clap.new(clap_params)
+        debugger
         if @clap.save 
-            console.log('CLAP SAVED!')
+            puts 'Clap Saved!'
             render '/api/claps/show'
-        else  
+        else 
+            debugger 
             render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
         end
     end
@@ -29,7 +31,7 @@ class Api::ClapsController < ApplicationController
 private 
     
     def clap_params 
-        params.require(:clap).permit(:liker_id, :artilce_id)
+        params.require(:clap).permit(:liker_id, :article_id, :id)
     end
 
 
