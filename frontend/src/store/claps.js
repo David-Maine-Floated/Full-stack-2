@@ -44,7 +44,6 @@ export const getClaps = () => async dispatch => {
 }
 
 export const getClapsForArticle = (article_id) => async dispatch => {
-  
      try {
         let response = await csrfFetch(`/api/claps/for_article/${article_id}`)
         if(response.ok) {
@@ -120,7 +119,7 @@ const clapsReducer = (state = {}, action) => {
     const nextState = {...state};
     switch(action.type) {
         case RECEIVE_CLAP:
-            nextState[action.clap.articleId] = action.clap
+            nextState[action.clap.likerId] = action.clap
             return nextState;
         case RECEIVE_CLAPS:
             action.claps.forEach(clap => {

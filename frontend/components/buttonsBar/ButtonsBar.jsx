@@ -9,7 +9,6 @@ import { createClap, updateClap } from "../../src/store/claps";
 
 const ButtonsBar = ({article}) => {
     const [clapActive, setClapActive] = useState(false)
-    // const [clapped, setClapped] = useState(false )
     const currentUser = useSelector(state => state.session.currentUser)
     const claps = useSelector(state => state.claps)
     const dispatch = useDispatch()
@@ -33,7 +32,7 @@ const ButtonsBar = ({article}) => {
       if(!claps[currentUser.user.id]) {
         await dispatch(createClap({article_id: article.id, liker_id: currentUser.user.id}))
       } else {
-        let clap = claps[article.id]
+        let clap = claps[currentUser.user.id]
         clap.clapCount +=1        
         await dispatch(
           updateClap({
@@ -46,7 +45,6 @@ const ButtonsBar = ({article}) => {
           })
         );
       }
-      // if(result) setClapped(true)
       
     }
 
