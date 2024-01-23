@@ -27,3 +27,11 @@
     font-size: 16px;
     font-weight: 700;
 }
+
+.staffPicksItem p:hover {
+    cursor: pointer;
+}
+
+.staffPicksItem .NavLink {
+    color: black;
+}

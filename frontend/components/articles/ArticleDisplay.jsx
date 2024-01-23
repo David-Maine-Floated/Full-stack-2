@@ -25,13 +25,14 @@ const ArticleDisplay = () => {
   useEffect(() => {
     dispatch(getArticle(articleId))
   }, [dispatch]);
-  
+
   useEffect(() => {
     if(article) {
+
       dispatch(getUser(article.authorId))
       dispatch(getClapsForArticle(article.id))
     }
-  },[article])
+  },[])
 
 
 

@@ -1,9 +1,20 @@
 import { useSelector } from "react-redux"
 import './staffPicksItem.css'
-
+import { NavLink } from "react-router-dom"
 const StaffPickItem = ({article}) => {
+  // const navigate = useNavigate()
+
+  //and why does this break it??
+
+  
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   navigate(`article/${article.id}`);
+  // }
+  
+
+
     const author = article ? useSelector(state => state.users[article.authorId]) : null
-    if(author) console.log('USER_IMAGE', author.photoUrl)
     return (
       <div className="staffPicksItem">
         <div className="top">
@@ -16,12 +27,14 @@ const StaffPickItem = ({article}) => {
             />
           </div>
           <div className="author">
-            <p>{author && author.username}</p>
+            <NavLink className='NavLink'to={article && `article/${article.id}`}>
+              <p>{author && author.username}</p>
+            </NavLink>
           </div>
         </div>
         <div className="bottom">
           <div className="title">
-            <p>{article && article.title}</p>
+            <p onClick={(e) => handleClick(e)}>{article && article.title}</p>
           </div>
         </div>
       </div>
