@@ -1,0 +1,29 @@
+.staffPicksItem {
+    width: 300px;
+    height: 100px;
+}
+
+.staffPicksItem img {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+}
+
+.staffPicksItem .top {
+    display: flex;
+}
+
+.staffPicksItem .author {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.staffPicksItem .userPhoto {
+    width: 40px;
+    height: 40px;
+}
+
+.staffPicksItem .title {
+    font-size: 16px;
+    font-weight: 700;
+}

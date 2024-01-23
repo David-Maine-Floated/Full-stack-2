@@ -1,12 +1,12 @@
 import './sideBar.css'
-
+import StaffPicks from '../staffPicks/StaffPicks';
 const SideBar = () => {
 
 
 
     return (
       <div className="sideBarContainer">
-        <h1>MOST PHAT SIDEBAR </h1>
+        <StaffPicks />
       </div>
     );
 }
