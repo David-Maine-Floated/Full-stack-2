@@ -75,6 +75,24 @@ export const createClap = clap => async dispatch => {
         let data = await errors.json()
     }
 }
+export const updateClap = clap => async dispatch => {
+    try {
+        let response = await csrfFetch(`/api/claps/${clapId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(clap)
+        })
+        if(response.ok) {
+            let data = await response.json();
+            debugger
+            dispatch(receiveClap(data))
+        } else {
+            throw response 
+        }
+    } catch (errors) {
+
+        let data = await errors.json()
+    }
+}
 
 export const deleteArticle = (clapId) => async dispatch => {
     try {
@@ -103,11 +121,12 @@ const clapsReducer = (state = {}, action) => {
     const nextState = {...state};
     switch(action.type) {
         case RECEIVE_CLAP:
-            nextState[action.clap.id] = action.clap
+            debugger
+            nextState[action.clap.articleId] = action.clap
             return nextState;
         case RECEIVE_CLAPS:
             action.claps.forEach(clap => {
-                nextState[clap.id] = clap
+                nextState[clap.articleId] = clap
             })
             return nextState
         default :

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :index]
     resources :articles, only: [:create, :show, :index, :update, :destroy]
     resource :session, only: [:show, :create, :destroy]
-    resources :claps, only: [:create, :index, :destroy]
+    resources :claps, only: [:create, :index, :destroy, :update]
     get 'claps/for_article/:article_id', to: 'claps#for_article', as: 'claps_for_article'
   end
 

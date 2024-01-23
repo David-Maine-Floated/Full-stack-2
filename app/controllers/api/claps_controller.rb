@@ -34,11 +34,14 @@ class Api::ClapsController < ApplicationController
         end
     end
 
-
+    def update
+        @clap = Clap.find_by(id: params[:clapId])
+    end
+    
 private 
     
     def clap_params 
-        params.require(:clap).permit(:liker_id, :article_id, :id)
+        params.require(:clap).permit(:liker_id, :article_id, :id, :clap_count)
     end
 
 
