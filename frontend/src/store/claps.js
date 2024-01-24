@@ -127,7 +127,6 @@ const clapsReducer = (state = {}, action) => {
             return nextState;
         case RECEIVE_CLAPS:
             nextState = {}
-            // debugger
             action.claps.forEach(clap => {
                 nextState[clap.likerId] = clap
             })
