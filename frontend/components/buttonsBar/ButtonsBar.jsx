@@ -17,7 +17,6 @@ const ButtonsBar = ({article}) => {
     useEffect(()=> {
       let count = 0
       for (let clap in claps) {
-        console.log('HIIII', claps[clap].clapCount)
         count += claps[clap].clapCount;
       }
       setClapCount(count)
@@ -48,6 +47,8 @@ const ButtonsBar = ({article}) => {
       
     }
 
+  // onClick={()=> dispatch(showModal('commentsModal'))}
+
     if (!currentUser.user) return null
 
     return (
@@ -57,17 +58,25 @@ const ButtonsBar = ({article}) => {
             {clapActive ? <ActiveClapButton /> : <ClapButton />}
           </div>
           <span>{clapCount}</span>
+          <div className="button">
+            <p onClick={() => dispatch(showModal("commentsModal"))}>Comments</p>
+          </div>
         </div>
         <div className="articleButtonsRight">
           {currentUser.user.id === article.authorId && (
             <>
               <div className="button">
-                <NavLink className="NavLink" to={`/edit/${article && article.id}`}>
+                <NavLink
+                  className="NavLink"
+                  to={`/edit/${article && article.id}`}
+                >
                   Edit
                 </NavLink>
               </div>
               <div className="button">
-                <span onClick={() => dispatch(showModal('deleteModal'))}>Delete Story</span>
+                <span onClick={() => dispatch(showModal("deleteModal"))}>
+                  Delete Story
+                </span>
               </div>
             </>
           )}

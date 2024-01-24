@@ -17,7 +17,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
   //if logged in:
-  
+
   const handleLogOut = () => {
     dispatch(hideModal())
     dispatch(logoutUser())

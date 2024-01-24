@@ -16,6 +16,8 @@ const ArticleDisplay = () => {
   // let user = article ? users[article.authorId] : null;
   let claps = useSelector((state) => state.claps);
   const [user, setUser] = useState(null);
+
+  
   //should I make lines 16 a state variable? if so, why?
 
   // useEffect(() => {

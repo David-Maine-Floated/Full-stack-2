@@ -103,7 +103,6 @@ function replaceNewLines(text) {
   const handleFile = (e) => {
     let file = e.target.files[0];
     if (validFileTypes.find((type) => type === file.type)) {
-      debugger
       setImage(file);
       setImageTypeError(false);
       const fileReader = new FileReader();
