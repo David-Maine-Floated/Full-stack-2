@@ -28,35 +28,58 @@ const ButtonsBar = ({article}) => {
       count += claps[clap].clapCount;
     }
   }
-  console.log('CLAPS', claps)
-  const addClap = async () => {
-    setClapActive(true);
-    setTimeout(() => {
-      setClapActive(false);
-    }, 250);
-    debugger
-    if (!claps[currentUser.user.id]) {
-      debugger
-      await dispatch(
-        createClap({ article_id: article.id, liker_id: currentUser.user.id })
-      );
-    } else {
-      let clap = article.claps[currentUser.user.id];
-      clap.clapCount += 1;
-      await dispatch(
-        updateClap({
-          clap: {
-            id: clap.id,
-            article_id: clap.articleId,
-            liker_id: clap.likerId,
-            clap_count: clap.clapCount,
-          },
-        })
-      );
-    }
-  };
+  // console.log('CLAPS', claps)
+  // const addClap = async () => {
+  //   setClapActive(true);
+  //   setTimeout(() => {
+  //     setClapActive(false);
+  //   }, 250);
+  //   debugger
+  //   if (claps && !claps[currentUser.user.id]) {
+  //     debugger
+  //     await dispatch(
+  //       createClap({ article_id: article.id, liker_id: currentUser.user.id })
+  //     );
+  //   } else {
+  //     let clap = article.claps[currentUser.user.id];
+  //     clap.clapCount += 1;
+  //     await dispatch(
+  //       updateClap({
+  //         clap: {
+  //           id: clap.id,
+  //           article_id: clap.articleId,
+  //           liker_id: clap.likerId,
+  //           clap_count: clap.clapCount,
+  //         },
+  //       })
+  //     );
+  //   }
+  // };
 
-  // onClick={()=> dispatch(showModal('commentsModal'))}
+    const addClap = async () => {
+      setClapActive(true);
+      setTimeout(() => {
+        setClapActive(false);
+      }, 250);
+      if (claps && claps[currentUser.user.id]) {
+        let clap = article.claps[currentUser.user.id];
+        clap.clapCount += 1;
+        await dispatch(
+          updateClap({
+            clap: {
+              id: clap.id,
+              article_id: clap.articleId,
+              liker_id: clap.likerId,
+              clap_count: clap.clapCount,
+            },
+          })
+        );     
+      } else {
+        await dispatch(
+          createClap({ article_id: article.id, liker_id: currentUser.user.id })
+        );
+      }
+    };
 
   if (!currentUser.user) return null;
 

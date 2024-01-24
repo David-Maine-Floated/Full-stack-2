@@ -56,7 +56,7 @@ export const getArticles = () => async dispatch => {
 } 
 
 export const createArticle = (article) => async dispatch => {
-
+    debugger
     try {
         let response = await csrfFetch(`/api/articles`, {
             method: 'POST',
