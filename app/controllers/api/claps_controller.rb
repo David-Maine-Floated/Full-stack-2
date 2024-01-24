@@ -3,9 +3,8 @@ class Api::ClapsController < ApplicationController
 
     def create 
         @clap = Clap.new(clap_params)
-        debugger
         if @clap.save 
-            debugger
+
             puts 'Clap Saved!'
             render '/api/claps/show'
             # render '/api/claps/for_article'
@@ -30,7 +29,6 @@ class Api::ClapsController < ApplicationController
 
     def for_article
         @claps = Clap.where(article_id: params[:article_id])
-        # debugger
         if @claps 
             render '/api/claps/for_article'
         else 

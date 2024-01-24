@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, } from "react-router-dom"
 import './articleDisplay.css'
@@ -7,34 +7,37 @@ import ButtonsBar from "../buttonsBar/ButtonsBar"
 import { getUser } from "../../src/store/user"
 import DisplayUserBar from "../displayUserBar/DisplayUserBar"
 import { getClapsForArticle } from "../../src/store/claps"
-import { readTime } from "../../helperMethods/readTime"
 
 const ArticleDisplay = () => {
   const { articleId } = useParams();
   const dispatch = useDispatch();
   let article = useSelector((state) => state.articles[articleId]);
   let users = useSelector((state) => state.users);
-  let user = article ? users[article.authorId] : null;
+  // let user = article ? users[article.authorId] : null;
   let claps = useSelector((state) => state.claps);
-  // WHY on refresh do I lose the user bar?
-  console.log('CLAPS', claps)
-  useEffect(() => {
-    user = article ? users[article.authorId] : null;
-  }, [article]);
+  const [user, setUser] = useState(null);
+  //should I make lines 16 a state variable? if so, why?
+
+  // useEffect(() => {
+  //   user = article ? users[article.authorId] : null;
+  // }, [article, dispatch]);
 
   useEffect(() => {
-    dispatch(getArticle(articleId))
+    if (article) {
+      setUser(users[article.authorId])
+    }
+  }, [article, dispatch, users]);
+
+  useEffect(() => {
+    dispatch(getArticle(articleId));
   }, [dispatch]);
 
   useEffect(() => {
-    if(article) {
-
-      dispatch(getUser(article.authorId))
-      dispatch(getClapsForArticle(article.id))
+    if (article) {
+      dispatch(getUser(article.authorId));
+      dispatch(getClapsForArticle(article.id));
     }
-  },[article])
-
-
+  }, [article, dispatch]);
 
   const newArticleBody = (body) => {
     let sentences = body.split("\n");

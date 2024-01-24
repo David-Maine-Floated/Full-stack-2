@@ -20,28 +20,31 @@ const EditArticle = () => {
   const { articleId } = useParams();
   const [image, setImage] = useState(null);
   const [photoUrl, setPhotoUrl] = useState(null); 
+  const [article, setArticle] = useState(null);
+  const articles = useSelector(state => state.articles)
 
-  const [imageTypeError, setImageTypeError] = useState(false);
+
+  // const [imageTypeError, setImageTypeError] = useState(false);
   const validFileTypes = ["image/jpeg", "image/jpg", "image/png"];
 
-
-
+  useEffect(() => {
+    if(articles) {
+      setArticle(articles[articleId])
+    }
+  }, [articles])
  
   //why da heeeek
-  const articles = useSelector(state => state.articles)
-  const article = articles[articleId]
+  // const article = articles[articleId]
 
 
 function replaceNewLines(text) {
-  // Replace "/n" with an empty line
   text = text.replace(/\/n/g, "\n");
-
-  // Replace "\\n" with an empty line
   text = text.replace(/\\n/g, "\n");
-
   return text;
 }
   
+
+
 
   useEffect(() => {
     

@@ -4,6 +4,7 @@ import csrfFetch from "./csrf";
 const RECEIVE_CLAP = 'claps/RECEIVE_CLAP'
 const RECEIVE_CLAPS = 'claps/RECIEVE_CLAPS'
 const REMOVE_CLAP = 'claps/REMOVE_CLAP'
+// const RECEIVE_CLAPS_FOR_ARTICLE = 'claps/RECEIVE_CLAPS_FOR_ARTICLE'
 
 
 export const receiveClap = clap => {
@@ -125,9 +126,12 @@ const clapsReducer = (state = {}, action) => {
             nextState[action.clap.likerId] = action.clap
             return nextState;
         case RECEIVE_CLAPS:
+            debugger
+            // nextState = {}
             action.claps.forEach(clap => {
                 nextState[clap.likerId] = clap
             })
+            debugger
             return nextState
         default :
             return state;

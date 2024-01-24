@@ -29,6 +29,7 @@ class Api::ArticlesController < ApplicationController
     def by_author
         author_id = params[:author_id]
         @articles = Article.where(author_id: author_id)
+        # render 'for_article.json.jbuilder'
     end
 
     def update 
