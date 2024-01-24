@@ -120,13 +120,14 @@ export const updateClap = clap => async dispatch => {
 
 
 const clapsReducer = (state = {}, action) => {
-    const nextState = {...state};
+    let nextState = {...state};
     switch(action.type) {
         case RECEIVE_CLAP:
             nextState[action.clap.likerId] = action.clap
             return nextState;
         case RECEIVE_CLAPS:
-            // nextState = {}
+            nextState = {}
+            // debugger
             action.claps.forEach(clap => {
                 nextState[clap.likerId] = clap
             })
