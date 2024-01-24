@@ -23,7 +23,7 @@ export const receiveClaps = claps => {
 export const removeClap = clapId => {
     return {
         type: REMOVE_CLAP, 
-        clapid
+        clapId
     }
 }
 
@@ -39,7 +39,7 @@ export const getClaps = () => async dispatch => {
         }
     } catch (errors) {
         let data = await errors.json()
-        // return false;
+        console.log(data)
     }
 }
 
@@ -56,6 +56,7 @@ export const getClapsForArticle = (article_id) => async dispatch => {
         }
     } catch (errors) {
         let data = await errors.json()
+        console.log(data)
     }
 }
 
@@ -72,8 +73,8 @@ export const createClap = clap => async dispatch => {
             throw response 
         }
     } catch (errors) {
-
         let data = await errors.json()
+        console.log(data)
     }
 }
 export const updateClap = clap => async dispatch => {

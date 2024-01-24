@@ -20,13 +20,6 @@ export const receiveUsers = users => {
     }
 }
 
-// export const removeUser = userId => {
-//     return {
-//         type: RECEIVE_USER,
-//         userId
-//     }
-// }
-
 
 
 export const getUser = userId => async dispatch => {
@@ -35,9 +28,7 @@ export const getUser = userId => async dispatch => {
     if (response.ok) {
         let data = await response.json();
         dispatch(receiveUser(data))
-    } else {
-
-    }
+    } 
 }
 
 export const getUsers = () => async dispatch => {
@@ -46,9 +37,7 @@ export const getUsers = () => async dispatch => {
     if (response.ok) {
         let data = await response.json();
         dispatch(receiveUsers(data))
-    } else {
-        
-    }
+    } 
 }
 
 

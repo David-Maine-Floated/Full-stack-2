@@ -1,32 +1,31 @@
 import StaffPickItem from "./StaffPickItem"
 import { useSelector } from "react-redux";
 import './staffPicks.css'
+import { useEffect, useState } from "react";
 
 
 const StaffPicks = () => {
-    const articles = useSelector(state => Object.values(state.articles))
+    const articles = useSelector(state => state.articles)
+    const [picks, setPicks] = useState([])
 
-    // const threeArticles = () => {
-    //     let tempArticles = articles
-    //     let result = [];
-    //     while (result.length < 3) {
-    //         let randomInteger = Math.floor(Math.random() * tempArticles.length );
-    //         let article = tempArticles.splice(randomInteger, 1)
-    //         result.push(article[0])
-    //     }
-    //     return result 
-    // }
-
-    // const picks = threeArticles()
-
-    const picks = [articles[1], articles[2], articles[5]]
+    
+    useEffect(() => {
+        if(articles) {
+            let array = Object.values(articles)
+            setPicks([array[1], array[2], array[5]]);
+            console.log('whereeeee', array)
+        }
+    }, [articles])
+    
 
 
+    // const picks = [articles[1], articles[2], articles[5]]
+    if (!picks[0]) return null
     return (
         <>
             <h1 className="staffPicksTitle">Staff Picks</h1>
             <div className="staffPicks">
-                {picks.map(article => <StaffPickItem article={article}/>)}
+                {picks.map(article => <StaffPickItem key={article.id} article={article}/>)}
             </div> 
         </>
     )

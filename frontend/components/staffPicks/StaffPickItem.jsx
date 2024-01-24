@@ -1,20 +1,20 @@
 import { useSelector } from "react-redux"
 import './staffPicksItem.css'
 import { NavLink } from "react-router-dom"
+import { useEffect, useState } from "react"
 const StaffPickItem = ({article}) => {
-  // const navigate = useNavigate()
+  const users = useSelector(state => state.users)
+  const [author, setAuthor] = useState(null)
 
-  //and why does this break it??
-
-  
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   navigate(`article/${article.id}`);
-  // }
-  
+    // const author = article ? useSelector(state => state.users[article.authorId]) : null
 
 
-    const author = article ? useSelector(state => state.users[article.authorId]) : null
+    useEffect(() => {
+      if(article) {
+        setAuthor(users[article.authorId])
+      }
+    }, [article, users])
+
     return (
       <div className="staffPicksItem">
         <div className="top">
@@ -27,15 +27,18 @@ const StaffPickItem = ({article}) => {
             />
           </div>
           <div className="author">
-            <NavLink className='NavLink'to={article && `article/${article.id}`}>
+            <NavLink
+              className="NavLink"
+              to={article && `article/${article.id}`}
+            >
               <p>{author && author.username}</p>
             </NavLink>
           </div>
         </div>
         <div className="bottom">
-          <div className="title">
-            <p onClick={(e) => handleClick(e)}>{article && article.title}</p>
-          </div>
+          <NavLink className="NavLink" to={article && `article/${article.id}`}>
+            <p>{article && article.title}</p>
+          </NavLink>
         </div>
       </div>
     );
