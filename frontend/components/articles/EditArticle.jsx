@@ -24,7 +24,7 @@ const EditArticle = () => {
   const articles = useSelector(state => state.articles)
 
 
-  // const [imageTypeError, setImageTypeError] = useState(false);
+  const [imageTypeError, setImageTypeError] = useState(false);
   const validFileTypes = ["image/jpeg", "image/jpg", "image/png"];
 
   useEffect(() => {
@@ -103,6 +103,7 @@ function replaceNewLines(text) {
   const handleFile = (e) => {
     let file = e.target.files[0];
     if (validFileTypes.find((type) => type === file.type)) {
+      debugger
       setImage(file);
       setImageTypeError(false);
       const fileReader = new FileReader();
@@ -160,10 +161,22 @@ function replaceNewLines(text) {
           onChange={(e) => setBody(e.target.value)}
           value={body}
         />
-        {preview}
-        <form action="">
-          <input type="file" onChange={handleFile} />
-        </form>
+        <div className="inputContainer">
+          <div className="subContainer">
+            <form action="">
+              <label htmlFor="imageInput" className="custom-file-upload">
+                Add Image
+                <input
+                  id="imageInput"
+                  className="imageInput"
+                  type="file"
+                  onChange={handleFile}
+                />
+              </label>
+            </form>
+            {preview}
+          </div>
+        </div>
       </div>
     </div>
   );
