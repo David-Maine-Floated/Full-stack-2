@@ -5,6 +5,8 @@ import { receiveArticleErrors } from "./errors";
 export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE'
 const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 const  REMOVE_ARTICLE = 'articles/DELETE_ARTICLE'
+const RECEIVE_ARTICLE_CLAP = 'articles/RECEIVE_ARTICLE_CLAP'
+
 
 export const receiveArticle = article => {
     return {
@@ -24,6 +26,13 @@ export const removeArticle = articleId => {
     return {
         type: REMOVE_ARTICLE,
         articleId
+    }
+}
+
+export const receiveArticleClap = clap => {
+    return {
+        type: RECEIVE_ARTICLE_CLAP,
+        clap
     }
 }
 
@@ -109,6 +118,24 @@ export const deleteArticle = (articleId) => async dispatch => {
     }
 }
 
+export const updateArticleClap = clap => async dispatch => {
+    try {
+        let response = await csrfFetch(`/api/claps/${clap.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(clap)
+        })
+        if(response.ok) {
+            let data = await response.json();
+
+            dispatch(receiveArticleClap(data))
+        } else {
+            throw response 
+        }
+    } catch (errors) {
+        console.log(errors)
+    }
+}
+
 
 
 
@@ -124,9 +151,13 @@ const articlesReducer = (state = {}, action) => {
             action.articles.forEach((article) => {
                 nextState[article.id] = article
             })
-            return nextState
+            return nextState;
+        // case RECEIVE_ARTICLE_CLAP: 
+        //     let clap = action.clap
+        //     nextState[clap.article_id].claps[clap.id] = clap
+        //     return nextState
         case REMOVE_ARTICLE: 
-            delete nextState[action.articleId]
+            delete nextState[action.articleId].claps
             return nextState
         default: 
             return nextState;

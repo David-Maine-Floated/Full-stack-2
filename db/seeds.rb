@@ -194,7 +194,7 @@ author_id: 7
 article_6.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/tech-bro.png"), filename: 'tech-bro.jpg')
 
 
-Clap.create(liker_id: 1, article_id: 2, clap_count: 25)
+Clap.create(liker_id: 3, article_id: 2, clap_count: 25)
 
   puts "Done!"
 # end
