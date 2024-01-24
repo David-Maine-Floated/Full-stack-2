@@ -2,7 +2,7 @@ import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import {thunk} from 'redux-thunk';
 import sessionReducer from './session';
 import modalsReducer from './modals';
-import articlesReducer from './article';
+import articlesReducer from './articles';
 import errorsReducer from './errors';
 import usersReducer from './user';
 import clapsReducer from './claps';

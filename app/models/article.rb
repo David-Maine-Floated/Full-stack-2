@@ -10,15 +10,12 @@ class Article < ApplicationRecord
 
     require "open-uri"
 
-# ...
 
     before_validation :generate_default_pic
 
-    # ...
 
     def generate_default_pic
         unless self.photo.attached?
-            # Presumably you have already stored a default pic in your seeds bucket
             file = URI.open("https://maineum-seeds1.s3.amazonaws.com/default.jpg");
             self.photo.attach(io: file, filename: "default.jpg")
         end
@@ -32,5 +29,7 @@ class Article < ApplicationRecord
         class_name: :User
 
     has_one_attached :photo
+
+    has_many :claps 
         
 end

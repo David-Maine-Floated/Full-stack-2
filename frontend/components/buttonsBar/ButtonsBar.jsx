@@ -10,7 +10,7 @@ import { createClap, updateClap } from "../../src/store/claps";
 const ButtonsBar = ({article}) => {
     const [clapActive, setClapActive] = useState(false)
     const currentUser = useSelector(state => state.session.currentUser)
-    const claps = useSelector(state => state.claps)
+    const claps = article.claps
     const dispatch = useDispatch()
     const [clapCount, setClapCount] = useState(0)
 
@@ -20,7 +20,7 @@ const ButtonsBar = ({article}) => {
         count += claps[clap].clapCount;
       }
       setClapCount(count)
-    }, [claps])
+    }, [article, claps])
 
   
     const addClap = async () => {
@@ -44,7 +44,6 @@ const ButtonsBar = ({article}) => {
           })
         );
       }
-      
     }
 
   // onClick={()=> dispatch(showModal('commentsModal'))}
@@ -58,9 +57,9 @@ const ButtonsBar = ({article}) => {
             {clapActive ? <ActiveClapButton /> : <ClapButton />}
           </div>
           <span>{clapCount}</span>
-          <div className="button">
+          {/* <div className="button">
             <p onClick={() => dispatch(showModal("commentsModal"))}>Comments</p>
-          </div>
+          </div> */}
         </div>
         <div className="articleButtonsRight">
           {currentUser.user.id === article.authorId && (

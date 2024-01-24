@@ -2,7 +2,7 @@ import {useDispatch, useSelector } from "react-redux";
 import { hideModal } from "../../src/store/modals";
 import './deleteModal.css'
 import WideModal from "../modals/WideModal";
-import { deleteArticle } from "../../src/store/article";
+import { deleteArticle } from "../../src/store/articles";
 import { useNavigate, useParams } from "react-router-dom";
 
 

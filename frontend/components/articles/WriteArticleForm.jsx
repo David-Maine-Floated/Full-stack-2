@@ -3,7 +3,7 @@ import "./writeArticleForm.css";
 import ProfileButton from "../navigation/ProfileButton";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createArticle } from "../../src/store/article";
+import { createArticle } from "../../src/store/articles";
 import { useNavigate } from "react-router-dom";
 
 const WriteArticleForm = () => {

@@ -1,4 +1,4 @@
-import { RECEIVE_ARTICLE } from "./article"
+import { RECEIVE_ARTICLE } from "./articles"
 
 const RECEIVE_ERRORS = 'errors/RECEIVE_ERRORS'
 const REMOVE_ERRORS = 'errors/REMOVE_ERRORS'

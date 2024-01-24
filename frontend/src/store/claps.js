@@ -131,7 +131,7 @@ const clapsReducer = (state = {}, action) => {
                 nextState[clap.likerId] = clap
             })
             return nextState
-        default :
+        default:
             return state;
     }
 }

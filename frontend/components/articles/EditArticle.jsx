@@ -3,10 +3,9 @@ import "./writeArticleForm.css";
 import ProfileButton from "../navigation/ProfileButton";
 import { Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { editArticle } from "../../src/store/article";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { getArticle } from "../../src/store/article";
+import { getArticle, editArticle } from "../../src/store/articles";
 
 const EditArticle = () => {
   const [title, setTitle] = useState("");
@@ -31,7 +30,7 @@ const EditArticle = () => {
     if(articles) {
       setArticle(articles[articleId])
     }
-  }, [articles])
+  }, [articles, articleId])
  
   //why da heeeek
   // const article = articles[articleId]

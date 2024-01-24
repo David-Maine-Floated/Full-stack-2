@@ -2,9 +2,9 @@ import csrfFetch from "./csrf";
 import { receiveArticleErrors } from "./errors";
 
 
-export const RECEIVE_ARTICLE = 'article/RECEIVE_ARTICLE'
+export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE'
 const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
-const  REMOVE_ARTICLE = 'article/DELETE_ARTICLE'
+const  REMOVE_ARTICLE = 'articles/DELETE_ARTICLE'
 
 export const receiveArticle = article => {
     return {
@@ -114,9 +114,10 @@ export const deleteArticle = (articleId) => async dispatch => {
 
 
 const articlesReducer = (state = {}, action) => {
-    const nextState = {...state}
+    let nextState = {...state}
     switch(action.type) {
         case RECEIVE_ARTICLE: 
+        nextState = {}
         nextState[action.article.id] = action.article
         return nextState
         case RECEIVE_ARTICLES:

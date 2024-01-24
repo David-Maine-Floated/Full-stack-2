@@ -2,7 +2,7 @@ import './displayUserBar.css'
 import { readTime } from "../../helperMethods/readTime";
 
 
-const DisplayUserBar = ({user, article}) => {
+const DisplayUserBar = ({article}) => {
 
     const originalDate = new Date(article.createdAt);
 
@@ -18,14 +18,14 @@ const DisplayUserBar = ({user, article}) => {
             <img
               className="userPhoto"
               src={
-                user.photoUrl ||
+                article.userPhotoUrl ||
                 "../../../default-user.jpg"
               }
               alt=""
             />
           </div>
           <div className="info">
-            <div className="userName">{user.username}</div>
+            <div className="userName">{article.username}</div>
             <div className="readTime">
               <span>{readingTime} min read . </span>
               <span>{formattedDate}</span>
