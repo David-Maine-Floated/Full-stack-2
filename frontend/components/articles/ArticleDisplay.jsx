@@ -32,7 +32,7 @@ const ArticleDisplay = () => {
       dispatch(getUser(article.authorId))
       dispatch(getClapsForArticle(article.id))
     }
-  },[])
+  },[article])
 
 
 

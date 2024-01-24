@@ -8,7 +8,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteModal = () => {
   const modal = useSelector((state) => state.modal);
-  const currentUser = useSelector((state) => state.session.currentUser);
   const {articleId} = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -22,7 +21,7 @@ const DeleteModal = () => {
   }
 
 
-//   if (currentUser) return null;
+
   if (modal.type !== 'deleteModal') return null;
 
   return (

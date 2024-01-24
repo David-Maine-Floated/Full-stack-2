@@ -4,7 +4,7 @@ import './ButtonsBar.css'
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { hideModal, showModal } from "../../src/store/modals";
+import {showModal } from "../../src/store/modals";
 import { createClap, updateClap } from "../../src/store/claps";
 
 const ButtonsBar = ({article}) => {
