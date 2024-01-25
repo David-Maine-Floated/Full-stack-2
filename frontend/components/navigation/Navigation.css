@@ -7,7 +7,10 @@
 }
 
 
-
+.navbar img {
+    width: 30px;
+    height: 30px;
+}
 
 .navbar.loggedIn {
     height: 50px;
@@ -98,9 +101,9 @@
     height: auto;
 }
 
-.userButton:hover {
+/* .userButton:hover {
     cursor: pointer;
-}
+} */
 
 .writeIcon {
     margin-right: 5px;

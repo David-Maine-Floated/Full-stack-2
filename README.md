@@ -45,3 +45,13 @@
 ### You can see here in this snippet of the React-Redux state how when an article is fetched from the backend I utalize the PostgreSQL relational database functionality to pull the claps (and author inormation) along with the article data. The claps belonging to the article are pulled, and the total count is tallied to be presented in the UI.
 
 ![Local Image](images_for_readme/new-claps-state.png)
+
+
+## Future Features To Come!
+### Dear users, 
+### I know you demand more from Maineum!!
+### On the docket for upcoming features are:
+* ### Search Bar
+* ### Comments and replies
+* ### Article saves
+* ### User profile page

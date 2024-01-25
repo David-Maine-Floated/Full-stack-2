@@ -5,4 +5,5 @@
 
 .mainBodyLeftDiv {
     width: 300px;
+    border-top: 0.5px rgba(221, 221, 221, 0.8) solid;
 }

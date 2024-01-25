@@ -31,8 +31,6 @@ const ProfileButton = () => {
           <FontAwesomeIcon icon={faCircleUser} className="userButton" />
       </>
     );
-
-
 };
 
 export default ProfileButton;

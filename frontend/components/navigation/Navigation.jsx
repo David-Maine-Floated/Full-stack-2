@@ -27,12 +27,12 @@ const Navigation = () => {
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
         <div className="leftside">
+          <img src="/favicon.png" alt="" className="favicon" />
           <NavLink className="maineum" to="/">
             Maineum
           </NavLink>
         </div>
         <div className="rightside">
-
           <div className="navWriteDiv">
             <FontAwesomeIcon icon={penRegular} className="writeIcon" />
             <NavLink to="write" className="NavLink">
