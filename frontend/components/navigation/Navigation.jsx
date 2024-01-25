@@ -26,14 +26,20 @@ const Navigation = () => {
   if (currentUser.user) return (
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
-        <div className="leftside"></div>
-        <div className="rightside">
-          <NavLink className="NavLink" to="/">
-            Home
+        <div className="leftside">
+          <NavLink className="maineum" to="/">
+            Maineum
           </NavLink>
+        </div>
+        <div className="rightside">
+          {/* <NavLink className="NavLink" to="/">
+            Home
+          </NavLink> */}
           <div className="navWriteDiv">
-            <FontAwesomeIcon icon={penRegular} className="writeIcon"/>
-            <NavLink to='write'className="NavLink">Write</NavLink>
+            <FontAwesomeIcon icon={penRegular} className="writeIcon" />
+            <NavLink to="write" className="NavLink">
+              Write
+            </NavLink>
           </div>
           <NavLink className="NavLink" onClick={handleLogOut}>
             Logout
@@ -47,35 +53,34 @@ const Navigation = () => {
   // if not logged in:
   if (!currentUser.user) {
     return (
-    <>
-      <div className="navbar">
-        <div className="leftside">
-          <p className="maineum">Maineum</p>
-        </div>
-        <div className="rightside">
-          <NavLink className="NavLink unLogged" to="/">
-            Home
-          </NavLink>
-          <NavLink
-            className="NavLink unLogged"
-            to="/"
-            onClick={() => dispatch(showModal("login"))}
-          >
-            Login
-          </NavLink>
-          <div
-            className="getStartedButton"
-            onClick={() => dispatch(showModal("signup"))}
-          >
-            <Link className="getStartedLink" to="/">
-              Get Started
-            </Link>
+      <>
+        <div className="navbar">
+          <div className="leftside">
+            <NavLink className="maineum" to="/">
+              Maineum
+            </NavLink>
+          </div>
+          <div className="rightside">
+            <NavLink
+              className="NavLink unLogged"
+              to="/"
+              onClick={() => dispatch(showModal("login"))}
+            >
+              Login
+            </NavLink>
+            <div
+              className="getStartedButton"
+              onClick={() => dispatch(showModal("signup"))}
+            >
+              <Link className="getStartedLink" to="/">
+                Get Started
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-      <Outlet />
-    </>
-  );
+        <Outlet />
+      </>
+    );
   }
 };
 
