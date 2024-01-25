@@ -81,7 +81,7 @@ const ButtonsBar = ({article}) => {
           createClap({ article_id: article.id, liker_id: currentUser.user.id })
         );
       }
-      //there's gotta be a better way? seems expensive.
+  
       dispatch(getArticle(article.id))
     };
 

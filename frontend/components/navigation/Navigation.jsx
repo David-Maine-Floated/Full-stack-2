@@ -16,13 +16,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Navigation = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.currentUser);
-  //if logged in:
 
   const handleLogOut = () => {
     dispatch(hideModal())
     dispatch(logoutUser())
   }
-
+  
+  //if logged in:
   if (currentUser.user) return (
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
@@ -32,9 +32,7 @@ const Navigation = () => {
           </NavLink>
         </div>
         <div className="rightside">
-          {/* <NavLink className="NavLink" to="/">
-            Home
-          </NavLink> */}
+
           <div className="navWriteDiv">
             <FontAwesomeIcon icon={penRegular} className="writeIcon" />
             <NavLink to="write" className="NavLink">
