@@ -131,7 +131,7 @@
 .inputContainer {
     display: flex;
     justify-content: space-between;
-    width: 75%;
+    width: 900px;
     /* border: 1px black solid; */
 }
 
@@ -145,7 +145,7 @@
 
 .inputContainer .preview {
     width: 400px;
-    margin-right: 200px;
+    margin-right: 150px;
 }
 
 .custom-file-upload {
