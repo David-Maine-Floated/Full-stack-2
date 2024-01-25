@@ -11,7 +11,13 @@ const ArticleDisplay = () => {
   const { articleId } = useParams();
   const dispatch = useDispatch();
   let article = useSelector((state) => state.articles[articleId]);
+  let claps = useSelector(state => state.articles[articleId])
+
+  
+  console.log('ARTICLE',article, 'claps', claps)
   console.log('RE-RENDER???')
+
+
   useEffect(() => {
     dispatch(getArticle(articleId));
   }, [dispatch, articleId]);

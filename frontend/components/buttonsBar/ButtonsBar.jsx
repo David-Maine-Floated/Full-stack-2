@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {showModal } from "../../src/store/modals";
 import { createClap, updateClap } from "../../src/store/claps";
+import { getArticle } from "../../src/store/articles";
 
 const ButtonsBar = ({article}) => {
   const [clapActive, setClapActive] = useState(false);
@@ -25,6 +26,7 @@ const ButtonsBar = ({article}) => {
   let count = 0;
   if(article) {
     for (let clap in claps) {
+      console.log(claps[clap])
       count += claps[clap].clapCount;
     }
   }
@@ -79,6 +81,8 @@ const ButtonsBar = ({article}) => {
           createClap({ article_id: article.id, liker_id: currentUser.user.id })
         );
       }
+      //there's gotta be a better way? seems expensive.
+      dispatch(getArticle(article.id))
     };
 
   if (!currentUser.user) return null;

@@ -4,7 +4,7 @@ class Api::ClapsController < ApplicationController
     def create 
         @clap = Clap.new(clap_params)
         if @clap.save 
-
+            # debugger
             puts 'Clap Saved!'
             render '/api/claps/show'
             # render '/api/claps/for_article'
@@ -39,7 +39,6 @@ class Api::ClapsController < ApplicationController
     def update
         @clap = Clap.find_by(id: clap_params[:id])
         if @clap.update(clap_params)
-
             render '/api/claps/show'
         else  
             render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
@@ -49,7 +48,7 @@ class Api::ClapsController < ApplicationController
 private 
     
     def clap_params 
-        params.require(:clap).permit(:liker_id, :article_id, :id, :clap_count, :id)
+        params.require(:clap).permit(:liker_id, :article_id, :id, :clap_count)
     end
 
 

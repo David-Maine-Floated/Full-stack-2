@@ -69,6 +69,7 @@ export const createClap = clap => async dispatch => {
         })
         if(response.ok) {
             let data = await response.json();
+            // debugger
             dispatch(receiveClap(data))
         } else {
             throw response 
@@ -92,7 +93,8 @@ export const updateClap = clap => async dispatch => {
             throw response 
         }
     } catch (errors) {
-        console.log(errors)
+        let messages = await errors.json()
+        console.log(messages)
     }
 }
 
@@ -123,6 +125,7 @@ const clapsReducer = (state = {}, action) => {
     let nextState = {...state};
     switch(action.type) {
         case RECEIVE_CLAP:
+            // debugger
             nextState[action.clap.likerId] = action.clap
             return nextState;
         case RECEIVE_CLAPS:

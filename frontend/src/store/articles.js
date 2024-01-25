@@ -29,12 +29,6 @@ export const removeArticle = articleId => {
     }
 }
 
-export const receiveArticleClap = clap => {
-    return {
-        type: RECEIVE_ARTICLE_CLAP,
-        clap
-    }
-}
 
 export const getArticle = (articleId) => async dispatch => {
     try {
@@ -56,7 +50,7 @@ export const getArticles = () => async dispatch => {
 } 
 
 export const createArticle = (article) => async dispatch => {
-    debugger
+    // debugger
     try {
         let response = await csrfFetch(`/api/articles`, {
             method: 'POST',
