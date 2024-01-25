@@ -69,6 +69,10 @@
     top: -95px;
 }
 
+.closeDiv .signup {
+    top: -150px;
+}
+
 .closeButton {
     width: 50px;
     height: 30px;
@@ -76,6 +80,12 @@
     padding-top: 10px;
 
 }
+
+.closeButton.signup {
+    padding-top: 80px;
+}
+
+
 .closeButton:hover {
     cursor: pointer;
 }

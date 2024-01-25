@@ -37,12 +37,12 @@ const SignUpForm = () => {
   if (sessionUser.user) return <Navigate to="/" replace={true} />;
   return (
     <>
-        <div className="closeDiv">
-          <div className="closeButton" onClick={close}>
+        <div className="closeDiv signup">
+          <div className="closeButton signup" onClick={close}>
             <span>&#10005;</span>
           </div>
         </div>
-        <div className="h1div">
+        <div className="h1div singn">
           <h1>Join Maineum.</h1>
         </div>
         <div className="errorDiv">
