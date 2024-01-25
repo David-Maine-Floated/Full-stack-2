@@ -158,7 +158,7 @@ In conclusion, the provocative title challenges preconceived notions about thera
 article_4.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/therapy.jpg"), filename: 'therapy.jpg')
 
 article_5 = Article.create!(
-  title: '"The earth ins\'t flat stupid!"...But have you actually looked at it?',
+  title: '"The earth isn\'t flat stupid!"...But have you actually looked at it?',
   body: 'In a world where scientific consensus overwhelmingly supports the fact that the Earth is round, the exclamation, "The Earth Isn\'t Flat, Stupid!" may seem like an obvious statement. However, it serves as a humorous and poignant reminder to question assumptions and engage in critical thinking.\n
 
 The use of the term \"stupid\" adds a touch of sarcasm, emphasizing the absurdity of entertaining the flat Earth notion. It challenges individuals to consider the overwhelming evidence supporting a spherical Earth. Despite the humor, the underlying message encourages a deeper exploration of scientific truths.\n
