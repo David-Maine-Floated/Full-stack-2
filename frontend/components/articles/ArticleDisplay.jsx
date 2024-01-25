@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./articleDisplay.css";
 import { getArticle } from "../../src/store/articles";
 import ButtonsBar from "../buttonsBar/ButtonsBar";
 import DisplayUserBar from "../displayUserBar/DisplayUserBar";
-import { getClapsForArticle } from "../../src/store/claps";
+
 
 const ArticleDisplay = () => {
   const { articleId } = useParams();
   const dispatch = useDispatch();
   let article = useSelector((state) => state.articles[articleId]);
-  let claps = useSelector(state => state.articles[articleId])
-
-  
-  console.log('ARTICLE',article, 'claps', claps)
-  console.log('RE-RENDER???')
+  // let claps = useSelector(state => state.articles[articleId])
 
 
   useEffect(() => {

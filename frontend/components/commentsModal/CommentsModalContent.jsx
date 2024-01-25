@@ -1,6 +1,6 @@
 import CommentsModal from "./CommentsModal";
 import "./commentsModal.css";
-
+import { useSelector } from "react-redux";
 
 const CommentsModalContent = () => {
   const modal = useSelector((state) => state.modal);

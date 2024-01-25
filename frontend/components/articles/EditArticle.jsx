@@ -31,9 +31,6 @@ const EditArticle = () => {
       setArticle(articles[articleId])
     }
   }, [articles, articleId])
- 
-  //why da heeeek
-  // const article = articles[articleId]
 
 
 function replaceNewLines(text) {
@@ -143,6 +140,7 @@ function replaceNewLines(text) {
           Please fill out article before submitting.
         </div>
         <div className="errors">{errors}</div>
+        <div className="typeErrors">{imageTypeError}</div>
         <textarea
           className="formTitleText"
           placeholder="Title"

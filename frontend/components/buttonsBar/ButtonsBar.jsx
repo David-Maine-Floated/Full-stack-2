@@ -1,7 +1,7 @@
 import ClapButton from "../articleButtons/ClapButton";
 import ActiveClapButton from "../articleButtons/ActiveClapButton";
 import './ButtonsBar.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {showModal } from "../../src/store/modals";
@@ -13,7 +13,7 @@ const ButtonsBar = ({article}) => {
   const currentUser = useSelector((state) => state.session.currentUser);
   const claps = article.claps;
   const dispatch = useDispatch();
-  const [clapCount, setClapCount] = useState(0);
+  // const [clapCount, setClapCount] = useState(0);
 
   // useEffect(() => {
   //   let count = 0;

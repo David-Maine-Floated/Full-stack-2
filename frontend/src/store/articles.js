@@ -5,7 +5,6 @@ import { receiveArticleErrors } from "./errors";
 export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE'
 const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 const  REMOVE_ARTICLE = 'articles/DELETE_ARTICLE'
-const RECEIVE_ARTICLE_CLAP = 'articles/RECEIVE_ARTICLE_CLAP'
 
 
 export const receiveArticle = article => {
@@ -112,23 +111,6 @@ export const deleteArticle = (articleId) => async dispatch => {
     }
 }
 
-export const updateArticleClap = clap => async dispatch => {
-    try {
-        let response = await csrfFetch(`/api/claps/${clap.id}`, {
-            method: 'PATCH',
-            body: JSON.stringify(clap)
-        })
-        if(response.ok) {
-            let data = await response.json();
-
-            dispatch(receiveArticleClap(data))
-        } else {
-            throw response 
-        }
-    } catch (errors) {
-        console.log(errors)
-    }
-}
 
 
 
