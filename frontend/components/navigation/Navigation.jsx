@@ -26,7 +26,7 @@ const Navigation = () => {
   if (currentUser.user) return (
     <>
       <div className={`navbar ${currentUser && "loggedIn"}`}>
-        <div className="leftside">SEARCH</div>
+        <div className="leftside"></div>
         <div className="rightside">
           <NavLink className="NavLink" to="/">
             Home

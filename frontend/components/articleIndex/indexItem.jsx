@@ -52,7 +52,7 @@ const IndexItem = ({article, author}) => {
               <span className="indexItemFooterSpan">{`${readingTime}` + " Minute Read"} </span>
             </div>
             <div className="indexItemFooterRightDiv">
-              <span className="indexItemFooterSpan">Save Icon</span>
+              {/* <span className="indexItemFooterSpan">Save Icon</span> */}
             </div>
           </div>
         </div>

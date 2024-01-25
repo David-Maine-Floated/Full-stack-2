@@ -145,8 +145,10 @@ const WriteArticleForm = () => {
                 />
               </label>
             </form>
-            {preview}
           </div>
+            <div className="preview">
+            {preview}
+            </div>
         </div>
       </div>
     </div>

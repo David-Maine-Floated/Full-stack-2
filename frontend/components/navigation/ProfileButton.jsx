@@ -28,7 +28,7 @@ const ProfileButton = () => {
 
     return (
       <>
-          <FontAwesomeIcon icon={faCircleUser} onClick={handleClick} className="userButton" />
+          <FontAwesomeIcon icon={faCircleUser} className="userButton" />
       </>
     );
 

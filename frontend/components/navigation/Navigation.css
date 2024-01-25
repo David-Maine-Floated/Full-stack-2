@@ -93,9 +93,9 @@
     height: auto;
 }
 
-.userButton:hover {
+/* .userButton:hover {
     cursor: pointer;
-}
+} */
 
 .writeIcon {
     margin-right: 5px;
