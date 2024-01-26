@@ -17,7 +17,7 @@ const UnLoggedInSplash = () => {
       <div className="splash">
         <h2>Stay curious.</h2>
         <h3>
-          Discover stoires, thinking, and <br></br> expertiese from writers on
+          Discover stories, thinking, and <br></br> expertise from writers on
           any topic.
         </h3>
         <div
