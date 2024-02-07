@@ -10,9 +10,9 @@ class ApplicationController < ActionController::API
 
   before_action :attach_authenticity_token 
 
-  def attach_authenticity_token 
-    headers['X-CSRF-TOKEN'] = masked_authenticity_token(session)
-  end
+  # def attach_authenticity_token 
+  #   headers['X-CSRF-TOKEN'] = masked_authenticity_token(session)
+  # end
 
 
   def current_user
@@ -39,8 +39,8 @@ class ApplicationController < ActionController::API
   end
 
 
-  def require_logged_in
-    unless current_user
+  def require_logged_out
+    if current_user
       render json: { message: 'Unauthorized' }, status: :unauthorized 
     end
   end
@@ -53,21 +53,21 @@ private
   end
 
   def invalid_authenticity_token
-  render json: { message: 'Invalid authenticity token' }, 
+    render json: { message: 'Invalid authenticity token' }, 
     status: :unprocessable_entity
-end
-
-def unhandled_error(error)
-  if request.accepts.first.html?
-    raise error
-  else
-    @message = "#{error.class} - #{error.message}"
-    @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
-    render 'api/errors/internal_server_error', status: :internal_server_error
-
-    logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
   end
-end
+
+  def unhandled_error(error)
+    if request.accepts.first.html?
+      raise error
+    else
+      @message = "#{error.class} - #{error.message}"
+      @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
+      render 'api/errors/internal_server_error', status: :internal_server_error
+
+      logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
+    end
+  end
 
 
 

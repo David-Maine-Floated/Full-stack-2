@@ -6,7 +6,6 @@ const REMOVE_SESSION_USER = "session/REMOVE_USER";
 
 
 export const receiveSessionUser = user => {
-
     return {
         type: RECEIVE_SESSION_USER, 
         user
@@ -20,40 +19,31 @@ export const removeSessionUser = userId => {
     }
 }
 
-
-
-
 export const signUpUser = (user, setErrors) => async dispatch => {
-
     try {
-
         let response = await csrfFetch('/api/users', {
             method: 'POST',
             body: JSON.stringify(user)
         })
-    
+        //do I need a conditional here considering I have the try/catch
+        //(if response.ok) else throw error 
         let data = await response.json();
-        dispatch(receiveSessionUser(data))  //create user
+        dispatch(receiveSessionUser(data))  
 
-        
     } catch (errors) {
-   
         let data = await errors.json()
-        setErrors(data.errors)
-        
+        setErrors(data.errors) 
     }
 }
 
 export const logoutUser = () => async dispatch => {
-    let res = await csrfFetch('/api/session', {
+    let response = await csrfFetch('/api/session', {
         method: "DELETE"
     })
 
-
     sessionStorage.setItem('currentUser', null);
-    if (res.ok) dispatch(removeSessionUser());
-    return res
-
+    if (response.ok) dispatch(removeSessionUser());
+    return response
 }
 
 export const restoreSession = () => async (dispatch) => {
@@ -66,9 +56,6 @@ export const restoreSession = () => async (dispatch) => {
     return response;
 }
 
-
-
-
 export const loginUser = (user, setErrors) => async dispatch => {
    
     try {
@@ -76,20 +63,15 @@ export const loginUser = (user, setErrors) => async dispatch => {
             method: "POST",
             body: JSON.stringify(user)
         })
-
         let data = await response.json()
         sessionStorage.setItem('currentUser', JSON.stringify(data.user))
         dispatch(receiveSessionUser(data))
 
     } catch (error){
-
             let data = await error.json()
             setErrors(data.errors)
     }
 }
-
-
-
 
 const sessionReducer = (state = {currentUser: {user:null}}, action) => {
 
@@ -100,7 +82,7 @@ const sessionReducer = (state = {currentUser: {user:null}}, action) => {
             return nextState
         case REMOVE_SESSION_USER:
             return { currentUser: {user: null} }
-        default : 
+        default: 
             return nextState;
     }
 }
