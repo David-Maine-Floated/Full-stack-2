@@ -20,10 +20,19 @@
     width: 170px;
 }
 
+.aritcleButtonsLeft {
+    display: flex;
+    margin-left: 55px;
+}
+
 .button {
     text-decoration: none;
 }
 
+.clap-count {
+    margin-right: 30px;
+    margin-left: 6px;
+}
 
 .button:hover {
     cursor: pointer;

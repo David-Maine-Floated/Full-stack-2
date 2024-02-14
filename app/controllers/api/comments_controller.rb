@@ -2,10 +2,12 @@ class Api::CommentsController < ApplicationController
 
 
     def create 
+        debugger
         @comment = Comment.new(comment_params)
         if @comment.save 
+            debugger
             puts 'Clap Saved!'
-            # render 
+            render '/api/comments/show' 
         else 
             render json: {errors: @comment.errors.full_messages}, status: :unprocessable_entity
         end
@@ -22,9 +24,9 @@ class Api::CommentsController < ApplicationController
     end
 
     def for_article
-        @comments = Clap.where(article_id: params[:article_id])
+        @comments = Clap.includes(:user).where(article_id: params[:article_id])
         if @comments
-            # render '
+            render '/api/comments/for_article'
         else 
             render json: {errors: @claps.errors.full_messages}, status: :unprocessable_entity
         end
@@ -37,6 +39,11 @@ class Api::CommentsController < ApplicationController
         else  
             render json: {errors: @clap.errors.full_messages}, status: :unprocessable_entity
         end
+    end
+private 
+    
+    def comment_params 
+        params.require(:comment).permit(:article_id, :id, :commenter_id, :body)
     end
 
 

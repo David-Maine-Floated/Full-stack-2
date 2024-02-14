@@ -13,6 +13,7 @@ import MainBody from "../components/mainBody/MainBody";
 import EditArticle from "../components/articles/EditArticle";
 import DeleteModal from "../components/deleteModal/DeleteModal";
 import CommentsModal from "../components/commentsModal/CommentsModal";
+import CommentsModalContent from "../components/commentsModal/CommentsModalContent";
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
         element: (
           <>
             <ArticleDisplay />
-            <CommentsModal />
+            <CommentsModalContent />
             <DeleteModal />
           </>
         ),

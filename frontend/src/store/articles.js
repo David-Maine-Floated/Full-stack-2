@@ -5,7 +5,7 @@ import { receiveArticleErrors } from "./errors";
 export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE'
 const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 const  REMOVE_ARTICLE = 'articles/DELETE_ARTICLE'
-
+const RECEIVE_COMMENT ='comments/RECIEVE_COMMENT'
 
 export const receiveArticle = article => {
     return {
@@ -25,6 +25,32 @@ export const removeArticle = articleId => {
     return {
         type: REMOVE_ARTICLE,
         articleId
+    }
+}
+
+export const receiveComment = comment => {
+    return {
+        type: RECEIVE_COMMENT, 
+        comment
+    }
+}
+
+export const createComment = (comment) => async dispatch => {
+    debugger
+    try {
+        let response = await csrfFetch(`/api/comments`, {
+            method: 'POST',
+            body: JSON.stringify(comment)
+        })
+        debugger
+        if(response.ok) {
+            let data = await response.json()
+            dispatch(receiveComment(data))
+        }
+    } catch (error) {
+        let errors = await error.json()
+        console.log('CREATE COMMENT ERRORS:', errors)
+        
     }
 }
 

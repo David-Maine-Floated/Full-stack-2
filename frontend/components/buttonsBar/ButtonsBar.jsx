@@ -90,13 +90,13 @@ const ButtonsBar = ({article}) => {
   return (
     <div className="articleButtons">
       <div className="aritcleButtonsLeft">
-        <div className="button" onClick={addClap}>
+        <div className="button clap" onClick={addClap}>
           {clapActive ? <ActiveClapButton /> : <ClapButton />}
         </div>
-        <span>{count}</span>
-        {/* <div className="button">
+        <span className="clap-count">{count}</span>
+        <div className="button">
             <p onClick={() => dispatch(showModal("commentsModal"))}>Comments</p>
-          </div> */}
+          </div>
       </div>
       <div className="articleButtonsRight">
         {currentUser.user.id === article.authorId && (
