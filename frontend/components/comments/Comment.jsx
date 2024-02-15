@@ -1,12 +1,25 @@
+import "./comment.css";
+
+const Comment = ({ comment }) => {
+
+  const originalDate = new Date(comment?.createdAt);
+  const options = { year: "numeric", month: "short", day: "numeric" };
+  if (comment) {
+    var formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+      originalDate
+    );
+
+  }
 
 
-const Comment = ({comment}) => {
   return (
     <div className="comment">
       <div className="user-bar">
-        <img src={comment?.commenter} alt="" />
-        <p>{comment?.username}</p>
-        <p> {comment?.created_at}</p>  
+        <img src={comment?.photoUrl} alt="" />
+        <div className="info">
+          <p className="username">{comment?.username}</p>
+          <p className="date"> {formattedDate}</p>
+        </div>
       </div>
       <div className="body">
         <p>{comment?.body}</p>
@@ -15,4 +28,4 @@ const Comment = ({comment}) => {
   );
 };
 
-export default Comment
+export default Comment;

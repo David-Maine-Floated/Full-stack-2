@@ -12,14 +12,14 @@ const CommentsModalContent = () => {
   const currentUser = useSelector((state) => state.session.currentUser);
   const {articleId}= useParams()
   const comments = useSelector(state => state.articles[articleId]?.comments)
-
+  const articles = useSelector(state => state.articles[articleId].comments)
   if (!currentUser.user) return null;
   if (modal.type !== "commentsModal") return null;
 
   return (
     <CommentsModal>
       <div className="responses-count">
-        <h1 className="responses">Responses: (100)</h1>
+        <h1 className="responses">{`Responses: (${articles.length})`}</h1>
       </div>
       <CreateComment />
       <CommentIndex comments={comments} articleId={articleId}/>
