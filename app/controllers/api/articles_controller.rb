@@ -19,6 +19,7 @@ class Api::ArticlesController < ApplicationController
 
     def show 
         @article = Article.find_by(id: params[:id])
+        @comments = Comment.includes(:commenter).where(article_id: params[:id])
         if @article 
             render '/api/articles/show'
         else  

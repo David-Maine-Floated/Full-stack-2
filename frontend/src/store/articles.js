@@ -36,19 +36,16 @@ export const receiveComment = comment => {
 }
 
 export const createComment = (comment) => async dispatch => {
-    debugger
     try {
         let response = await csrfFetch(`/api/comments`, {
             method: 'POST',
             body: JSON.stringify(comment)
         })
-        debugger
         if(response.ok) {
             let data = await response.json()
             dispatch(receiveComment(data))
         }
     } catch (error) {
-        let errors = await error.json()
         console.log('CREATE COMMENT ERRORS:', errors)
         
     }
@@ -154,12 +151,12 @@ const articlesReducer = (state = {}, action) => {
                 nextState[article.id] = article
             })
             return nextState;
-        // case RECEIVE_ARTICLE_CLAP: 
-        //     let clap = action.clap
-        //     nextState[clap.article_id].claps[clap.id] = clap
-        //     return nextState
         case REMOVE_ARTICLE: 
             delete nextState[action.articleId].claps
+            return nextState;
+        case RECEIVE_COMMENT:
+            debugger
+            nextState[action.comment.articleId].comments.push(action.comment)
             return nextState
         default: 
             return nextState;

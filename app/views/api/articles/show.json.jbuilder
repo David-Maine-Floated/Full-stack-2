@@ -1,9 +1,13 @@
 
+
   json.extract! @article, :title, :body, :topics, :created_at, :updated_at, :author_id, :id
   json.photoUrl @article.photo.attached? ? @article.photo.url : nil
   json.extract! @article.author, :username
   json.userPhotoUrl @article.author.photo.attached? ? @article.author.photo.url : nil
-  
+
+  json.comments @comments do |comment|
+    json.extract! comment, :body, :created_at, :username
+  end
 
 
 if @article.claps.length == 0 

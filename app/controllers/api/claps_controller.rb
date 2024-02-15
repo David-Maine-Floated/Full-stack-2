@@ -4,7 +4,7 @@ class Api::ClapsController < ApplicationController
     def create 
         @clap = Clap.new(clap_params)
         if @clap.save 
-            # debugger
+        
             puts 'Clap Saved!'
             render '/api/claps/show'
             # render '/api/claps/for_article'

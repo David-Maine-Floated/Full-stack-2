@@ -8,6 +8,10 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
   
   has_one_attached :photo 
+
+  has_many :comments, 
+  foreign_key: 'commenter_id', 
+  class_name: 'Comment'
   
   
   def self.find_by_credentials(email, password) 

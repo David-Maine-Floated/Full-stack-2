@@ -2,11 +2,10 @@ class Api::CommentsController < ApplicationController
 
 
     def create 
-        debugger
         @comment = Comment.new(comment_params)
+        # @user = User.find(comment_params[:commenter_id])
         if @comment.save 
-            debugger
-            puts 'Clap Saved!'
+            puts 'Comment Saved!'
             render '/api/comments/show' 
         else 
             render json: {errors: @comment.errors.full_messages}, status: :unprocessable_entity
@@ -43,7 +42,7 @@ class Api::CommentsController < ApplicationController
 private 
     
     def comment_params 
-        params.require(:comment).permit(:article_id, :id, :commenter_id, :body)
+        params.require(:comment).permit(:article_id, :id, :commenter_id, :body, :username)
     end
 
 
