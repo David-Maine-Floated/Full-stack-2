@@ -6,7 +6,9 @@
   json.userPhotoUrl @article.author.photo.attached? ? @article.author.photo.url : nil
 
   json.comments @comments do |comment|
-    json.extract! comment, :body, :created_at, :username
+    json.extract! comment, :body, :created_at
+    json.username comment.commenter.username
+    json.photoUrl (comment.commenter.photo.attached? ? comment.commenter.photo.url : nil)
   end
 
 

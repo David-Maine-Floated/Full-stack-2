@@ -5,7 +5,6 @@ import { hideModal } from "../../src/store/modals";
 const CommentsModal = (props) => {
   const dispatch = useDispatch();
   const modal = useSelector((state) => state.modal);
-  console.log("COMMENTS MODAL", props);
   const handleClick = (e) => {
     if (e.target.className === "commentsModal") {
       dispatch(hideModal());

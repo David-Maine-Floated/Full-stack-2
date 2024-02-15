@@ -1,13 +1,15 @@
-import DisplayUserBar from "../displayUserBar/DisplayUserBar";
 
-const Comment = (comment) => {
+
+const Comment = ({comment}) => {
   return (
     <div className="comment">
       <div className="user-bar">
-        {/* <DisplayUserBar /> */}
+        <img src={comment?.commenter} alt="" />
+        <p>{comment?.username}</p>
+        <p> {comment?.created_at}</p>  
       </div>
       <div className="body">
-        <p>Hi I am a very fun comment! its so fun being fasdfjasdfjldas jfkdjfk  dkfjksdjf sldkjf d fd d kfjls lflsjdkf </p>
+        <p>{comment?.body}</p>
       </div>
     </div>
   );

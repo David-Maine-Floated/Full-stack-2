@@ -23,7 +23,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def for_article
-        @comments = Clap.includes(:user).where(article_id: params[:article_id])
+        @comments = Clap.includes(:commneter).where(article_id: params[:article_id])
         if @comments
             render '/api/comments/for_article'
         else 

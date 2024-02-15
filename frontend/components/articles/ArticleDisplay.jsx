@@ -27,12 +27,12 @@ const ArticleDisplay = () => {
     return sentences.map((sentence) => {
       if (sentence !== "") {
         return (
-          <p key={sentence.id} className="articleDisplayBody">
+          <p key={article.id + sentence} className="articleDisplayBody">
             {sentence}
           </p>
         );
       } else {
-        return <br key={sentence.id}></br>;
+        return <br key={sentence.id + sentence}></br>;
       }
     });
   };
@@ -49,7 +49,7 @@ const ArticleDisplay = () => {
           <img className="displayImage" src={article.photoUrl} alt="" />
         </div>
       )}
-      <div className="articleDisplayBodyDiv">
+      <div className="articleDisplayBodyDiv" >
         {article && newArticleBody(article.body)}
       </div>
     </div>

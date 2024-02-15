@@ -9,7 +9,6 @@ const IndexItem = ({article, author}) => {
     e.preventDefault();
     navigate(`article/${article.id}`)
   }
-  console.log('INDEX ITEM', article.id)
   const readingTime = readTime(article.body)
   const originalDate = new Date(article.createdAt);
 

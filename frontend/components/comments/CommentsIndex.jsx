@@ -1,16 +1,13 @@
-import Comment from "./Comment"
+import Comment from "./Comment";
 
+const CommentIndex = ({ comments, articleId }) => {
+  return (
+    <div className="comment-index" key={articleId + "index"}>
+      {comments.map((comment) => {
+        return <Comment key={comment.id} comment={comment} />;
+      })}
+    </div>
+  );
+};
 
-
-const CommentIndex = (comments) => {
-
-
-
-    return (
-        <div className="comment-index">
-            <h2>all da comments</h2>
-        </div>
-    )
-}
-
-export default CommentIndex
+export default CommentIndex;

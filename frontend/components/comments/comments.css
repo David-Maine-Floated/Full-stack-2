@@ -42,7 +42,6 @@
 .submit-container {
     display: flex;
     height: 45px;
-    border: red solid 1px;
     align-items: center;
 }
 

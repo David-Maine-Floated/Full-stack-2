@@ -13,7 +13,6 @@ const StaffPicks = () => {
         if(articles) {
             let array = Object.values(articles)
             setPicks([array[1], array[2], array[5]]);
-            console.log('whereeeee', array)
         }
     }, [articles])
     

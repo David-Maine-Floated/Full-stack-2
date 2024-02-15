@@ -10,7 +10,7 @@ const CreateComment = () => {
   const {articleId} = useParams();
   const dispatch = useDispatch()
   const user = useSelector((state) => state.session.currentUser.user);
-  if (user) console.log('USER', user)
+
 
   useEffect(() => {
     if(body !== '') {
@@ -24,7 +24,6 @@ const CreateComment = () => {
 
   const handleSubmit = () => {
     if(submitable) {
-      debugger
       dispatch(createComment({ comment: {body: body, commenter_id: user.id, article_id: articleId, username: user.username }}))
     }
   }

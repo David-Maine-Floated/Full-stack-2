@@ -26,7 +26,6 @@ const ButtonsBar = ({article}) => {
   let count = 0;
   if(article) {
     for (let clap in claps) {
-      console.log(claps[clap])
       count += claps[clap].clapCount;
     }
   }
