@@ -14,7 +14,7 @@ class Api::CommentsController < ApplicationController
 
 
     def destroy 
-        @comment = Comment.find_by(id: params[:clapId]) 
+        @comment = Comment.find_by(id: comment_params[:id]) 
         if @comment.delete 
             render json: 'Comment deleted'
         else  
@@ -23,11 +23,11 @@ class Api::CommentsController < ApplicationController
     end
 
     def for_article
-        @comments = Clap.includes(:commneter).where(article_id: params[:article_id])
+        @comments = Comment.includes(:commenter).where(article_id: params[:article_id])
         if @comments
             render '/api/comments/for_article'
         else 
-            render json: {errors: @claps.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: @comments.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

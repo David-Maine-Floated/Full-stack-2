@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :articles, only: [:create, :show, :index, :update, :destroy]
     resource :session, only: [:show, :create, :destroy]
     resources :claps, only: [:create, :index, :destroy, :update]
-    resources :comments, only: [:create, :destory, :show, :update]
+    resources :comments, only: [:create, :destroy, :show, :update]
     get 'comments/for_article/:article_id', to: 'comments#for_article', as: 'comments_for_article'
     get 'claps/for_article/:article_id', to: 'claps#for_article', as: 'claps_for_article'
   end

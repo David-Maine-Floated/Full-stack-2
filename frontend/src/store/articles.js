@@ -6,6 +6,7 @@ export const RECEIVE_ARTICLE = 'articles/RECEIVE_ARTICLE'
 const RECEIVE_ARTICLES = 'articles/RECIEVE_ARTICLES'
 const  REMOVE_ARTICLE = 'articles/DELETE_ARTICLE'
 const RECEIVE_COMMENT ='comments/RECIEVE_COMMENT'
+const REMOVE_COMMENT = 'comments/REMOVE_COMMENT'
 
 export const receiveArticle = article => {
     return {
@@ -35,6 +36,13 @@ export const receiveComment = comment => {
     }
 }
 
+export const removeComment = info => {
+    return {
+        type: REMOVE_COMMENT,
+        payload: info
+    }
+}
+
 export const createComment = (comment) => async dispatch => {
     try {
         let response = await csrfFetch(`/api/comments`, {
@@ -46,8 +54,22 @@ export const createComment = (comment) => async dispatch => {
             dispatch(receiveComment(data))
         }
     } catch (error) {
-        console.log('CREATE COMMENT ERRORS:', errors)
+        console.log('CREATE COMMENT ERRORS:', error)
         
+    }
+}
+
+export const deleteComment = commentId => async dispatch => {
+    try {
+        let response = await csrfFetch(`/api/comments/${commentId}`, {
+            method: 'DELETE',
+            body: JSON.stringify(commentId)
+        })
+        if (response.ok) {
+            dispatch(removeComment(commentId))
+        }
+    } catch (error) {
+        console.log('COMMENT DELETED', error)
     }
 }
 
@@ -155,7 +177,6 @@ const articlesReducer = (state = {}, action) => {
             delete nextState[action.articleId].claps
             return nextState;
         case RECEIVE_COMMENT:
-            debugger
             let articleId = action.comment.articleId;
             const updatedComments = [...nextState[articleId].comments, action.comment];
             const newState = {
@@ -165,8 +186,13 @@ const articlesReducer = (state = {}, action) => {
                     comments: updatedComments
                 }
             };
-            debugger
             return newState
+        case REMOVE_COMMENT:
+            debugger
+            let {comment, id} = action.payload
+            nextState[id].comments = nextState[id].comments.filter(com => com.id !== comment.id)
+            debugger
+            return nextState
         default: 
             return nextState;
     }
