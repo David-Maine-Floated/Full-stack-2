@@ -155,8 +155,18 @@ const articlesReducer = (state = {}, action) => {
             delete nextState[action.articleId].claps
             return nextState;
         case RECEIVE_COMMENT:
-            nextState[action.comment.articleId].comments.push(action.comment)
-            return nextState
+            debugger
+            let articleId = action.comment.articleId;
+            const updatedComments = [...nextState[articleId].comments, action.comment];
+            const newState = {
+                ...nextState,
+                [articleId]: {
+                    ...nextState[articleId],
+                    comments: updatedComments
+                }
+            };
+            debugger
+            return newState
         default: 
             return nextState;
     }

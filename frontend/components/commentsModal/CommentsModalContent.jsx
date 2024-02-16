@@ -12,7 +12,7 @@ const CommentsModalContent = () => {
   const currentUser = useSelector((state) => state.session.currentUser);
   const {articleId}= useParams()
   const comments = useSelector(state => state.articles[articleId]?.comments)
-  const articles = useSelector(state => state.articles[articleId].comments)
+  const articles = useSelector(state => state.articles[articleId]?.comments)
   if (!currentUser.user) return null;
   if (modal.type !== "commentsModal") return null;
 

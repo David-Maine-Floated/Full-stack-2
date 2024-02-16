@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
 
     def create 
         @comment = Comment.new(comment_params)
-        # @user = User.find(comment_params[:commenter_id])
+        @user = User.find(comment_params[:commenter_id])
         if @comment.save 
             puts 'Comment Saved!'
             render '/api/comments/show' 
