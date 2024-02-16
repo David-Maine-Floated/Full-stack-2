@@ -174,24 +174,23 @@ const articlesReducer = (state = {}, action) => {
             })
             return nextState;
         case REMOVE_ARTICLE: 
-            delete nextState[action.articleId].claps
+            delete nextState[action.articleId]
             return nextState;
         case RECEIVE_COMMENT:
             let articleId = action.comment.articleId;
             const updatedComments = [...nextState[articleId].comments, action.comment];
-            const newState = {
-                ...nextState,
-                [articleId]: {
-                    ...nextState[articleId],
-                    comments: updatedComments
-                }
-            };
-            return newState
+            // const newState = {
+            //     ...nextState,
+            //     [articleId]: {
+            //         ...nextState[articleId],
+            //         comments: updatedComments
+            //     }
+            // };
+            nextState[articleId].comments = updatedComments
+            return nextState
         case REMOVE_COMMENT:
-            debugger
             let {comment, id} = action.payload
             nextState[id].comments = nextState[id].comments.filter(com => com.id !== comment.id)
-            debugger
             return nextState
         default: 
             return nextState;
