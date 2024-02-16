@@ -177,8 +177,8 @@ const articlesReducer = (state = {}, action) => {
             delete nextState[action.articleId]
             return nextState;
         case RECEIVE_COMMENT:
-            let articleId = action.comment.articleId;
-            const updatedComments = [...nextState[articleId].comments, action.comment];
+            var articleId = action.comment.articleId;
+            var updatedComments = [...nextState[articleId].comments, action.comment];
             // const newState = {
             //     ...nextState,
             //     [articleId]: {
@@ -189,7 +189,7 @@ const articlesReducer = (state = {}, action) => {
             nextState[articleId].comments = updatedComments
             return nextState
         case REMOVE_COMMENT:
-            let {comment, id} = action.payload
+            var {comment, id} = action.payload
             nextState[id].comments = nextState[id].comments.filter(com => com.id !== comment.id)
             return nextState
         default: 

@@ -13,6 +13,7 @@ import MainBody from "../components/mainBody/MainBody";
 import EditArticle from "../components/articles/EditArticle";
 import DeleteModal from "../components/deleteModal/DeleteModal";
 import CommentsModalContent from "../components/commentsModal/CommentsModalContent";
+import Footer from "../components/footer/Footer";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
           <>
             <UnLoggedInSplash />
             <MainBody />
+            <Footer />
           </>
         ),
       },
