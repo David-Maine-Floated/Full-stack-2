@@ -9,12 +9,13 @@ const Comment = ({ comment, articleId }) => {
     var formattedDate = new Intl.DateTimeFormat("en-US", options).format(
       originalDate
     );
-
   }
 
-  const currentUserId = useSelector((state) => state.session.currentUser.user.id);
+  const currentUserId = useSelector(
+    (state) => state.session.currentUser.user.id
+  );
   const dispatch = useDispatch();
-  console.log('COMMMNET', comment)
+  console.log("COMMMNET", comment);
 
   return (
     <div className="comment">
@@ -29,10 +30,18 @@ const Comment = ({ comment, articleId }) => {
         <p>{comment?.body}</p>
       </div>
       <div className="delete-container">
-        {comment?.commenterId === currentUserId && 
-        <div>
-          <p onClick={() => dispatch(deleteComment({comment, id: articleId }))}className="delete">Delete</p>
-        </div>}
+        {comment?.commenterId === currentUserId && (
+          <div>
+            <p
+              onClick={() =>
+                dispatch(deleteComment({ comment, id: articleId }))
+              }
+              className="delete"
+            >
+              Delete
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
