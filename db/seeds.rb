@@ -13,6 +13,7 @@ require "open-uri"
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
   Clap.destroy_all
+  Comment.destroy_all
   Article.destroy_all
   User.destroy_all
   puts "Resetting primary keys..."
@@ -20,6 +21,7 @@ require "open-uri"
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('articles')
   ApplicationRecord.connection.reset_pk_sequence!('claps')
+  ApplicationRecord.connection.reset_pk_sequence!('comments')
   
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
@@ -198,3 +200,31 @@ Clap.create(liker_id: 3, article_id: 2, clap_count: 25)
 
   puts "Done!"
 # end
+
+Comment.create({body: 'Well how diggity dang interesting! I had no idea. Food for some serious thought.', commenter_id: 1, article_id: 2})
+
+Comment.create({body: 'Good to know! My orange kitty for sure seems spaced out at times, glad to hear he\'s got more going on up there than I thought.', commenter_id: 2, article_id: 2})
+
+Comment.create({body: 'GOOD IDEA! I\'m gonna liquidate my grannie\'s assets and put it all on Doge Coin right now! I admit I am a little drunk but not too drunk to know this article is the dang truth.', commenter_id: 3, article_id: 3})
+
+Comment.create({body: 'Hell yea! I gotta show this to my wife', commenter_id: 5, article_id: 4})
+
+Comment.create({body: 'Damn Right.', commenter_id: 6, article_id: 4})
+
+Comment.create({body: 'This is exactly correct. People don\'t get it. I\'m fine!!!!!!!!!', commenter_id: 6, article_id: 4})
+
+Comment.create({body: 'Fairly intererting take. I supposed I actually have not "seen the earth" so who am I to say it aint flat
+  ?', commenter_id: 7, article_id: 5})
+
+Comment.create({body: 'Idk bro. Looks round to me.', commenter_id: 2, article_id: 7})
+
+Comment.create({body: 'Yea......... I don\'t know about this.', commenter_id: 1, article_id: 7})
+
+Comment.create({body: 'Well hey alright! This is just what I needed to hear.', commenter_id: 2, article_id: 1})
+
+Comment.create({body: 'I love cake! This is fantastic news! Wow!', commenter_id: 3, article_id: 1})
+
+Comment.create({body: 'Show me the science. I ate my cake, there\'s no cake left. What the heck.', commenter_id: 6, article_id: 1})
+
+Comment.create({body: 'Hmmm yea last time I ate cake the cake was no longer there. I don\'t get it.', commenter_id: 4, article_id: 1})
+
