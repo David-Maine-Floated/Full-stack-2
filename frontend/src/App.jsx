@@ -15,6 +15,11 @@ import DeleteModal from "../components/deleteModal/DeleteModal";
 import CommentsModalContent from "../components/commentsModal/CommentsModalContent";
 import Footer from "../components/footer/Footer";
 
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-1ERV9CE87R"; 
+ReactGA.initialize(TRACKING_ID);
+
 
 const router = createBrowserRouter([
   {
