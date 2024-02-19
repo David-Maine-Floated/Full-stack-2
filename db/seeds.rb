@@ -45,7 +45,7 @@ require "open-uri"
   user3 = User.create!(
     email: 'MrChipper@hello.com', 
     password: 'password',
-    username: 'Big Timmy.'
+    username: 'Big Timmy'
   )
 
   user3.photo.attach(io: URI.open("https://maineum-seeds1.s3.amazonaws.com/user-3.jpeg"), filename: 'user-3.jpeg')
@@ -201,30 +201,30 @@ Clap.create(liker_id: 3, article_id: 2, clap_count: 25)
   puts "Done!"
 # end
 
-Comment.create({body: 'Well how diggity dang interesting! I had no idea. Food for some serious thought.', commenter_id: 1, article_id: 2})
+Comment.create!({body: 'Well how diggity dang interesting! I had no idea. Food for some serious thought.', commenter_id: 1, article_id: 2, username: 'Big Shot Demo Guy'})
 
-Comment.create({body: 'Good to know! My orange kitty for sure seems spaced out at times, glad to hear he\'s got more going on up there than I thought.', commenter_id: 2, article_id: 2})
+Comment.create!({body: 'Good to know! My orange kitty for sure seems spaced out at times, glad to hear he\'s got more going on up there than I thought.', commenter_id: 2, article_id: 2, username: 'Albert Black' })
 
-Comment.create({body: 'GOOD IDEA! I\'m gonna liquidate my grannie\'s assets and put it all on Doge Coin right now! I admit I am a little drunk but not too drunk to know this article is the dang truth.', commenter_id: 3, article_id: 3})
+Comment.create!({body: 'GOOD IDEA! I\'m gonna liquidate my grannie\'s assets and put it all on Doge Coin right now! I admit I am a little drunk but not too drunk to know this article is the dang truth.', commenter_id: 3, article_id: 3, username: 'Big Timmy'})
 
-Comment.create({body: 'Hell yea! I gotta show this to my wife', commenter_id: 5, article_id: 4})
+Comment.create!({body: 'Hell yea! I gotta show this to my wife', commenter_id: 5, article_id: 4, username: "Proud Father"})
 
-Comment.create({body: 'Damn Right.', commenter_id: 6, article_id: 4})
+Comment.create!({body: 'Damn Right.', commenter_id: 6, article_id: 4, username: 'Billy Tobacco'})
 
-Comment.create({body: 'This is exactly correct. People don\'t get it. I\'m fine!!!!!!!!!', commenter_id: 6, article_id: 4})
+Comment.create!({body: 'This is exactly correct. People don\'t get it. I\'m fine!!!!!!!!!', commenter_id: 6, article_id: 4, username: 'Billy Tobacco'})
 
-Comment.create({body: 'Fairly intererting take. I supposed I actually have not "seen the earth" so who am I to say it aint flat
-  ?', commenter_id: 7, article_id: 5})
+Comment.create!({body: 'Fairly intererting take. I supposed I actually have not "seen the earth" so who am I to say it aint flat
+  ?', commenter_id: 7, article_id: 5, username: 'Sarah White'})
 
-Comment.create({body: 'Idk bro. Looks round to me.', commenter_id: 2, article_id: 7})
+Comment.create!({body: 'Idk bro. Looks round to me.', commenter_id: 2, article_id: 6, username: 'Albert Black'})
 
-Comment.create({body: 'Yea......... I don\'t know about this.', commenter_id: 1, article_id: 7})
+Comment.create!({body: 'Yea......... I don\'t know about this.', commenter_id: 1, article_id: 6, username: 'Big Shot Demo Guy'})
 
-Comment.create({body: 'Well hey alright! This is just what I needed to hear.', commenter_id: 2, article_id: 1})
+Comment.create!({body: 'Well hey alright! This is just what I needed to hear.', commenter_id: 2, article_id: 1, username: 'Albert Black' })
 
-Comment.create({body: 'I love cake! This is fantastic news! Wow!', commenter_id: 3, article_id: 1})
+Comment.create!({body: 'I love cake! This is fantastic news! Wow!', commenter_id: 3, article_id: 1, username: 'Big Timmy'})
 
-Comment.create({body: 'Show me the science. I ate my cake, there\'s no cake left. What the heck.', commenter_id: 6, article_id: 1})
+Comment.create!({body: 'Show me the science. I ate my cake, there\'s no cake left. What the heck.', commenter_id: 6, article_id: 1, username: 'Billy Tobacco'})
 
-Comment.create({body: 'Hmmm yea last time I ate cake the cake was no longer there. I don\'t get it.', commenter_id: 4, article_id: 1})
+Comment.create!({body: 'Hmmm yea last time I ate cake the cake was no longer there. I don\'t get it.', commenter_id: 4, article_id: 1, username: 'Gamer Queen' })
 
