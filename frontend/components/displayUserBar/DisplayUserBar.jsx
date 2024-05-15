@@ -1,6 +1,6 @@
 import './displayUserBar.css'
 import { readTime } from "../../helperMethods/readTime";
-
+import React from "react";
 
 const DisplayUserBar = ({article}) => {
 
@@ -19,7 +19,8 @@ const DisplayUserBar = ({article}) => {
               className="userPhoto"
               src={
                 article.userPhotoUrl ||
-                "../../../default-user.jpg"
+                // "../../../default-user.jpg"
+                "../../default-user.jpg"
               }
               alt=""
             />
