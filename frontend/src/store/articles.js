@@ -82,8 +82,8 @@ export const getArticle = (articleId) => async dispatch => {
 
     } catch (error) {
 
-        let errors = await error.json()
-        throw errors
+        // let errors = await error.json()
+        throw error
     }
 } 
 

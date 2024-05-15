@@ -5,6 +5,7 @@ import "./articleDisplay.css";
 import { getArticle } from "../../src/store/articles";
 import ButtonsBar from "../buttonsBar/ButtonsBar";
 import DisplayUserBar from "../displayUserBar/DisplayUserBar";
+import React from "react";
 
 
 const ArticleDisplay = () => {
@@ -18,7 +19,7 @@ const ArticleDisplay = () => {
     dispatch(getArticle(articleId));
   }, [dispatch, articleId]);
 
-
+  console.log(articleId)
 
   const newArticleBody = (body) => {
     let sentences = body.split("\n");

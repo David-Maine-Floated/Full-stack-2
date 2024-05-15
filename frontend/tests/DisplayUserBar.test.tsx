@@ -24,6 +24,8 @@ describe('ArticleDislpay', () => {
 
     render(<DisplayUserBar article={article}/>)
     
+    screen.debug()
+
     it('should display the username', () => {
         expect(screen.getByText(article.username)).toBeInTheDocument()
     })
@@ -37,7 +39,7 @@ describe('ArticleDislpay', () => {
         expect(screen.getByText(/min read/i)).toBeInTheDocument()
     })
 
-    it('should', () => {
+    it('should have the image url set to the default user image path', () => {
         const imageElement = screen.getByAltText('');
         expect(imageElement).toHaveAttribute('src', '../default-user.jpg')
     })
