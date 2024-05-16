@@ -9,18 +9,20 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 const testStore = configureStore()
 
 
-const fullEle = (<Provider store={testStore}>
-                 <ArticleDisplay/>
-             </Provider>)
+// const fullEle = (<Provider store={testStore}>
+//                  <ArticleDisplay/>
+//              </Provider>)
 
 describe('ArticleDislpay', () => {
 
     render(
-      <MemoryRouter initialEntries={["/article/1"]}>
-        <Routes>
-          <Route path="/article/:id" element={fullEle} />
-        </Routes>
-      </MemoryRouter>
+      <Provider store={testStore}>
+        <MemoryRouter initialEntries={["/article/1"]}>
+          <Routes>
+            <Route path="/article/:articleId" element={<ArticleDisplay />} />
+          </Routes>
+        </MemoryRouter>
+      </Provider>
     );
 
 
