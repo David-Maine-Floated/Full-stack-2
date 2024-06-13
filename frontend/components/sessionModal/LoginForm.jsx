@@ -2,7 +2,6 @@ import { useState } from "react"
 import { loginUser } from "../../src/store/session"
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"
-import './form.css'
 import { hideModal, showModal } from "../../src/store/modals"
 
 const LoginForm = () => {

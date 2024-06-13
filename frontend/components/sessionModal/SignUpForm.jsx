@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { signUpUser } from "../../src/store/session";
-import "./form.css";
+
 import { hideModal } from "../../src/store/modals";
 import { loginUser } from "../../src/store/session";
 import { showModal } from "../../src/store/modals";
