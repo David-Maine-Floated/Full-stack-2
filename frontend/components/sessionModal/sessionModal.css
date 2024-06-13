@@ -1,5 +1,4 @@
 
-
 .sessionModal {
     display: flex;
     flex-direction: column;
@@ -60,29 +59,12 @@
     margin-left: 15px;
 }
 
-.closeDiv {
-    margin-top: 200px;
-    display: flex;
-    justify-content: right;
-    align-items: top;
-    position: relative;
-    top: -95px;
-}
-
-.closeDiv .signup {
-    top: -150px;
-}
-
 .closeButton {
     width: 50px;
     height: 30px;
     text-align: center;
     padding-top: 10px;
 
-}
-
-.closeButton.signup {
-    padding-top: 80px;
 }
 
 
